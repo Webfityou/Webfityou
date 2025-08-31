@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
+                <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
                   {benefit.description}
                 </p>
               </motion.div>
