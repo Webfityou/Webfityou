@@ -8,116 +8,35 @@ const Hero: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-900 to-black overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Réseau neuronal animé */}
-        <div className="absolute inset-0 neural-network"></div>
+        {/* Grille futuriste */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
         
-        {/* Particules IA intelligentes */}
-        <div className="absolute top-20 left-20 w-3 h-3 bg-cyan-400 rounded-full animate-ai-pulse shadow-cyan-400/50 shadow-lg"></div>
-        <div className="absolute top-40 right-32 w-2 h-2 bg-blue-400 rounded-full animate-ai-float shadow-blue-400/50 shadow-md"></div>
-        <div className="absolute bottom-40 left-1/4 w-4 h-4 bg-indigo-400 rounded-full animate-ai-orbit shadow-indigo-400/50 shadow-lg"></div>
-        <div className="absolute top-1/3 right-20 w-2 h-2 bg-purple-400 rounded-full animate-ai-pulse shadow-purple-400/50 shadow-md"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-teal-400 rounded-full animate-ai-float shadow-teal-400/50 shadow-lg"></div>
-        <div className="absolute top-60 right-1/4 w-2 h-2 bg-cyan-300 rounded-full animate-ai-orbit shadow-cyan-300/50 shadow-md"></div>
+        {/* Particules flottantes */}
+        <div className="absolute top-20 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-float-slow"></div>
+        <div className="absolute top-40 right-32 w-1 h-1 bg-blue-400 rounded-full animate-float-medium"></div>
+        <div className="absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-indigo-400 rounded-full animate-float-fast"></div>
+        <div className="absolute top-1/3 right-20 w-1 h-1 bg-purple-400 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-teal-400 rounded-full animate-float-medium"></div>
+        <div className="absolute top-60 right-1/4 w-1 h-1 bg-cyan-300 rounded-full animate-float-fast"></div>
         
-        {/* Matrices de données flottantes */}
-        <div className="absolute top-32 left-1/3 matrix-rain opacity-30"></div>
-        <div className="absolute bottom-32 right-1/3 matrix-rain opacity-20" style={{ animationDelay: '2s' }}></div>
-        
-        {/* Connexions réseau IA */}
+        {/* Lignes de connexion animées */}
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#0099ff" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#6366f1" stopOpacity="0.4" />
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
             </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge> 
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
           </defs>
-          
-          {/* Connexions réseau IA */}
-          <g className="ai-network">
-            <path 
-              d="M100,200 Q300,100 500,300 T900,200" 
-              stroke="url(#aiGradient)" 
-              strokeWidth="2" 
-              fill="none"
-              filter="url(#glow)"
-              className="animate-ai-flow"
-            />
-            <path 
-              d="M200,400 Q400,300 600,500 T1000,400" 
-              stroke="url(#aiGradient)" 
-              strokeWidth="1.5" 
-              fill="none"
-              filter="url(#glow)"
-              className="animate-ai-flow"
-              style={{ animationDelay: '1.5s' }}
-            />
-            <path 
-              d="M50,300 Q250,200 450,400 T850,300" 
-              stroke="url(#aiGradient)" 
-              strokeWidth="1" 
-              fill="none"
-              filter="url(#glow)"
-              className="animate-ai-flow"
-              style={{ animationDelay: '3s' }}
-            />
-          </g>
-          
-          {/* Nœuds du réseau */}
-          <circle cx="100" cy="200" r="4" fill="#00d4ff" className="animate-ai-pulse" filter="url(#glow)" />
-          <circle cx="500" cy="300" r="3" fill="#0099ff" className="animate-ai-pulse" style={{ animationDelay: '0.5s' }} filter="url(#glow)" />
-          <circle cx="900" cy="200" r="4" fill="#6366f1" className="animate-ai-pulse" style={{ animationDelay: '1s' }} filter="url(#glow)" />
-          <circle cx="200" cy="400" r="3" fill="#00d4ff" className="animate-ai-pulse" style={{ animationDelay: '1.5s' }} filter="url(#glow)" />
-          <circle cx="600" cy="500" r="4" fill="#0099ff" className="animate-ai-pulse" style={{ animationDelay: '2s' }} filter="url(#glow)" />
-        </svg>
-        
-        {/* Hologrammes flottants */}
-        <div className="absolute top-1/4 left-1/5 w-32 h-32 hologram-1 opacity-60"></div>
-        <div className="absolute bottom-1/4 right-1/5 w-40 h-40 hologram-2 opacity-50"></div>
-        <div className="absolute top-1/2 right-1/4 w-24 h-24 hologram-3 opacity-40"></div>
-        
-        {/* Scanlines futuristes */}
-        <div className="absolute inset-0 scanlines opacity-10"></div>
-        
-        {/* Éclairage ambiant IA */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-ai-glow"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-ai-glow" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl animate-ai-glow" style={{ animationDelay: '4s' }}></div>
-        </div>
-      </div>
-      
-      {/* Interface HUD futuriste */}
-      <div className="absolute top-8 left-8 opacity-30">
-        <div className="w-32 h-1 bg-gradient-to-r from-cyan-400 to-transparent animate-ai-scan"></div>
-        <div className="w-1 h-32 bg-gradient-to-b from-cyan-400 to-transparent animate-ai-scan" style={{ animationDelay: '1s' }}></div>
-      </div>
-      <div className="absolute bottom-8 right-8 opacity-30">
-        <div className="w-32 h-1 bg-gradient-to-l from-blue-400 to-transparent animate-ai-scan"></div>
-        <div className="w-1 h-32 bg-gradient-to-t from-blue-400 to-transparent animate-ai-scan" style={{ animationDelay: '1.5s' }}></div>
-      </div>
-      
-      {/* Données flottantes */}
-      <div className="absolute top-20 right-20 text-cyan-400 font-mono text-xs opacity-60 animate-ai-data">
-        <div>AI_STATUS: ACTIVE</div>
-        <div>OPTIMIZATION: 98.7%</div>
-        <div>NEURAL_NET: ONLINE</div>
-      </div>
-      <div className="absolute bottom-20 left-20 text-blue-400 font-mono text-xs opacity-60 animate-ai-data" style={{ animationDelay: '2s' }}>
-        <div>SEO_ENGINE: RUNNING</div>
-        <div>TRAFFIC_BOOST: +420%</div>
-        <div>RANK_POSITION: #1</div>
-      </div>
+          <path 
+            d="M100,200 Q300,100 500,300 T900,200" 
+            stroke="url(#lineGradient)" 
+            strokeWidth="2" 
+            fill="none"
+            className="animate-pulse"
           />
           <path 
             d="M200,400 Q400,300 600,500 T1000,400" 
