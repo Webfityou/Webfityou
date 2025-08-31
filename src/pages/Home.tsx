@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">
                   {index === 1 ? (
-                    <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent font-bold text-xl sm:text-2xl">
+                    <span className="bg-gradient-to-r from-yellow-400 via-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent font-bold text-xl sm:text-2xl">
                       {benefit.title}
                     </span>
                   ) : (
