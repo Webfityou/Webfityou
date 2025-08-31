@@ -139,7 +139,6 @@ const Portfolio: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               {t('portfolio.title')}
             </h1>
@@ -185,7 +184,6 @@ const Portfolio: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
                 className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
@@ -201,7 +199,6 @@ const Portfolio: React.FC = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
                     {project.title}
                   </h3>
