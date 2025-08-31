@@ -76,17 +76,16 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Badge */}
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight text-center"
+            transition={{ delay: 0.1 }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-16 leading-tight text-center"
           >
-            <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-              <span className="text-white mr-4">Votre marketing</span>
-              &nbsp;
+            <div className="flex flex-col items-center justify-center">
+              <span className="text-white mb-4">Votre marketing</span>
+              <span className="relative flex w-full justify-center overflow-hidden text-center h-20 md:h-24 lg:h-28">
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
@@ -107,16 +106,16 @@ const Hero: React.FC = () => {
                 >
                   {title}
                 </motion.span>
-              ))}
-            </span>
+              </span>
+            </div>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4 text-center"
+            transition={{ delay: 0.2 }}
+            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed px-4 text-center"
           >
             Sites web optimisés SEO automatiquement par l'intelligence artificielle GPT-5. 
             Votre présence digitale professionnelle en 7 jours, sans stress technique.
@@ -126,20 +125,20 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4"
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 px-4"
           >
             <Link
               to="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 group"
             >
-              {t('hero.cta')}
+              Devis gratuit en 24h
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
             
             <button className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
               <Play className="w-5 h-5 mr-2 text-cyan-400" />
-              {t('hero.watchDemo')}
+              Voir comment ça marche
             </button>
           </motion.div>
 
@@ -147,7 +146,7 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm text-gray-400 px-4"
           >
             <div className="flex items-center">
@@ -156,7 +155,7 @@ const Hero: React.FC = () => {
                   <div key={i} className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full border-2 border-slate-800"></div>
                 ))}
               </div>
-              <span>500+ {t('hero.stats.sites')}</span>
+              <span>500+ sites créés</span>
             </div>
             
             <div className="flex items-center">
@@ -167,12 +166,12 @@ const Hero: React.FC = () => {
                   </svg>
                 ))}
               </div>
-              <span>4.9/5 (200+ {t('hero.stats.reviews')})</span>
+              <span>4.9/5 (200+ avis)</span>
             </div>
             
             <div className="flex items-center">
               <div className="w-2 h-2 sm:w-3 sm:h-3 bg-cyan-400 rounded-full mr-2 animate-pulse"></div>
-              <span>7 {t('hero.stats.delivery')}</span>
+              <span>7 jours de livraison</span>
             </div>
           </motion.div>
         </motion.div>
