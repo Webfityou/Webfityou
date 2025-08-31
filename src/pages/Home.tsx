@@ -97,7 +97,13 @@ const Home: React.FC = () => {
                   )}
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">
-                  {benefit.title}
+                  {index === 1 ? (
+                    <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent font-bold text-xl sm:text-2xl">
+                      {benefit.title}
+                    </span>
+                  ) : (
+                    benefit.title
+                  )}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600">
                   {benefit.description}
