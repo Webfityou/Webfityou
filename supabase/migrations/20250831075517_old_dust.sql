@@ -369,7 +369,7 @@ Our clients observe on average:
 
 ## Conclusion
 
-The future of SEO lies in intelligent automation. By combining the power of GPT-4 with human expertise, we create more effective and sustainable SEO strategies.',
+The future of SEO lies in intelligent automation. By combining the power of GPT-5 with human expertise, we create more effective and sustainable SEO strategies.',
     'GPT-5 Automated SEO Revolutionizes Search Optimization - WebFitYou',
     'Discover how GPT-5 AI transforms SEO and achieves 3x faster results. Complete guide by WebFitYou digital agency.'
   ),
