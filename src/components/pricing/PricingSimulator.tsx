@@ -165,6 +165,7 @@ const SimulateurTarif: React.FC = () => {
     if (currentStep === 5) return donnees.first_name && donnees.last_name && donnees.email;
     return false;
   };
+  
   const renderStep = () => {
     const step = steps[currentStep];
     
@@ -173,7 +174,7 @@ const SimulateurTarif: React.FC = () => {
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="relative">
-              <span className="text-4xl font-bold text-blue-600">{donnees.pages}</span>
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
                 value={donnees.first_name}
@@ -184,8 +185,8 @@ const SimulateurTarif: React.FC = () => {
             </div>
             <div className="relative">
               <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              value={donnees.pages}
-              onChange={(e) => mettreAJourDonnees('pages', parseInt(e.target.value))}
+              <input
+                type="text"
                 value={donnees.last_name}
                 onChange={(e) => mettreAJourDonnees('last_name', e.target.value)}
                 placeholder="Nom"
@@ -214,14 +215,14 @@ const SimulateurTarif: React.FC = () => {
             />
           </div>
         </div>
-      const currentValue = isMultiple ? donnees.features : 
-        currentStep === 0 ? donnees.projectType :
-        currentStep === 3 ? donnees.timeline : donnees.support;
-    const value = donneesFormulaire[step.key as keyof DemandeAuditData];
+      );
+    }
+
+    if (step.type === 'slider') {
       return (
         <div className="space-y-6">
           <div className="text-center">
-            <span className="text-4xl font-bold text-blue-600">{data.pages}</span>
+            <span className="text-4xl font-bold text-blue-600">{donnees.pages}</span>
             <span className="text-gray-600 ml-2">{t('pricing.simulator.steps.pages.unit')}</span>
           </div>
           <div className="text-center text-sm text-gray-500 mb-4">
@@ -232,8 +233,8 @@ const SimulateurTarif: React.FC = () => {
             min={step.min}
             max={step.max}
             step={step.step}
-            value={data.pages}
-            onChange={(e) => updateData('pages', parseInt(e.target.value))}
+            value={donnees.pages}
+            onChange={(e) => mettreAJourDonnees('pages', parseInt(e.target.value))}
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
           />
           <div className="flex justify-between text-sm text-gray-500">
@@ -245,9 +246,9 @@ const SimulateurTarif: React.FC = () => {
     }
 
     const isMultiple = step.multiple;
-    const currentValue = isMultiple ? data.features : 
-      currentStep === 0 ? data.projectType :
-      currentStep === 3 ? data.timeline : data.support;
+    const currentValue = isMultiple ? donnees.features : 
+      currentStep === 0 ? donnees.projectType :
+      currentStep === 3 ? donnees.timeline : donnees.support;
 
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -447,3 +448,5 @@ const SimulateurTarif: React.FC = () => {
     </div>
   );
 };
+
+export default SimulateurTarif;
