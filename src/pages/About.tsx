@@ -85,17 +85,17 @@ const About: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               {t('about.title')}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               {t('about.subtitle')}
             </p>
           </motion.div>
@@ -103,7 +103,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -111,10 +111,10 @@ const About: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
                 Notre Mission
               </h2>
-              <div className="space-y-4 text-gray-600">
+              <div className="space-y-4 text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 <p className="text-lg">
                   Chez WebFitYou, nous croyons que chaque entrepreneur mérite d'avoir 
                   une présence digitale professionnelle, sans les complications techniques 
@@ -154,7 +154,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -162,10 +162,10 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               {t('about.values.title')}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-300">
               {t('about.values.subtitle')}
             </p>
           </motion.div>
@@ -178,15 +178,15 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                className="text-center p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-xl mb-4">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors duration-300">
                   {value.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                   {value.description}
                 </p>
               </motion.div>
@@ -196,7 +196,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -204,10 +204,10 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               {t('about.team.title')}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-300">
               {t('about.team.subtitle')}
             </p>
           </motion.div>
@@ -220,20 +220,20 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow"
+                className="text-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
               >
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                 />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
                   {member.name}
                 </h3>
                 <div className="text-blue-600 font-medium mb-3">
                   {member.role}
                 </div>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-gray-600 dark:text-gray-200 text-sm mb-4 transition-colors duration-300">
                   {member.bio}
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
@@ -292,7 +292,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -307,10 +307,10 @@ const About: React.FC = () => {
                 <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-lg font-semibold text-gray-900 mb-1">
+                <div className="text-lg font-semibold text-gray-900 dark:text-white mb-1 transition-colors duration-300">
                   {stat.label}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-600 dark:text-gray-200 transition-colors duration-300">
                   {stat.description}
                 </div>
               </motion.div>
@@ -320,28 +320,28 @@ const About: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               {t('about.ctaTitle')}
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-200 mb-8 transition-colors duration-300">
               {t('about.ctaSubtitle')}
             </p>
             {t('about.mission.content', { returnObjects: true }).map((paragraph: string, index: number) => (
-              <p key={index} className={index === 0 ? "text-lg" : ""}>
+              <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
                 {paragraph}
               </p>
             ))}
             <a className="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors mb-4">
               {t('about.ctaButton')}
             </a>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
               {t('about.ctaPricing')}
             </p>
           </motion.div>
