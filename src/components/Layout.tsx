@@ -75,7 +75,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </Link>
               ))}
               <Link
-                    : 'text-gray-700 dark:text-white'
+                to="/contact"
                 className="bg-blue-600 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base font-medium hover:bg-blue-700 transition-colors"
               >
                 {t('nav.freeQuote')}
