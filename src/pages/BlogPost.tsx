@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Share2, Clock, Tag } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { ArticleBlog, TraductionArticle } from '../hooks/useBlog';
+import SEOHead from '../components/SEOHead';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -115,14 +115,12 @@ const BlogPost: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{traduction.meta_title || traduction.title} - WebFitYou</title>
-        <meta name="description" content={traduction.meta_description || traduction.excerpt} />
-        <meta property="og:title" content={traduction.title} />
-        <meta property="og:description" content={traduction.excerpt} />
-        <meta property="og:image" content={article.image_url || ''} />
-        <meta property="og:type" content="article" />
-      </Helmet>
+      <SEOHead 
+        title={`${traduction.meta_title || traduction.title} - Blog WebFitYou`}
+        description={traduction.meta_description || traduction.excerpt}
+        image={article.image_url || undefined}
+        type="article"
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { 
@@ -14,6 +13,7 @@ import {
   User,
   Building
 } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -105,10 +105,10 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('nav.contact')} - WebFitYou</title>
-        <meta name="description" content={t('contact.subtitle')} />
-      </Helmet>
+      <SEOHead 
+        title="Contact WebFitYou - Devis Gratuit en 24h | Agence Digitale Paris"
+        description="Contactez WebFitYou pour votre projet digital. Devis gratuit en 24h, accompagnement personnalisé. Email: webfityou@gmail.com, Tel: +33 6 38 22 98 04"
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

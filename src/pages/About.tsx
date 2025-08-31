@@ -1,8 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Users, Target, Zap, Heart, Award, Lightbulb } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -79,10 +79,10 @@ const About: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('nav.about')} - WebFitYou</title>
-        <meta name="description" content={t('about.subtitle')} />
-      </Helmet>
+      <SEOHead 
+        title="À Propos de WebFitYou - Agence Digitale Nouvelle Génération | Expertise IA & SEO"
+        description="Découvrez WebFitYou, agence digitale révolutionnaire combinant intelligence artificielle GPT-5 et accompagnement humain. 500+ sites créés, 98% de satisfaction client."
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

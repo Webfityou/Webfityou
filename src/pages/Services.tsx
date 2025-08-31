@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { 
@@ -13,6 +12,7 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
 
 const Services: React.FC = () => {
   const { t } = useTranslation();
@@ -76,10 +76,10 @@ const Services: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('services.title')} - WebFitYou</title>
-        <meta name="description" content={t('services.subtitle')} />
-      </Helmet>
+      <SEOHead 
+        title="Services WebFitYou - SEO IA, Sites Web, Marketing Digital | Nouvelle Génération"
+        description="Services digitaux complets : Sites web clé-en-main, SEO automatisé par IA GPT-5, réseaux sociaux, identité visuelle. Livraison en 7 jours maximum."
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

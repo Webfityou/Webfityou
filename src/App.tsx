@@ -10,11 +10,14 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import SEOHead from './components/SEOHead';
+import SitemapGenerator from './components/SitemapGenerator';
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
+        <SitemapGenerator />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

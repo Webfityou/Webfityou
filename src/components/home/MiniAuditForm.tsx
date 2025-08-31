@@ -275,7 +275,7 @@ export default function FormulaireAuditMini() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden mx-4">
+    <div id="audit" className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden mx-4">
       {/* Progress Bar */}
       <div className="bg-gray-50 px-6 sm:px-8 py-4 sm:py-6">
         <div className="flex justify-between items-center mb-3">

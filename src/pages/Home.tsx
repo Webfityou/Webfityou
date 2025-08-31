@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -16,6 +15,7 @@ import Hero from '../components/home/Hero';
 import TestimonialsSlider from '../components/home/TestimonialsSlider';
 import FormulaireAuditMini from '../components/home/MiniAuditForm';
 import SEOGrowthAnimation from '../components/home/SEOGrowthAnimation';
+import SEOHead from '../components/SEOHead';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -47,10 +47,10 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>WebFitYou - Agence Digitale Nouvelle Génération | Sites Web + SEO Automatisé</title>
-        <meta name="description" content="Créez votre site web professionnel en 7 jours avec WebFitYou. SEO automatisé par GPT-5, design responsive et accompagnement personnalisé. Devis gratuit." />
-      </Helmet>
+      <SEOHead 
+        title="WebFitYou - Agence Digitale Nouvelle Génération | Sites Web + SEO Automatisé par IA"
+        description="Créez votre site web professionnel en 7 jours avec WebFitYou. SEO automatisé par GPT-5, design responsive et accompagnement personnalisé. Devis gratuit en 24h."
+      />
 
       {/* Hero Section */}
       <Hero />

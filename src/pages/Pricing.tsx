@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Check, X, Star, ArrowRight, Calculator } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SimulateurTarif from '../components/pricing/PricingSimulator';
+import SEOHead from '../components/SEOHead';
 
 const Pricing: React.FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
@@ -59,10 +59,10 @@ const Pricing: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('pricing.title')} - WebFitYou</title>
-        <meta name="description" content={t('pricing.subtitle')} />
-      </Helmet>
+      <SEOHead 
+        title="Tarifs WebFitYou - Plans Transparents | SEO IA dès 29€/mois"
+        description="Découvrez nos tarifs transparents pour votre transformation digitale. Plans Solo (29€), Pro (69€), Humain (129€). Simulateur de prix gratuit inclus."
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

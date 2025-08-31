@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useArticlesBlog } from '../hooks/useBlog';
+import SEOHead from '../components/SEOHead';
 
 const Blog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -52,10 +52,10 @@ const Blog: React.FC = () => {
   }
   return (
     <>
-      <Helmet>
-        <title>{t('blog.title')} - WebFitYou</title>
-        <meta name="description" content={t('blog.subtitle')} />
-      </Helmet>
+      <SEOHead 
+        title="Blog WebFitYou - Conseils SEO, Marketing Digital & IA | Guides Experts"
+        description="Découvrez nos conseils d'experts, guides pratiques et dernières tendances pour réussir votre transformation digitale. SEO, IA, design web."
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

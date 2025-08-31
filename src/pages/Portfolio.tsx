@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ExternalLink, Eye, Filter } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 interface Project {
   id: number;
@@ -126,10 +126,10 @@ const Portfolio: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('portfolio.title')} - WebFitYou</title>
-        <meta name="description" content={t('portfolio.subtitle')} />
-      </Helmet>
+      <SEOHead 
+        title="Réalisations WebFitYou - 500+ Sites Web Créés | Portfolio Agence Digitale"
+        description="Découvrez nos 500+ réalisations : sites e-commerce, vitrines, plateformes. Résultats mesurables : +250% de trafic, +180% de conversion."
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">

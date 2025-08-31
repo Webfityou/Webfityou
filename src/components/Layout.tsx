@@ -96,12 +96,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       ? 'text-blue-600'
                       : 'text-gray-700'
                   }`}
+                  aria-label={`Naviguer vers ${item.label}`}
                 >
                   {item.label}
                 </Link>
               ))}
               <Link
                 to="/contact"
+                aria-label="Demander un devis gratuit"
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
               >
                 {t('nav.freeQuote')}

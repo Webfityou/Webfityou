@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://webfityou.com/sitemap.xml
+
+# Pages importantes à indexer en priorité
+Allow: /
+Allow: /services
+Allow: /tarifs
+Allow: /contact
+Allow: /a-propos
+Allow: /realisations
+Allow: /blog
+
+# Optimisation pour les bots IA (ChatGPT, Claude, etc.)
+User-agent: GPTBot
+Allow: /
+Allow: /services
+Allow: /tarifs
+Allow: /contact
+Allow: /a-propos
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /services
+Allow: /tarifs
+Allow: /contact
+Allow: /a-propos
+
+User-agent: Claude-Web
+Allow: /
+Allow: /services
+Allow: /tarifs
+Allow: /contact
+Allow: /a-propos
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
