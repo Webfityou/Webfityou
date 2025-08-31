@@ -181,7 +181,7 @@ const BlogPost: React.FC = () => {
 
       {/* Featured Image */}
       {article.image_url && (
-        <section className="page-content section-spacing-small bg-white">
+        <section className="page-content py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -199,7 +199,7 @@ const BlogPost: React.FC = () => {
       )}
 
       {/* Article Content */}
-      <section className="page-content section-spacing bg-white">
+      <section className="page-content py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -243,7 +243,7 @@ const BlogPost: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="page-content section-spacing-small bg-gray-50">
+      <section className="page-content py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -253,7 +253,7 @@ const BlogPost: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               {t('blog.post.ctaTitle')}
             </h2>
-            <p className="text-gray-600 mt-4 content-spacing-small">
+            <p className="text-gray-600 mt-4 mb-8">
               {t('blog.post.ctaSubtitle')}
             </p>
             <Link
