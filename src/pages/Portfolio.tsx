@@ -202,7 +202,7 @@ const Portfolio: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-200 mb-4 transition-colors duration-300">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">
                     {project.description}
                   </p>
 
@@ -210,7 +210,7 @@ const Portfolio: React.FC = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-full transition-colors duration-300"
+                        className="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full"
                       >
                         {tag}
                       </span>
@@ -222,19 +222,19 @@ const Portfolio: React.FC = () => {
                       <div className="text-lg font-bold text-green-600">
                         {project.results.traffic}
                       </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{t('portfolio.results.traffic')}</div>
+                      <div className="text-xs text-gray-500">{t('portfolio.results.traffic')}</div>
                     </div>
                     <div>
                       <div className="text-lg font-bold text-blue-600">
                         {project.results.conversion}
                       </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{t('portfolio.results.conversion')}</div>
+                      <div className="text-xs text-gray-500">{t('portfolio.results.conversion')}</div>
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-orange-600">
                         {project.results.ranking}
                       </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{t('portfolio.results.seo')}</div>
+                      <div className="text-xs text-gray-500">{t('portfolio.results.seo')}</div>
                     </div>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ const Portfolio: React.FC = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transition-colors duration-300"
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative">
@@ -268,38 +268,38 @@ const Portfolio: React.FC = () => {
               />
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+                className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
               >
                 ✕
               </button>
             </div>
 
             <div className="p-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {selectedProject.title}
               </h2>
-              <p className="text-gray-600 dark:text-gray-200 mb-6 transition-colors duration-300">
+              <p className="text-gray-600 mb-6">
                 {t('portfolio.noResults')}
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl transition-colors duration-300">
+                <div className="text-center p-4 bg-green-50 rounded-xl">
                   <div className="text-2xl font-bold text-green-600 mb-1">
                     {selectedProject.results.traffic}
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">Augmentation du trafic</div>
+                  <div className="text-sm text-gray-600">Augmentation du trafic</div>
                 </div>
-                <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl transition-colors duration-300">
+                <div className="text-center p-4 bg-blue-50 rounded-xl">
                   <div className="text-2xl font-bold text-blue-600 mb-1">
                     {selectedProject.results.conversion}
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">Taux de conversion</div>
+                  <div className="text-sm text-gray-600">Taux de conversion</div>
                 </div>
-                <div className="text-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl transition-colors duration-300">
+                <div className="text-center p-4 bg-orange-50 rounded-xl">
                   <div className="text-sm font-bold text-orange-600 mb-1">
                     {selectedProject.results.ranking}
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">Positionnement SEO</div>
+                  <div className="text-sm text-gray-600">Positionnement SEO</div>
                 </div>
               </div>
 
@@ -307,7 +307,7 @@ const Portfolio: React.FC = () => {
                 {selectedProject.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full text-sm transition-colors duration-300"
+                    className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm"
                   >
                     {tag}
                   </span>
