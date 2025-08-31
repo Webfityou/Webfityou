@@ -115,7 +115,7 @@ const Services: React.FC = () => {
                   className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 >
                   <div className="p-8">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 ${colors.bg} dark:bg-gray-700 ${colors.text} dark:text-blue-400 rounded-xl mb-6 group-hover:scale-110 transition-transform`}>
+                    <div className={`inline-flex items-center justify-center w-16 h-16 ${colors.bg} ${colors.text} rounded-xl mb-6 group-hover:scale-110 transition-transform`}>
                       {service.icon}
                     </div>
                     
@@ -123,13 +123,13 @@ const Services: React.FC = () => {
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 dark:text-gray-200 mb-6 transition-colors duration-300">
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors duration-300">
                       {service.description}
                     </p>
 
                     <ul className="space-y-3 mb-6">
                       {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-200 transition-colors duration-300">
+                        <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
                           <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
                           {feature}
                         </li>

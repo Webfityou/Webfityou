@@ -2,236 +2,97 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Circle } from 'lucide-react';
-
-// Helper function for cn (tailwind-merge like functionality)
-function cn(...inputs: (string | undefined | null | boolean)[]) {
-  return inputs.filter(Boolean).join(' ');
-}
-
-function ElegantShape({
-  className,
-  delay = 0,
-  width = 400,
-  height = 100,
-  rotate = 0,
-  gradient = "from-white/[0.08]",
-}: {
-  className?: string;
-  delay?: number;
-  width?: number;
-  height?: number;
-  rotate?: number;
-  gradient?: string;
-}) {
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: -150,
-        rotate: rotate - 15,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        rotate: rotate,
-      }}
-      transition={{
-        duration: 2.4,
-        delay,
-        ease: [0.23, 0.86, 0.39, 0.96],
-        opacity: { duration: 1.2 },
-      }}
-      className={cn("absolute", className)}
-    >
-      <motion.div
-        animate={{
-          y: [0, 15, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-        style={{
-          width,
-          height,
-        }}
-        className="relative"
-      >
-        <div
-          className={cn(
-            "absolute inset-0 rounded-full",
-            "bg-gradient-to-r to-transparent",
-            gradient,
-            "backdrop-blur-[2px] border-2 border-black/[0.08] dark:border-white/[0.12]",
-            "shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]",
-            "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.1),transparent_70%)] dark:after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_70%)]"
-          )}
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
+import { ArrowRight, Play } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
 
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    }),
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white dark:bg-black overflow-hidden transition-colors duration-300">
-      {/* Elegant Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08] dark:from-indigo-500/[0.25] dark:via-transparent dark:to-rose-500/[0.25] blur-3xl transition-colors duration-300" />
-
-      <div className="absolute inset-0 overflow-hidden">
-        <ElegantShape
-          delay={0.3}
-          width={window.innerWidth < 768 ? 300 : 600}
-          height={window.innerWidth < 768 ? 70 : 140}
-          rotate={12}
-          gradient="from-indigo-500/[0.25] dark:from-indigo-500/[0.15]"
-          className="left-[-25%] sm:left-[-15%] md:left-[-5%] top-[15%] md:top-[20%]"
-        />
-
-        <ElegantShape
-          delay={0.5}
-          width={window.innerWidth < 768 ? 250 : 500}
-          height={window.innerWidth < 768 ? 60 : 120}
-          rotate={-15}
-          gradient="from-rose-500/[0.25] dark:from-rose-500/[0.15]"
-          className="right-[-20%] sm:right-[-10%] md:right-[0%] top-[70%] md:top-[75%]"
-        />
-
-        <ElegantShape
-          delay={0.4}
-          width={window.innerWidth < 768 ? 150 : 300}
-          height={window.innerWidth < 768 ? 40 : 80}
-          rotate={-8}
-          gradient="from-violet-500/[0.25] dark:from-violet-500/[0.15]"
-          className="left-[-10%] sm:left-[0%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
-        />
-
-        <ElegantShape
-          delay={0.6}
-          width={window.innerWidth < 768 ? 100 : 200}
-          height={window.innerWidth < 768 ? 30 : 60}
-          rotate={20}
-          gradient="from-amber-500/[0.25] dark:from-amber-500/[0.15]"
-          className="right-[5%] sm:right-[10%] md:right-[20%] top-[10%] md:top-[15%]"
-        />
-
-        <ElegantShape
-          delay={0.7}
-          width={window.innerWidth < 768 ? 75 : 150}
-          height={window.innerWidth < 768 ? 20 : 40}
-          rotate={-25}
-          gradient="from-cyan-500/[0.25] dark:from-cyan-500/[0.15]"
-          className="left-[10%] sm:left-[15%] md:left-[25%] top-[5%] md:top-[10%]"
-        />
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-teal-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-8"
+          >
+            {t('hero.badge')}
+          </motion.div>
+
           {/* Main Heading */}
           <motion.h1
-            custom={1}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors duration-300"
           >
-            <span className="text-gray-900 dark:text-white transition-colors duration-300 drop-shadow-sm">
-              {t('hero.title')}
-            </span>
+            {t('hero.title')}
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 drop-shadow-sm">
+            <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
               {t('hero.titleHighlight')}
             </span>
             <br />
-            <span className="text-gray-900 dark:text-white transition-colors duration-300 drop-shadow-sm">
-              {t('hero.titleEnd')}
-            </span>
+            {t('hero.titleEnd')}
           </motion.h1>
-
-          {/* Badge moved after title */}
-          <motion.div
-            custom={1.5}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700 rounded-full mb-4 sm:mb-6 shadow-lg backdrop-blur-sm whitespace-nowrap"
-          >
-            <Circle className="h-1.5 w-1.5 sm:h-2 sm:w-2 fill-blue-500 text-blue-500 flex-shrink-0" />
-            <span className="text-gray-700 dark:text-gray-100 tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm md:text-base leading-none">
-              {t('hero.badge')}
-            </span>
-          </motion.div>
 
           {/* Subtitle */}
           <motion.p
-            custom={2}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-white mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-medium tracking-wide px-4 transition-colors duration-300 drop-shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed transition-colors duration-300 px-4"
           >
             {t('hero.subtitle')}
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            custom={3}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <Link
               to="/contact"
-              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group text-sm sm:text-base w-full sm:w-auto justify-center"
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group text-sm sm:text-base"
             >
               {t('hero.cta')}
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
             
-            <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm text-gray-900 dark:text-gray-100 font-semibold rounded-xl border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group w-full sm:w-auto justify-center">
-              <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
+            <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-xl border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+              <Play className="w-5 h-5 mr-2 text-blue-600" />
               {t('hero.watchDemo')}
             </button>
           </motion.div>
 
           {/* Trust Indicators */}
           <motion.div
-            custom={4}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 dark:text-gray-200 transition-colors duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-500"
           >
             <div className="flex items-center justify-center">
-              <div className="flex -space-x-1 sm:-space-x-2 mr-2 sm:mr-3">
+              <div className="flex -space-x-2 mr-3">
                 {[1,2,3,4,5].map((i) => (
-                  <div key={i} className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full border-2 border-white"></div>
+                  <div key={i} className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full border-2 border-white"></div>
                 ))}
               </div>
-              <span>500+ {t('hero.stats.sites')}</span>
+              <span className="text-xs sm:text-sm">500+ {t('hero.stats.sites')}</span>
             </div>
             
             <div className="flex items-center justify-center">
@@ -242,19 +103,42 @@ const Hero: React.FC = () => {
                   </svg>
                 ))}
               </div>
-              <span>4.9/5 (200+ {t('hero.stats.reviews')})</span>
+              <span className="text-xs sm:text-sm">4.9/5 (200+ {t('hero.stats.reviews')})</span>
             </div>
             
             <div className="flex items-center justify-center">
               <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-              <span>7 {t('hero.stats.delivery')}</span>
+              <span className="text-xs sm:text-sm">7 {t('hero.stats.delivery')}</span>
             </div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/90 dark:from-black/95 dark:via-transparent dark:to-black/60 pointer-events-none transition-colors duration-300" />
+      <style>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </section>
   );
 };
