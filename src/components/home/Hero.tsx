@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
-                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                   initial={{ opacity: 0, y: -100 }}
                   transition={{ type: "spring", stiffness: 50 }}
                   animate={
@@ -92,7 +92,9 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed px-4 text-center"
           >
-            Sites web optimisés SEO automatiquement par l'intelligence artificielle GPT-5. 
+            Sites web <span className="text-cyan-400 font-bold animate-pulse shadow-lg" style={{
+              textShadow: '0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 30px #22d3ee, 0 0 40px #22d3ee'
+            }}>optimisés SEO automatiquement par l'intelligence artificielle</span> GPT-5. 
             Votre présence digitale professionnelle en 7 jours, sans stress technique.
           </motion.p>
 
