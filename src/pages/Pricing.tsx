@@ -114,9 +114,6 @@ const Pricing: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => {
-              }
-              )
-              }
               const colors = getColorClasses(plan.color, plan.popular);
               const price = plan.price[billingPeriod];
               const savings = billingPeriod === 'yearly' ? Math.round((plan.price.monthly * 12 - plan.price.yearly) / 12) : 0;
@@ -128,10 +125,6 @@ const Pricing: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className={`relative bg-white rounded-2xl shadow-lg ${colors.border} p-8 ${
-                  }
-                  }
-                  }
                   className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg ${colors.border} dark:border-gray-600 p-8 ${
                     plan.popular ? 'transform scale-105' : ''
                   } transition-colors duration-300`}
