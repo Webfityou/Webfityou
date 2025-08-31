@@ -8,6 +8,6 @@
   }
   
   .bg-gradient-conic-rotating {
-    background: conic-gradient(from 0deg, #facc15, #f97316, #ef4444, #ec4899, #facc15);
+    background: conic-gradient(from 0deg, #facc15 0%, #f97316 25%, #ef4444 50%, #ec4899 75%, #facc15 100%);
   }
 }
