@@ -111,7 +111,11 @@ const Hero: React.FC = () => {
               ))}
             </span>
             <br />
-            <span className="text-white">Clé en main.</span>
+            <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
+                Clé en main.
+              </span>
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
