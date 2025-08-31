@@ -111,12 +111,12 @@ const Contact: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <section className="page-content pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className="text-center content-spacing"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {t('contact.title')}
@@ -128,9 +128,9 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="page-content section-spacing bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             
             {/* Contact Info */}
             <div className="lg:col-span-1">
@@ -141,10 +141,10 @@ const Contact: React.FC = () => {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">
                     {t('contact.info.title')}
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="text-gray-600 mt-4 content-spacing-small">
                     {t('contact.info.description')}
                   </p>
                 </div>
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 content-spacing-small">
                   {t('contact.form.title')}
                 </h2>
 
@@ -409,18 +409,18 @@ const Contact: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="page-content section-spacing bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center content-spacing"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {t('contact.faq.title')}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 mt-4">
               {t('contact.faq.subtitle')}
             </p>
           </motion.div>

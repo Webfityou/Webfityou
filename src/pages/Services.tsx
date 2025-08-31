@@ -82,12 +82,12 @@ const Services: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <section className="page-content pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className="text-center content-spacing"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {t('services.title')}
@@ -100,9 +100,9 @@ const Services: React.FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="page-content section-spacing bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service, index) => {
               const colors = getColorClasses(service.color);
               return (
@@ -119,11 +119,11 @@ const Services: React.FC = () => {
                       {service.icon}
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-gray-600 mt-3 mb-6">
                       {service.description}
                     </p>
 
@@ -152,18 +152,18 @@ const Services: React.FC = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="page-content section-spacing bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center content-spacing"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {t('services.process.title')}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 mt-4">
               {t('services.process.subtitle')}
             </p>
           </motion.div>
@@ -186,10 +186,10 @@ const Services: React.FC = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full text-xl font-bold mb-4">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-gray-900">
                   {item.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 mt-2">
                   {item.description}
                 </p>
               </motion.div>
@@ -199,17 +199,17 @@ const Services: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+      <section className="page-content section-spacing-small bg-gradient-to-r from-blue-600 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold">
               {t('services.ctaTitle')}
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-blue-100 mt-4 content-spacing-small">
               {t('services.ctaSubtitle')}
             </p>
             <Link

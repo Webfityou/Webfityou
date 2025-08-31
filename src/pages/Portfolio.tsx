@@ -132,12 +132,12 @@ const Portfolio: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <section className="page-content pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className="text-center content-spacing"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {t('portfolio.title')}
@@ -150,9 +150,9 @@ const Portfolio: React.FC = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b border-gray-200">
+      <section className="page-content section-spacing-small bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -171,11 +171,11 @@ const Portfolio: React.FC = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="page-content section-spacing bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             layout 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -199,10 +199,10 @@ const Portfolio: React.FC = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mt-2 mb-4">
                     {project.description}
                   </p>
 

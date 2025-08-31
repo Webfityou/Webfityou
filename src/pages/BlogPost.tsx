@@ -123,7 +123,7 @@ const BlogPost: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <section className="page-content pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -158,12 +158,12 @@ const BlogPost: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
               {traduction.title}
             </h1>
 
             {/* Excerpt */}
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-600 mt-4 content-spacing-small leading-relaxed">
               {traduction.excerpt}
             </p>
 
@@ -181,7 +181,7 @@ const BlogPost: React.FC = () => {
 
       {/* Featured Image */}
       {article.image_url && (
-        <section className="py-8 bg-white">
+        <section className="page-content section-spacing-small bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -199,7 +199,7 @@ const BlogPost: React.FC = () => {
       )}
 
       {/* Article Content */}
-      <section className="py-16 bg-white">
+      <section className="page-content section-spacing bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -243,17 +243,17 @@ const BlogPost: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="page-content section-spacing-small bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               {t('blog.post.ctaTitle')}
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 mt-4 content-spacing-small">
               {t('blog.post.ctaSubtitle')}
             </p>
             <Link

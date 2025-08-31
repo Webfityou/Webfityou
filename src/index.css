@@ -2,6 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimisations d'espacement pour toutes les pages sauf l'accueil */
+@layer components {
+  /* Réduction de l'espacement des sous-titres sur desktop */
+  .page-content h2 {
+    @apply mb-4 sm:mb-6 lg:mb-8;
+  }
+  
+  .page-content h3 {
+    @apply mb-3 sm:mb-4 lg:mb-6;
+  }
+  
+  .page-content h4 {
+    @apply mb-2 sm:mb-3 lg:mb-4;
+  }
+  
+  /* Réduction de l'espacement des sections */
+  .page-content .section-spacing {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+  
+  .page-content .section-spacing-small {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+  
+  /* Réduction de l'espacement entre les éléments de contenu */
+  .page-content .content-spacing {
+    @apply mb-6 sm:mb-8 lg:mb-12;
+  }
+  
+  .page-content .content-spacing-small {
+    @apply mb-4 sm:mb-6 lg:mb-8;
+  }
+  
+  /* Optimisations spécifiques pour mobile (réduction supplémentaire de 2cm ≈ 75px) */
+  @media (max-width: 768px) {
+    .page-content h1 {
+      @apply mb-4;
+    }
+    
+    .page-content h2 {
+      @apply mb-3;
+    }
+    
+    .page-content h3 {
+      @apply mb-2;
+    }
+    
+    .page-content h4 {
+      @apply mb-2;
+    }
+    
+    .page-content .section-spacing {
+      @apply py-8;
+    }
+    
+    .page-content .section-spacing-small {
+      @apply py-6;
+    }
+    
+    .page-content .content-spacing {
+      @apply mb-4;
+    }
+    
+    .page-content .content-spacing-small {
+      @apply mb-3;
+    }
+    
+    /* Réduction supplémentaire de l'espacement des grilles et conteneurs */
+    .page-content .grid {
+      @apply gap-4;
+    }
+    
+    .page-content .space-y-8 > * + * {
+      @apply mt-4;
+    }
+    
+    .page-content .space-y-6 > * + * {
+      @apply mt-3;
+    }
+    
+    .page-content .space-y-4 > * + * {
+      @apply mt-2;
+    }
+  }
+}
+
 @layer utilities {
   .animate-color-cycle {
     animation: colorCycle 4s ease-in-out infinite;
