@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   const { t } = useTranslation();
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["révolutionnaire", "intelligent", "automatisé", "performant", "innovant"],
+    () => ["révolutionnaire", "intelligent", "automatisé", "performant", "innovant", "clé en main"],
     []
   );
 
@@ -82,11 +82,10 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight text-center"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight text-center"
           >
-            <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Votre marketing</span>
-            <br />
             <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              <span className="text-white mr-4">Votre marketing</span>
               &nbsp;
               {titles.map((title, index) => (
                 <motion.span
@@ -109,12 +108,6 @@ const Hero: React.FC = () => {
                   {title}
                 </motion.span>
               ))}
-            </span>
-            <br />
-            <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
-                Clé en main.
-              </span>
             </span>
           </motion.h1>
 
