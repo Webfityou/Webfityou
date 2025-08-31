@@ -98,29 +98,25 @@ const Home: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <StarBorder
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
                 className="text-center"
-                color="rgb(75, 85, 99)"
               >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="text-3xl md:text-4xl font-bold mb-2 text-white">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-300">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              </StarBorder>
+                <div className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                  {stat.number}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                  {stat.label}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
