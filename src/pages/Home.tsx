@@ -15,7 +15,6 @@ import {
 import Hero from '../components/home/Hero';
 import TestimonialsSlider from '../components/home/TestimonialsSlider';
 import MiniAuditForm from '../components/home/MiniAuditForm';
-import { StarBorder } from '../components/ui/star-border';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -56,7 +55,7 @@ const Home: React.FC = () => {
       <Hero />
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white dark:bg-black transition-colors duration-300">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,10 +63,10 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {t('benefits.title')}
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t('benefits.subtitle')}
             </p>
           </motion.div>
@@ -80,15 +79,15 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-lg transition-all duration-300"
+                className="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-6">
                   {benefit.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                <p className="text-gray-600">
                   {benefit.description}
                 </p>
               </motion.div>
@@ -98,7 +97,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -110,10 +109,10 @@ const Home: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-black transition-colors duration-300">
+                <div className="text-3xl md:text-4xl font-bold mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                <div className="text-blue-100">
                   {stat.label}
                 </div>
               </motion.div>
@@ -123,7 +122,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,10 +130,10 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {t('testimonials.title')}
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-200 transition-colors duration-300">
+            <p className="text-xl text-gray-600">
               {t('testimonials.subtitle')}
             </p>
           </motion.div>
@@ -144,7 +143,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Mini Audit Form Section */}
-      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -152,10 +151,10 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {t('audit.title')}
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-200 transition-colors duration-300">
+            <p className="text-xl text-gray-600">
               {t('audit.subtitle')}
             </p>
           </motion.div>
@@ -165,7 +164,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -175,20 +174,20 @@ const Home: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {t('cta.title')}
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors group"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors group"
               >
                 {t('cta.startProject')}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/tarifs"
-                className="inline-flex items-center px-8 py-4 bg-transparent text-white border-2 border-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-colors"
+                className="inline-flex items-center px-8 py-4 bg-transparent text-white border-2 border-white font-semibold rounded-xl hover:bg-white hover:text-gray-900 transition-colors"
               >
                 {t('cta.viewPricing')}
               </Link>

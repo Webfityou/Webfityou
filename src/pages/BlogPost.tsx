@@ -125,7 +125,7 @@ const BlogPost: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-300">
+      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -134,15 +134,15 @@ const BlogPost: React.FC = () => {
             {/* Back Button */}
             <Link
               to="/blog"
-              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 mb-8 group transition-colors duration-300"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 group"
             >
               <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
               {t('blog.post.backToBlog')}
             </Link>
 
             {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-300 mb-6 transition-colors duration-300">
-              <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full font-medium transition-colors duration-300">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full font-medium">
                 {categories.find(cat => cat.id === post.category)?.label || post.category}
               </span>
               <div className="flex items-center">
@@ -160,19 +160,19 @@ const BlogPost: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors duration-300">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               {translation.title}
             </h1>
 
             {/* Excerpt */}
-            <p className="text-xl text-gray-600 dark:text-gray-200 mb-8 leading-relaxed transition-colors duration-300">
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               {translation.excerpt}
             </p>
 
             {/* Share Button */}
             <button
               onClick={handleShare}
-              className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+              className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
             >
               <Share2 className="w-4 h-4 mr-2" />
               {t('blog.post.share')}
@@ -183,7 +183,7 @@ const BlogPost: React.FC = () => {
 
       {/* Featured Image */}
       {post.image_url && (
-        <section className="py-8 bg-white dark:bg-black transition-colors duration-300">
+        <section className="py-8 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -201,7 +201,7 @@ const BlogPost: React.FC = () => {
       )}
 
       {/* Article Content */}
-      <section className="py-16 bg-white dark:bg-black transition-colors duration-300">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -210,9 +210,9 @@ const BlogPost: React.FC = () => {
             className="prose prose-lg max-w-none"
           >
             <div 
-              className="text-gray-700 dark:text-gray-200 leading-relaxed transition-colors duration-300"
+              className="text-gray-700 leading-relaxed"
               dangerouslySetInnerHTML={{ 
-                __html: translation.content.replace(/\n/g, '<br>').replace(/## (.*)/g, '<h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">$1</h2>').replace(/### (.*)/g, '<h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">$1</h3>') 
+                __html: translation.content.replace(/\n/g, '<br>').replace(/## (.*)/g, '<h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">$1</h2>').replace(/### (.*)/g, '<h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">$1</h3>') 
               }}
             />
           </motion.div>
@@ -223,17 +223,17 @@ const BlogPost: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300"
+              className="mt-12 pt-8 border-t border-gray-200"
             >
               <div className="flex items-center mb-4">
-                <Tag className="w-5 h-5 text-gray-600 dark:text-gray-300 mr-2 transition-colors duration-300" />
-                <span className="font-medium text-gray-900 dark:text-white transition-colors duration-300">{t('blog.post.tags')}</span>
+                <Tag className="w-5 h-5 text-gray-600 mr-2" />
+                <span className="font-medium text-gray-900">{t('blog.post.tags')}</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-sm rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                    className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full hover:bg-gray-200 transition-colors"
                   >
                     {tag}
                   </span>
@@ -245,17 +245,17 @@ const BlogPost: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               {t('blog.post.ctaTitle')}
             </h2>
-            <p className="text-gray-600 dark:text-gray-200 mb-8 transition-colors duration-300">
+            <p className="text-gray-600 mb-8">
               {t('blog.post.ctaSubtitle')}
             </p>
             <Link
