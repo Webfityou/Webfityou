@@ -86,7 +86,15 @@ const Home: React.FC = () => {
                 className="text-center p-6 sm:p-8 bg-white sm:bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow border border-gray-100 sm:border-transparent"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-6">
-                  {benefit.icon}
+                  {index === 1 ? (
+                    <img 
+                      src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/IA-logo.avif" 
+                      alt="IA Logo" 
+                      className="w-6 h-6"
+                    />
+                  ) : (
+                    benefit.icon
+                  )}
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">
                   {benefit.title}
