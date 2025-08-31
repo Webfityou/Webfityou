@@ -106,6 +106,7 @@ const Hero: React.FC = () => {
                 >
                   {title}
                 </motion.span>
+              ))}
               </span>
             </div>
           </motion.h1>
