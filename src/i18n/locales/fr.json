@@ -328,7 +328,7 @@
           "title": "Fonctionnalités",
           "question": "Quelles fonctionnalités souhaitez-vous ?",
           "options": {
-            "seo": "SEO automatisé",
+            "seo": "SEO nouvelle génération par IA",
             "blog": "Blog intégré",
             "ecommerce": "Boutique en ligne",
             "booking": "Système de réservation",
@@ -532,7 +532,7 @@
           "options": {
             "vitrine": "Site vitrine",
             "ecommerce": "E-commerce",
-            "seo": "SEO automatisé",
+            "seo": "SEO nouvelle génération par IA",
             "social": "Réseaux sociaux",
             "branding": "Identité visuelle",
             "complete": "Pack complet",
@@ -609,7 +609,7 @@
       "title": "Services",
       "items": [
         "Sites web clé-en-main",
-        "SEO automatisé",
+        "SEO nouvelle génération par IA",
         "Réseaux sociaux",
         "Identité visuelle"
       ]

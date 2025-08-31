@@ -328,7 +328,7 @@
           "title": "Features",
           "question": "What features do you want?",
           "options": {
-            "seo": "Automated SEO",
+            "seo": "Next-generation SEO by AI",
             "blog": "Integrated blog",
             "ecommerce": "Online store",
             "booking": "Booking system",
@@ -532,7 +532,7 @@
           "options": {
             "vitrine": "Showcase website",
             "ecommerce": "E-commerce",
-            "seo": "Automated SEO",
+            "seo": "Next-generation SEO by AI",
             "social": "Social media",
             "branding": "Visual identity",
             "complete": "Complete package",
@@ -609,7 +609,7 @@
       "title": "Services",
       "items": [
         "Turnkey websites",
-        "Automated SEO",
+        "Next-generation SEO by AI",
         "Social media",
         "Visual identity"
       ]

@@ -86,13 +86,13 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: t('contact.info.email.title'),
-      content: "contact@webfityou.com",
+      content: "webfityou@gmail.com",
       description: t('contact.info.email.description')
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: t('contact.info.phone.title'),
-      content: "+33 1 23 45 67 89",
+      content: "+33 6 38 22 98 04",
       description: t('contact.info.phone.description')
     },
     {
