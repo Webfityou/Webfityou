@@ -104,7 +104,8 @@ const Home: React.FC = () => {
             {stats.map((stat, index) => (
               <StarBorder
                 key={index}
-                className="text-center bg-black border-gray-800"
+                className="text-center"
+                color="hsl(220, 13%, 18%)"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
