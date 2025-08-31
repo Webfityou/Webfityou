@@ -69,7 +69,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     location.pathname === item.path
                       ? 'text-blue-600'
                       : 'text-gray-700 dark:text-gray-300'
-                  }`}
+                  } focus:outline-none`}
                 >
                   {item.label}
                 </Link>
@@ -115,7 +115,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       location.pathname === item.path
                         ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    }`}
+                    } focus:outline-none`}
                   >
                     {item.label}
                   </Link>
