@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -6,6 +6,22 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["révolutionnaire", "intelligent", "automatisé", "performant", "innovant"],
+    []
+  );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (titleNumber === titles.length - 1) {
+        setTitleNumber(0);
+      } else {
+        setTitleNumber(titleNumber + 1);
+      }
+    }, 2500);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -75,15 +91,36 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight text-center"
           >
-            {t('hero.title')}
+            <span className="text-cyan-300">Votre marketing</span>
             <br />
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              {t('hero.titleHighlight')}
+            <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              &nbsp;
+              {titles.map((title, index) => (
+                <motion.span
+                  key={index}
+                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+                  initial={{ opacity: 0, y: -100 }}
+                  transition={{ type: "spring", stiffness: 50 }}
+                  animate={
+                    titleNumber === index
+                      ? {
+                          y: 0,
+                          opacity: 1,
+                        }
+                      : {
+                          y: titleNumber > index ? -150 : 150,
+                          opacity: 0,
+                        }
+                  }
+                >
+                  {title}
+                </motion.span>
+              ))}
             </span>
             <br />
-            {t('hero.titleEnd')}
+            <span className="text-white">Clé en main.</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -91,9 +128,10 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
+            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4 text-center"
           >
-            {t('hero.subtitle')}
+            Sites web optimisés SEO automatiquement par l'intelligence artificielle GPT-5. 
+            Votre présence digitale professionnelle en 7 jours, sans stress technique.
           </motion.p>
 
           {/* CTA Buttons */}
