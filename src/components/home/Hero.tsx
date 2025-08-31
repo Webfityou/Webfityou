@@ -64,10 +64,10 @@ function ElegantShape({
             "absolute inset-0 rounded-full",
             "bg-gradient-to-r to-transparent",
             gradient,
-            "backdrop-blur-[2px] border-2 border-black/[0.08]",
-            "shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]",
+            "backdrop-blur-[2px] border-2 border-black/[0.08] dark:border-white/[0.12]",
+            "shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]",
             "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.1),transparent_70%)]"
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.1),transparent_70%)] dark:after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_70%)]"
           )}
         />
       </motion.div>
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       {/* Elegant Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08] blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08] dark:from-indigo-400/[0.15] dark:via-transparent dark:to-rose-400/[0.15] blur-3xl transition-colors duration-300" />
 
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape
@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
           width={window.innerWidth < 768 ? 300 : 600}
           height={window.innerWidth < 768 ? 70 : 140}
           rotate={12}
-          gradient="from-indigo-500/[0.25]"
+          gradient="from-indigo-500/[0.25] dark:from-indigo-400/[0.35]"
           className="left-[-25%] sm:left-[-15%] md:left-[-5%] top-[15%] md:top-[20%]"
         />
 
@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
           width={window.innerWidth < 768 ? 250 : 500}
           height={window.innerWidth < 768 ? 60 : 120}
           rotate={-15}
-          gradient="from-rose-500/[0.25]"
+          gradient="from-rose-500/[0.25] dark:from-rose-400/[0.35]"
           className="right-[-20%] sm:right-[-10%] md:right-[0%] top-[70%] md:top-[75%]"
         />
 
@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
           width={window.innerWidth < 768 ? 150 : 300}
           height={window.innerWidth < 768 ? 40 : 80}
           rotate={-8}
-          gradient="from-violet-500/[0.25]"
+          gradient="from-violet-500/[0.25] dark:from-violet-400/[0.35]"
           className="left-[-10%] sm:left-[0%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
         />
 
@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
           width={window.innerWidth < 768 ? 100 : 200}
           height={window.innerWidth < 768 ? 30 : 60}
           rotate={20}
-          gradient="from-amber-500/[0.25]"
+          gradient="from-amber-500/[0.25] dark:from-amber-400/[0.35]"
           className="right-[5%] sm:right-[10%] md:right-[20%] top-[10%] md:top-[15%]"
         />
 
@@ -138,7 +138,7 @@ const Hero: React.FC = () => {
           width={window.innerWidth < 768 ? 75 : 150}
           height={window.innerWidth < 768 ? 20 : 40}
           rotate={-25}
-          gradient="from-cyan-500/[0.25]"
+          gradient="from-cyan-500/[0.25] dark:from-cyan-400/[0.35]"
           className="left-[10%] sm:left-[15%] md:left-[25%] top-[5%] md:top-[10%]"
         />
       </div>
@@ -254,7 +254,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/90 dark:from-gray-900/95 dark:via-transparent dark:to-gray-900/90 pointer-events-none transition-colors duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/90 dark:from-gray-900/95 dark:via-gray-900/20 dark:to-gray-900/90 pointer-events-none transition-colors duration-300" />
     </section>
   );
 };
