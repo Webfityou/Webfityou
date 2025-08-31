@@ -1,0 +1,623 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "portfolio": "Réalisations",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact",
+    "freeQuote": "Devis gratuit"
+  },
+  "hero": {
+    "badge": "🚀 Nouvelle génération d'agence digitale",
+    "title": "Votre marketing naturel.",
+    "titleHighlight": "Clé en main.",
+    "titleEnd": "Sans stress.",
+    "subtitle": "Sites web optimisés SEO automatiquement par GPT-4, accompagnement humain personnalisé. Votre présence digitale professionnelle en 7 jours.",
+    "cta": "Devis gratuit en 24h",
+    "watchDemo": "Voir comment ça marche",
+    "stats": {
+      "sites": "sites créés",
+      "satisfaction": "clients satisfaits",
+      "traffic": "plus de trafic",
+      "support": "support",
+      "reviews": "avis",
+      "delivery": "jours de livraison"
+    }
+  },
+  "benefits": {
+    "title": "Pourquoi choisir WebFitYou ?",
+    "subtitle": "Une approche révolutionnaire combinant intelligence artificielle et expertise humaine",
+    "express": {
+      "title": "Livraison Express",
+      "description": "Site web professionnel livré en 7 jours maximum"
+    },
+    "seo": {
+      "title": "SEO Automatisé",
+      "description": "Optimisation GPT-4 + validation humaine pour un référencement optimal"
+    },
+    "support": {
+      "title": "Accompagnement Humain",
+      "description": "Support personnalisé et conseil stratégique inclus"
+    }
+  },
+  "testimonials": {
+    "title": "Ce que disent nos clients",
+    "subtitle": "Plus de 500 entrepreneurs nous font confiance",
+    "marie": {
+      "content": "WebFitYou a transformé notre présence en ligne. En 7 jours, nous avions un site magnifique et notre chiffre d'affaires a doublé en 3 mois !",
+      "name": "Marie Dubois",
+      "company": "Épicerie Bio Marie",
+      "role": "Fondatrice"
+    },
+    "thomas": {
+      "content": "L'accompagnement humain fait toute la différence. L'équipe comprend vraiment les enjeux business et propose des solutions concrètes.",
+      "name": "Thomas Martin",
+      "company": "Conseil & Stratégie",
+      "role": "Consultant"
+    },
+    "sophie": {
+      "content": "Le SEO automatisé fonctionne vraiment ! Je suis maintenant en première page Google pour tous mes mots-clés importants.",
+      "name": "Sophie Laurent",
+      "company": "Studio Yoga Zen",
+      "role": "Professeure de Yoga"
+    },
+    "pierre": {
+      "content": "Enfin une agence qui parle notre langage ! Pas de jargon technique, juste des résultats concrets pour mon business.",
+      "name": "Pierre Moreau",
+      "company": "Artisan Menuisier",
+      "role": "Artisan"
+    }
+  },
+  "audit": {
+    "title": "Audit gratuit de votre présence digitale",
+    "subtitle": "Découvrez en 2 minutes comment améliorer votre visibilité en ligne",
+    "steps": {
+      "website": {
+        "title": "Votre site actuel",
+        "question": "Quelle est l'adresse de votre site web actuel ?",
+        "placeholder": "www.monsite.com (optionnel)"
+      },
+      "business": {
+        "title": "Votre secteur",
+        "question": "Dans quel secteur d'activité êtes-vous ?",
+        "options": {
+          "ecommerce": "E-commerce",
+          "services": "Services B2B",
+          "restaurant": "Restauration",
+          "health": "Santé & Bien-être",
+          "realestate": "Immobilier",
+          "craft": "Artisanat",
+          "coaching": "Coaching/Formation",
+          "other": "Autre"
+        }
+      },
+      "goals": {
+        "title": "Vos objectifs",
+        "question": "Quels sont vos principaux objectifs ? (plusieurs choix possibles)",
+        "options": {
+          "visibility": "Augmenter ma visibilité",
+          "leads": "Générer plus de leads",
+          "sales": "Vendre en ligne",
+          "image": "Améliorer mon image",
+          "automation": "Automatiser ma communication"
+        }
+      },
+      "budget": {
+        "title": "Votre budget",
+        "question": "Quel est votre budget mensuel pour votre marketing digital ?",
+        "options": {
+          "low": "Moins de 100€/mois",
+          "medium": "100€ - 300€/mois",
+          "high": "300€ - 500€/mois",
+          "premium": "500€ - 1000€/mois",
+          "enterprise": "Plus de 1000€/mois"
+        }
+      }
+    },
+    "continue": "Continuer",
+    "getAudit": "Recevoir mon audit",
+    "thanks": "Merci ! Votre audit personnalisé sera envoyé dans les 24h."
+  },
+  "cta": {
+    "title": "Prêt à transformer votre présence digitale ?",
+    "subtitle": "Rejoignez plus de 500 entrepreneurs qui ont choisi WebFitYou",
+    "startProject": "Démarrer mon projet",
+    "viewPricing": "Voir les tarifs"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Une gamme complète de services digitaux pour transformer votre présence en ligne et booster votre croissance business.",
+    "website": {
+      "title": "Sites Web Clé-en-Main",
+      "description": "Sites web professionnels, responsive et optimisés, livrés en 7 jours maximum.",
+      "features": [
+        "Design moderne et responsive",
+        "Développement sur-mesure",
+        "Intégration CMS facile",
+        "Optimisation des performances",
+        "Maintenance incluse"
+      ]
+    },
+    "seo": {
+      "title": "SEO Automatisé GPT-4",
+      "description": "Référencement naturel optimisé par IA avec validation humaine pour des résultats garantis.",
+      "features": [
+        "Analyse sémantique IA",
+        "Optimisation technique",
+        "Contenu SEO généré",
+        "Suivi des positions",
+        "Rapports mensuels"
+      ]
+    },
+    "social": {
+      "title": "Réseaux Sociaux",
+      "description": "Stratégie et contenus visuels pour booster votre présence sur les réseaux sociaux.",
+      "features": [
+        "Stratégie personnalisée",
+        "Création de visuels Canva",
+        "Planning éditorial",
+        "Publication automatisée",
+        "Analytics détaillés"
+      ]
+    },
+    "branding": {
+      "title": "Identité Visuelle",
+      "description": "Logo, charte graphique et tous les éléments visuels pour une image cohérente.",
+      "features": [
+        "Logo professionnel",
+        "Charte graphique complète",
+        "Déclinaisons print/web",
+        "Templates personnalisés",
+        "Fichiers sources fournis"
+      ]
+    },
+    "support": {
+      "title": "Accompagnement Humain",
+      "description": "Support personnalisé et conseil stratégique pour vous guider à chaque étape.",
+      "features": [
+        "Consultant dédié",
+        "Appels stratégiques",
+        "Formation incluse",
+        "Support réactif",
+        "Conseils personnalisés"
+      ]
+    },
+    "automation": {
+      "title": "Automatisations N8N",
+      "description": "Workflows automatisés pour optimiser vos processus marketing et gagner du temps.",
+      "features": [
+        "Automatisation email",
+        "Intégrations API",
+        "Workflows personnalisés",
+        "Reporting automatique",
+        "Maintenance incluse"
+      ]
+    },
+    "learnMore": "En savoir plus",
+    "process": {
+      "title": "Notre processus",
+      "subtitle": "Une méthodologie éprouvée pour des résultats garantis",
+      "steps": {
+        "audit": {
+          "title": "Audit & Stratégie",
+          "description": "Analyse complète de vos besoins et définition de la stratégie optimale"
+        },
+        "creation": {
+          "title": "Création",
+          "description": "Développement de vos outils digitaux selon les meilleures pratiques"
+        },
+        "optimization": {
+          "title": "Optimisation",
+          "description": "Tests, ajustements et optimisations pour maximiser les performances"
+        },
+        "followup": {
+          "title": "Suivi",
+          "description": "Accompagnement continu et optimisations basées sur les données"
+        }
+      }
+    },
+    "ctaTitle": "Prêt à booster votre présence digitale ?",
+    "ctaSubtitle": "Discutons de vos objectifs et trouvons la solution parfaite pour votre business.",
+    "ctaButton": "Demander un devis gratuit"
+  },
+  "portfolio": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez comment nous avons aidé plus de 500 entreprises à transformer leur présence digitale et booster leur croissance.",
+    "categories": {
+      "all": "Tous les projets",
+      "ecommerce": "E-commerce",
+      "services": "Services B2B",
+      "restaurant": "Restauration",
+      "health": "Santé & Bien-être",
+      "craft": "Artisanat"
+    },
+    "noResults": "Aucun projet ne correspond à votre recherche.",
+    "viewSite": "Voir le site",
+    "results": {
+      "traffic": "Trafic",
+      "conversion": "Conversion",
+      "seo": "SEO"
+    }
+  },
+  "pricing": {
+    "title": "Tarifs Transparents",
+    "subtitle": "Choisissez le plan qui correspond à vos besoins. Pas d'engagement, annulation possible à tout moment.",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "save": "-20%",
+    "month": "mois",
+    "year": "an",
+    "savingsText": "Économisez {{amount}}€/mois",
+    "startNow": "Commencer maintenant",
+    "plans": {
+      "solo": {
+        "name": "Solo",
+        "description": "Parfait pour les entrepreneurs qui démarrent",
+        "features": [
+          "Site web 5 pages",
+          "Design responsive mobile",
+          "SEO de base",
+          "Hébergement inclus",
+          "Support par email",
+          "1 révision par mois"
+        ],
+        "notIncluded": [
+          "Blog & contenu SEO",
+          "Réseaux sociaux",
+          "Support téléphonique",
+          "Automatisations avancées"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Idéal pour les entreprises en croissance",
+        "popular": "Plus populaire",
+        "features": [
+          "Site web illimité",
+          "Blog & SEO automatisé GPT-4",
+          "Réseaux sociaux (2 plateformes)",
+          "Analytics avancés",
+          "Support prioritaire",
+          "3 révisions par mois",
+          "Automatisations N8N",
+          "Intégrations API"
+        ],
+        "notIncluded": [
+          "Accompagnement dédié",
+          "Formation personnalisée"
+        ]
+      },
+      "human": {
+        "name": "Humain",
+        "description": "Accompagnement premium avec consultant dédié",
+        "features": [
+          "Tout du plan Pro",
+          "Consultant dédié",
+          "Appels stratégiques mensuels",
+          "Formation personnalisée",
+          "Identité visuelle complète",
+          "Support téléphonique",
+          "Révisions illimitées",
+          "Automatisations sur-mesure",
+          "Rapport mensuel personnalisé"
+        ]
+      }
+    },
+    "simulator": {
+      "title": "Simulateur de Prix",
+      "subtitle": "Calculez le coût exact selon vos besoins spécifiques",
+      "steps": {
+        "projectType": {
+          "title": "Type de projet",
+          "question": "Quel type de site souhaitez-vous ?",
+          "options": {
+            "vitrine": "Site vitrine",
+            "ecommerce": "E-commerce",
+            "blog": "Blog/Magazine",
+            "plateforme": "Plateforme/SaaS"
+          }
+        },
+        "pages": {
+          "title": "Nombre de pages",
+          "question": "Combien de pages voulez-vous ?",
+          "unit": "pages"
+        },
+        "features": {
+          "title": "Fonctionnalités",
+          "question": "Quelles fonctionnalités souhaitez-vous ?",
+          "options": {
+            "seo": "SEO automatisé",
+            "blog": "Blog intégré",
+            "ecommerce": "Boutique en ligne",
+            "booking": "Système de réservation",
+            "crm": "CRM intégré",
+            "analytics": "Analytics avancés"
+          }
+        },
+        "timeline": {
+          "title": "Délai de livraison",
+          "question": "Dans quel délai souhaitez-vous votre site ?",
+          "options": {
+            "express": "7 jours (Express)",
+            "standard": "15 jours (Standard)",
+            "confort": "30 jours (Confort)"
+          }
+        },
+        "support": {
+          "title": "Support",
+          "question": "Quel niveau de support voulez-vous ?",
+          "options": {
+            "email": "Support par email",
+            "priority": "Support prioritaire",
+            "dedicated": "Consultant dédié"
+          }
+        }
+      },
+      "continue": "Continuer",
+      "getQuote": "Demander un devis",
+      "previous": "Précédent",
+      "next": "Suivant"
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "questions": [
+        {
+          "question": "Puis-je changer de plan à tout moment ?",
+          "answer": "Oui, vous pouvez upgrader ou downgrader votre plan à tout moment. Les changements prennent effet immédiatement."
+        },
+        {
+          "question": "Y a-t-il des frais cachés ?",
+          "answer": "Non, nos tarifs sont 100% transparents. Le prix affiché inclut tout : hébergement, support, mises à jour et maintenance."
+        },
+        {
+          "question": "Que se passe-t-il si je ne suis pas satisfait ?",
+          "answer": "Nous offrons une garantie satisfait ou remboursé de 30 jours. Pas de questions posées."
+        },
+        {
+          "question": "Les mises à jour sont-elles incluses ?",
+          "answer": "Oui, toutes les mises à jour de sécurité, les améliorations et les nouvelles fonctionnalités sont incluses dans votre abonnement."
+        }
+      ]
+    },
+    "ctaTitle": "Prêt à démarrer votre projet ?",
+    "ctaSubtitle": "Choisissez votre plan et transformez votre présence digitale dès aujourd'hui."
+  },
+  "blog": {
+    "title": "Blog & Ressources",
+    "subtitle": "Découvrez nos conseils d'experts, guides pratiques et dernières tendances pour réussir votre transformation digitale.",
+    "search": "Rechercher un article...",
+    "categories": {
+      "all": "Tous les articles",
+      "seo": "SEO",
+      "design": "Design Web",
+      "marketing": "Marketing Digital",
+      "ia": "Intelligence Artificielle",
+      "conseils": "Conseils Business"
+    },
+    "featured": "Article à la une",
+    "readArticle": "Lire l'article",
+    "readMore": "Lire la suite",
+    "readTime": "min de lecture",
+    "noResults": "Aucun article ne correspond à votre recherche.",
+    "newsletter": {
+      "title": "Ne ratez aucun conseil",
+      "subtitle": "Recevez nos derniers articles et conseils d'experts directement dans votre boîte mail.",
+      "placeholder": "Votre adresse email",
+      "subscribe": "S'abonner"
+    }
+  },
+  "about": {
+    "title": "À propos de WebFitYou",
+    "subtitle": "Nous sommes une agence digitale nouvelle génération qui révolutionne la création de sites web en combinant intelligence artificielle et accompagnement humain personnalisé.",
+    "mission": {
+      "title": "Notre Mission",
+      "content": [
+        "Chez WebFitYou, nous croyons que chaque entrepreneur mérite d'avoir une présence digitale professionnelle, sans les complications techniques et les coûts prohibitifs des agences traditionnelles.",
+        "Notre approche unique combine le meilleur de deux mondes : la puissance de l'intelligence artificielle GPT-4 pour l'optimisation SEO automatisée et l'expertise humaine pour un accompagnement personnalisé.",
+        "Nous automatisons ce qui peut l'être pour vous faire gagner du temps et de l'argent, tout en gardant l'humain au cœur de notre relation avec vous."
+      ]
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "subtitle": "Les principes qui guident chacune de nos actions",
+      "excellence": {
+        "title": "Excellence",
+        "description": "Nous visons l'excellence dans chaque projet, avec un souci du détail constant."
+      },
+      "human": {
+        "title": "Accompagnement Humain",
+        "description": "Au-delà de la technologie, nous privilégions l'écoute et l'accompagnement personnalisé."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous intégrons les dernières technologies pour vous donner un avantage concurrentiel."
+      },
+      "transparency": {
+        "title": "Transparence",
+        "description": "Des prix clairs, des processus transparents, aucune surprise désagréable."
+      }
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "subtitle": "Des experts passionnés au service de votre succès"
+    },
+    "technologies": {
+      "title": "Technologies de Pointe",
+      "subtitle": "Nous utilisons les meilleures technologies pour des résultats optimaux"
+    },
+    "stats": {
+      "sites": "Sites créés",
+      "satisfaction": "Clients satisfaits",
+      "experience": "D'expérience",
+      "delivery": "Livraison moyenne",
+      "since": "Depuis notre création",
+      "rate": "Taux de satisfaction",
+      "aiExperience": "Dans l'IA & automatisation",
+      "speed": "Rapidité garantie"
+    },
+    "ctaTitle": "Prêt à nous rejoindre ?",
+    "ctaSubtitle": "Découvrez comment nous pouvons transformer votre présence digitale et booster votre croissance.",
+    "ctaButton": "Discutons de votre projet",
+    "ctaPricing": "Voir nos tarifs"
+  },
+  "contact": {
+    "title": "Parlons de votre projet",
+    "subtitle": "Obtenez un devis personnalisé en 24h et découvrez comment nous pouvons transformer votre présence digitale.",
+    "info": {
+      "title": "Restons en contact",
+      "description": "Notre équipe est là pour vous accompagner dans votre projet. Contactez-nous par le moyen qui vous convient le mieux.",
+      "email": {
+        "title": "Email",
+        "content": "contact@webfityou.com",
+        "description": "Réponse sous 24h"
+      },
+      "phone": {
+        "title": "Téléphone",
+        "content": "+33 1 23 45 67 89",
+        "description": "Lun-Ven, 9h-18h"
+      },
+      "address": {
+        "title": "Adresse",
+        "content": "75001 Paris, France",
+        "description": "Sur rendez-vous"
+      },
+      "booking": {
+        "title": "Réservez un appel",
+        "description": "Discutons directement de votre projet lors d'un appel de 30 minutes.",
+        "button": "Choisir un créneau"
+      }
+    },
+    "form": {
+      "title": "Demande de devis gratuit",
+      "success": {
+        "title": "Message envoyé !",
+        "description": "Nous vous recontacterons dans les 24h avec votre devis personnalisé."
+      },
+      "fields": {
+        "name": {
+          "label": "Nom complet",
+          "placeholder": "Jean Dupont",
+          "required": true
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "jean@exemple.com",
+          "required": true
+        },
+        "company": {
+          "label": "Entreprise",
+          "placeholder": "Mon Entreprise SARL"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "+33 1 23 45 67 89"
+        },
+        "service": {
+          "label": "Service souhaité",
+          "placeholder": "Sélectionnez un service",
+          "required": true,
+          "options": {
+            "vitrine": "Site vitrine",
+            "ecommerce": "E-commerce",
+            "seo": "SEO automatisé",
+            "social": "Réseaux sociaux",
+            "branding": "Identité visuelle",
+            "complete": "Pack complet",
+            "other": "Autre"
+          }
+        },
+        "budget": {
+          "label": "Budget estimé",
+          "placeholder": "Votre budget",
+          "options": {
+            "low": "Moins de 1000€",
+            "medium": "1000€ - 3000€",
+            "high": "3000€ - 5000€",
+            "premium": "5000€ - 10000€",
+            "enterprise": "Plus de 10000€"
+          }
+        },
+        "timeline": {
+          "label": "Délai souhaité",
+          "placeholder": "Quand ?",
+          "options": {
+            "urgent": "Urgent (7 jours)",
+            "fast": "Rapide (2-3 semaines)",
+            "standard": "Standard (1-2 mois)",
+            "flexible": "Flexible (plus de 2 mois)"
+          }
+        },
+        "message": {
+          "label": "Décrivez votre projet",
+          "placeholder": "Décrivez votre projet, vos objectifs, vos contraintes... Plus vous nous donnez d'informations, plus notre devis sera précis !",
+          "required": true
+        }
+      },
+      "submit": "Envoyer ma demande",
+      "guarantee": "Réponse garantie en moins de 24h"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "subtitle": "Les réponses aux questions les plus courantes",
+      "questions": [
+        {
+          "question": "Combien de temps faut-il pour avoir un devis ?",
+          "answer": "Nous nous engageons à vous fournir un devis détaillé dans les 24h suivant votre demande. Pour les projets urgents, nous pouvons répondre en quelques heures."
+        },
+        {
+          "question": "Le devis est-il vraiment gratuit et sans engagement ?",
+          "answer": "Oui, notre devis est 100% gratuit et sans aucun engagement de votre part. Nous prenons le temps d'analyser votre projet pour vous proposer la solution la plus adaptée."
+        },
+        {
+          "question": "Proposez-vous un suivi après la livraison ?",
+          "answer": "Absolument ! Tous nos forfaits incluent un suivi et une maintenance. Nous restons disponibles pour vous accompagner dans le développement de votre projet."
+        },
+        {
+          "question": "Travaillez-vous avec des entreprises de toutes tailles ?",
+          "answer": "Oui, nous accompagnons aussi bien les entrepreneurs individuels que les PME et grandes entreprises. Nos solutions s'adaptent à tous les budgets et besoins."
+        }
+      ]
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "required": "requis",
+    "step": "Étape",
+    "of": "sur"
+  },
+  "footer": {
+    "tagline": "Votre marketing naturel. Clé en main. Sans stress.",
+    "services": {
+      "title": "Services",
+      "items": [
+        "Sites web clé-en-main",
+        "SEO automatisé",
+        "Réseaux sociaux",
+        "Identité visuelle"
+      ]
+    },
+    "company": {
+      "title": "Entreprise"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "copyright": "© 2025 WebFitYou. Tous droits réservés."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "required": "requis"
+  }
+}
