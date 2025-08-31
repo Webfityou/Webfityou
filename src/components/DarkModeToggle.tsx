@@ -9,107 +9,60 @@ const DarkModeToggle: React.FC = () => {
   return (
     <motion.button
       onClick={toggleDarkMode}
-      className="relative flex items-center justify-center w-14 h-8 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-full transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 shadow-inner hover:shadow-lg"
+      className="relative flex items-center justify-center w-12 h-6 bg-gray-200 dark:bg-gray-700 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label={isDarkMode ? 'Passer en mode clair' : 'Passer en mode sombre'}
+      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
       role="switch"
       aria-checked={isDarkMode}
     >
-      {/* Background gradient overlay */}
+      {/* Toggle Background */}
       <motion.div
-        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-600 dark:from-slate-800 dark:via-slate-700 dark:to-slate-600"
+        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 dark:from-gray-600 dark:to-gray-800"
         initial={false}
         animate={{
           opacity: isDarkMode ? 1 : 0,
         }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 0.3 }}
       />
-      
-      {/* Animated stars for dark mode */}
-      <motion.div
-        className="absolute inset-0 rounded-full overflow-hidden"
-        initial={false}
-        animate={{
-          opacity: isDarkMode ? 1 : 0,
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        {[...Array(3)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            style={{
-              left: `${20 + i * 25}%`,
-              top: `${30 + (i % 2) * 20}%`,
-            }}
-            animate={{
-              opacity: isDarkMode ? [0, 1, 0] : 0,
-              scale: isDarkMode ? [0.5, 1, 0.5] : 0,
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              delay: i * 0.5,
-            }}
-          />
-        ))}
-      </motion.div>
       
       {/* Toggle Circle */}
       <motion.div
-        className="relative z-10 flex items-center justify-center w-6 h-6 bg-white dark:bg-gray-100 rounded-full shadow-lg border border-gray-200 dark:border-gray-300"
+        className="relative z-10 flex items-center justify-center w-5 h-5 bg-white dark:bg-gray-200 rounded-full shadow-md"
         initial={false}
         animate={{
-          x: isDarkMode ? 22 : 2,
-          rotate: isDarkMode ? 360 : 0,
+          x: isDarkMode ? 24 : 4,
         }}
         transition={{
           type: "spring",
           stiffness: 500,
-          damping: 30,
-          duration: 0.6
+          damping: 30
         }}
       >
-        {/* Sun Icon */}
         <motion.div
           initial={false}
           animate={{
             scale: isDarkMode ? 0 : 1,
             rotate: isDarkMode ? 180 : 0,
-            opacity: isDarkMode ? 0 : 1,
           }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          transition={{ duration: 0.3 }}
           className="absolute"
         >
-          <Sun className="w-4 h-4 text-yellow-500" />
+          <Sun className="w-3 h-3 text-yellow-500" />
         </motion.div>
         
-        {/* Moon Icon */}
         <motion.div
           initial={false}
           animate={{
             scale: isDarkMode ? 1 : 0,
             rotate: isDarkMode ? 0 : -180,
-            opacity: isDarkMode ? 1 : 0,
           }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          transition={{ duration: 0.3 }}
           className="absolute"
         >
-          <Moon className="w-4 h-4 text-slate-700" />
+          <Moon className="w-3 h-3 text-blue-400" />
         </motion.div>
       </motion.div>
-
-      {/* Glow effect */}
-      <motion.div
-        className="absolute inset-0 rounded-full"
-        animate={{
-          boxShadow: isDarkMode 
-            ? '0 0 20px rgba(99, 102, 241, 0.4), inset 0 0 20px rgba(99, 102, 241, 0.1)'
-            : '0 0 15px rgba(251, 191, 36, 0.3), inset 0 0 15px rgba(251, 191, 36, 0.1)',
-        }}
-        transition={{ duration: 0.5 }}
-      />
     </motion.button>
   );
 };
