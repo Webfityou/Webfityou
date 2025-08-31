@@ -1,51 +1,60 @@
-import React from 'react';
-import { cn } from '../../lib/utils';
+import { cn } from "../../lib/utils"
+import { ElementType, ComponentPropsWithoutRef } from "react"
 
-interface StarBorderProps {
-  children: React.ReactNode;
-  className?: string;
-  speed?: number;
-  duration?: number;
+interface StarBorderProps<T extends ElementType> {
+  as?: T
+  color?: string
+  speed?: string
+  className?: string
+  children: React.ReactNode
 }
 
-export function StarBorder({ 
-  children, 
+export function StarBorder<T extends ElementType = "button">({
+  as,
   className,
-  speed = 1,
-  duration = 20 
-}: StarBorderProps) {
+  color,
+  speed = "6s",
+  children,
+  ...props
+}: StarBorderProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof StarBorderProps<T>>) {
+  const Component = as || "button"
+  const defaultColor = color || "hsl(var(--foreground))"
+
   return (
-    <div className={cn(
-      "relative overflow-hidden rounded-xl p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 transition-colors duration-300",
-      className
-    )}>
-      {/* Animated border */}
-      <div className="absolute inset-0 rounded-xl">
-        <div 
-          className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 opacity-20 dark:opacity-30"
-          style={{
-            background: `conic-gradient(from 0deg, #3b82f6, #8b5cf6, #14b8a6, #3b82f6)`,
-            animation: `spin ${duration}s linear infinite`,
-          }}
-        />
-        <div className="absolute inset-[1px] rounded-xl bg-white dark:bg-gray-900 transition-colors duration-300" />
-      </div>
-      
-      {/* Content */}
-      <div className="relative z-10">
+    <Component 
+      className={cn(
+        "relative inline-block py-[1px] overflow-hidden rounded-[20px]",
+        className
+      )} 
+      {...props}
+    >
+      <div
+        className={cn(
+          "absolute w-[300%] h-[50%] bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom z-0",
+          "opacity-20 dark:opacity-70" 
+        )}
+        style={{
+          background: `radial-gradient(circle, ${defaultColor}, transparent 10%)`,
+          animationDuration: speed,
+        }}
+      />
+      <div
+        className={cn(
+          "absolute w-[300%] h-[50%] top-[-10px] left-[-250%] rounded-full animate-star-movement-top z-0",
+          "opacity-20 dark:opacity-70"
+        )}
+        style={{
+          background: `radial-gradient(circle, ${defaultColor}, transparent 10%)`,
+          animationDuration: speed,
+        }}
+      />
+      <div className={cn(
+        "relative z-1 border text-foreground text-center text-base py-4 px-6 rounded-[20px]",
+        "bg-gradient-to-b from-background/90 to-muted/90 border-border/40",
+        "dark:from-background dark:to-muted dark:border-border"
+      )}>
         {children}
       </div>
-      
-      <style jsx>{`
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
-    </div>
-  );
+    </Component>
+  )
 }
