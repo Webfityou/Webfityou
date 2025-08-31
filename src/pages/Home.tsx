@@ -39,9 +39,9 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { number: "500+", label: t('hero.stats.sites') },
-    { number: "98%", label: t('hero.stats.satisfaction') },
-    { number: "3x", label: t('hero.stats.traffic') },
+    { number: "+30", label: "sites créés" },
+    { number: "100%", label: "des clients satisfaits" },
+    { number: "4.2x", label: "plus de trafic" },
     { number: "24/7", label: t('hero.stats.support') }
   ];
 
