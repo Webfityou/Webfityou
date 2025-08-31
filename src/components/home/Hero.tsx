@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed px-4 text-center"
           >
-            Sites web <span className="text-white font-bold">optimisés SEO automatiquement par l'intelligence artificielle</span> GPT-5. 
+            Sites web <span className="text-white font-bold">optimisés SEO automatiquement par l'intelligence artificielle</span>. 
             Votre présence digitale professionnelle en 7 jours, sans stress technique.
           </motion.p>
 
