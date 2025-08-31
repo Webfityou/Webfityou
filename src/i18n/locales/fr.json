@@ -34,8 +34,8 @@
       "description": "Site web professionnel livré en 7 jours maximum"
     },
     "seo": {
-      "title": "SEO Automatisé",
-      "description": "Optimisation GPT-4 + validation humaine pour un référencement optimal"
+      "title": "SEO Automatisé par IA",
+      "description": "Référencement naturel optimisé par Intelligence Artificielle avec validation humaine pour des résultats garantis."
     },
     "support": {
       "title": "Accompagnement Humain",
@@ -141,8 +141,8 @@
       ]
     },
     "seo": {
-      "title": "SEO Automatisé GPT-4",
-      "description": "Référencement naturel optimisé par IA avec validation humaine pour des résultats garantis.",
+      "title": "SEO Automatisé par IA",
+      "description": "Référencement naturel optimisé par Intelligence Artificielle avec validation humaine pour des résultats garantis.",
       "features": [
         "Analyse sémantique IA",
         "Optimisation technique",
@@ -276,7 +276,7 @@
         "popular": "Plus populaire",
         "features": [
           "Site web illimité",
-          "Blog & SEO automatisé GPT-4",
+          "Blog & SEO automatisé par IA",
           "Réseaux sociaux (2 plateformes)",
           "Analytics avancés",
           "Support prioritaire",
@@ -426,7 +426,7 @@
       "title": "Notre Mission",
       "content": [
         "Chez WebFitYou, nous croyons que chaque entrepreneur mérite d'avoir une présence digitale professionnelle, sans les complications techniques et les coûts prohibitifs des agences traditionnelles.",
-        "Notre approche unique combine le meilleur de deux mondes : la puissance de l'intelligence artificielle GPT-4 pour l'optimisation SEO automatisée et l'expertise humaine pour un accompagnement personnalisé.",
+        "Notre approche unique combine le meilleur de deux mondes : la puissance de l'Intelligence Artificielle pour l'optimisation SEO automatisée et l'expertise humaine pour un accompagnement personnalisé.",
         "Nous automatisons ce qui peut l'être pour vous faire gagner du temps et de l'argent, tout en gardant l'humain au cœur de notre relation avec vous."
       ]
     },
@@ -621,14 +621,5 @@
       "title": "Contact"
     },
     "copyright": "© 2025 WebFitYou. Tous droits réservés."
-  },
-  "common": {
-    "loading": "Chargement...",
-    "error": "Une erreur est survenue",
-    "retry": "Réessayer",
-    "close": "Fermer",
-    "previous": "Précédent",
-    "next": "Suivant",
-    "required": "requis"
   }
 }

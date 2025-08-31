@@ -34,8 +34,8 @@
       "description": "Professional website delivered in 7 days maximum"
     },
     "seo": {
-      "title": "Automated SEO",
-      "description": "GPT-4 optimization + human validation for optimal ranking"
+      "title": "AI-Powered Automated SEO",
+      "description": "Artificial Intelligence-optimized natural referencing with human validation for guaranteed results."
     },
     "support": {
       "title": "Human Support",
@@ -141,8 +141,8 @@
       ]
     },
     "seo": {
-      "title": "GPT-4 Automated SEO",
-      "description": "AI-optimized natural referencing with human validation for guaranteed results.",
+      "title": "AI-Powered Automated SEO",
+      "description": "Artificial Intelligence-optimized natural referencing with human validation for guaranteed results.",
       "features": [
         "AI semantic analysis",
         "Technical optimization",
@@ -276,7 +276,7 @@
         "popular": "Most popular",
         "features": [
           "Unlimited website",
-          "Blog & GPT-4 automated SEO",
+          "Blog & AI-powered automated SEO",
           "Social media (2 platforms)",
           "Advanced analytics",
           "Priority support",
@@ -426,7 +426,7 @@
       "title": "Our Mission",
       "content": [
         "At WebFitYou, we believe that every entrepreneur deserves to have a professional digital presence, without the technical complications and prohibitive costs of traditional agencies.",
-        "Our unique approach combines the best of both worlds: the power of GPT-4 artificial intelligence for automated SEO optimization and human expertise for personalized support.",
+        "Our unique approach combines the best of both worlds: the power of Artificial Intelligence for automated SEO optimization and human expertise for personalized support.",
         "We automate what can be automated to save you time and money, while keeping humans at the heart of our relationship with you."
       ]
     },
@@ -621,14 +621,5 @@
       "title": "Contact"
     },
     "copyright": "© 2025 WebFitYou. All rights reserved."
-  },
-  "common": {
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "retry": "Retry",
-    "close": "Close",
-    "previous": "Previous",
-    "next": "Next",
-    "required": "required"
   }
 }
