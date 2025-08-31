@@ -95,6 +95,7 @@ const Hero: React.FC = () => {
             Sites web <span className="text-cyan-400 font-bold animate-pulse shadow-lg" style={{
               textShadow: '0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 30px #22d3ee, 0 0 40px #22d3ee'
             }}>optimisés SEO automatiquement par l'intelligence artificielle</span> GPT-5. 
+            Sites web <span className="text-white font-bold">optimisés SEO automatiquement par l'intelligence artificielle</span> GPT-5. 
             Votre présence digitale professionnelle en 7 jours, sans stress technique.
           </motion.p>
 
