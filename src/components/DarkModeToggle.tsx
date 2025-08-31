@@ -62,6 +62,7 @@ const DarkModeToggle: React.FC = () => {
         initial={false}
         animate={{
           x: isDarkMode ? 6 : -14,
+          x: isDarkMode ? 18 : -14,
           rotate: isDarkMode ? 360 : 0,
         }}
         transition={{
