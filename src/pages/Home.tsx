@@ -59,7 +59,7 @@ const Home: React.FC = () => {
       <SEOGrowthAnimation />
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50 sm:bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center p-6 sm:p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow"
+                className="text-center p-6 sm:p-8 bg-white sm:bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow border border-gray-100 sm:border-transparent"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-6">
                   {benefit.icon}
@@ -126,7 +126,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white sm:bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Mini Audit Form Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50 sm:bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
