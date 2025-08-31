@@ -92,6 +92,50 @@ export interface Database {
           updated_at?: string;
         };
       };
+      audit_requests: {
+        Row: {
+          id: string;
+          website: string | null;
+          business_sector: string;
+          goals: string[];
+          budget: string;
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone: string | null;
+          status: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          website?: string | null;
+          business_sector: string;
+          goals: string[];
+          budget: string;
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone?: string | null;
+          status?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          website?: string | null;
+          business_sector?: string;
+          goals?: string[];
+          budget?: string;
+          first_name?: string;
+          last_name?: string;
+          email?: string;
+          phone?: string | null;
+          status?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
     };
   };
 }
