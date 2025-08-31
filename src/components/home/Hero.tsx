@@ -59,11 +59,11 @@ const Hero: React.FC = () => {
           >
             <div className="flex flex-col items-center justify-center">
               <span className="text-white mb-4">Votre marketing</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center h-16 md:h-18 lg:h-20">
+              <span className="relative flex w-full justify-center overflow-hidden text-center h-20 md:h-24 lg:h-28 xl:h-32">
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
-                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
                   initial={{ opacity: 0, y: -100 }}
                   transition={{ type: "spring", stiffness: 50 }}
                   animate={
