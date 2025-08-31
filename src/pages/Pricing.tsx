@@ -131,6 +131,7 @@ const Pricing: React.FC = () => {
                   transition={{ delay: index * 0.2 }}
                   className={`relative bg-white rounded-2xl shadow-lg ${colors.border} p-8 ${
                   }
+                  }
                   className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg ${colors.border} dark:border-gray-600 p-8 ${
                     plan.popular ? 'transform scale-105' : ''
                   } transition-colors duration-300`}
@@ -280,5 +281,7 @@ const Pricing: React.FC = () => {
 };
 
 export default Pricing;
+  )
+}
   )
 }
