@@ -15,7 +15,7 @@
 
 -- Insert sample blog posts
 INSERT INTO blog_posts (id, slug, status, featured, category, tags, image_url, read_time) VALUES
-  ('550e8400-e29b-41d4-a716-446655440001', 'seo-automatise-gpt4-revolution', 'published', true, 'seo', '{"SEO", "GPT-5", "IA", "Référencement"}', 'https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?w=500&h=300&fit=crop', 5),
+  ('550e8400-e29b-41d4-a716-446655440001', 'seo-automatise-gpt5-revolution', 'published', true, 'seo', '{"SEO", "GPT-5", "IA", "Référencement"}', 'https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?w=500&h=300&fit=crop', 5),
   ('550e8400-e29b-41d4-a716-446655440002', 'erreurs-design-web-clients', 'published', false, 'design', '{"Design", "UX", "Conversion", "Bonnes pratiques"}', 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?w=500&h=300&fit=crop', 7),
   ('550e8400-e29b-41d4-a716-446655440003', 'marketing-digital-2025-tendances', 'published', false, 'marketing', '{"Marketing", "Tendances 2025", "Stratégie", "Digital"}', 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?w=500&h=300&fit=crop', 6),
   ('550e8400-e29b-41d4-a716-446655440004', 'ia-petites-entreprises-guide', 'published', false, 'ia', '{"IA", "PME", "Automatisation", "Croissance"}', 'https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg?w=500&h=300&fit=crop', 8),
