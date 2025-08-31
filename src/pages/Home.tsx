@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                     <img 
                       src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/IA-logo.avif" 
                       alt="IA Logo" 
-                      className="w-6 h-6"
+                      className="w-7 h-7"
                     />
                   ) : (
                     benefit.icon
