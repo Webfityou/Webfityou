@@ -38,32 +38,6 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-teal-400 rounded-full animate-float-medium"></div>
         <div className="absolute top-60 right-1/4 w-1 h-1 bg-cyan-300 rounded-full animate-float-fast"></div>
         
-        {/* Lignes de connexion animées */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
-          <path 
-            d="M100,200 Q300,100 500,300 T900,200" 
-            stroke="url(#lineGradient)" 
-            strokeWidth="2" 
-            fill="none"
-            className="animate-pulse"
-          />
-          <path 
-            d="M200,400 Q400,300 600,500 T1000,400" 
-            stroke="url(#lineGradient)" 
-            strokeWidth="1.5" 
-            fill="none"
-            className="animate-pulse"
-            style={{ animationDelay: '1s' }}
-          />
-        </svg>
-        
         {/* Orbes lumineux */}
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-r from-purple-400/20 to-indigo-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -85,11 +59,11 @@ const Hero: React.FC = () => {
           >
             <div className="flex flex-col items-center justify-center">
               <span className="text-white mb-4">Votre marketing</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center h-20 md:h-24 lg:h-28">
+              <span className="relative flex w-full justify-center overflow-hidden text-center h-16 md:h-18 lg:h-20">
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
-                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                   initial={{ opacity: 0, y: -100 }}
                   transition={{ type: "spring", stiffness: 50 }}
                   animate={
