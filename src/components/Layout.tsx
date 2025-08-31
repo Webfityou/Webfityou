@@ -50,7 +50,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <img 
-                src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb.png"
+                src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
                 alt="WebFitYou Logo"
                 className="w-12 h-12 rounded-lg object-cover"
               />
@@ -157,7 +157,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img 
-                  src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb.png"
+                  src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
                   alt="WebFitYou Logo"
                   className="w-12 h-12 rounded-lg object-cover"
                 />
