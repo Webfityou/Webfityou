@@ -112,32 +112,6 @@ const Pricing: React.FC = () => {
       {/* Pricing Plans */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Important Notice */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 rounded-2xl p-6 mb-12 text-center"
-          >
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-4">
-              <Calculator className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              🚀 Plans de Suivi & Optimisation Continue
-            </h3>
-            <p className="text-gray-700 mb-4 max-w-3xl mx-auto">
-              Ces tarifs correspondent à votre <strong>accompagnement mensuel pour maximiser votre visibilité</strong> : 
-              SEO automatisé par IA, optimisations continues, support expert et croissance garantie.
-            </p>
-            <div className="bg-white rounded-xl p-4 border border-blue-200">
-              <p className="text-sm text-gray-600">
-                💡 <strong>Création de site web :</strong> Devis personnalisé selon vos besoins spécifiques 
-                (à partir de 500€). Une fois votre site créé, choisissez votre plan de suivi pour 
-                <span className="text-blue-600 font-semibold"> dominer votre marché</span> !
-              </p>
-            </div>
-          </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => {
               const colors = getColorClasses(plan.color, plan.popular);
@@ -210,6 +184,32 @@ const Pricing: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Important Notice */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 rounded-2xl p-6 mt-12 text-center"
+          >
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-4">
+              <Calculator className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              🚀 Plans de Suivi & Optimisation Continue
+            </h3>
+            <p className="text-gray-700 mb-4 max-w-3xl mx-auto">
+              Ces tarifs correspondent à votre <strong>accompagnement mensuel pour maximiser votre visibilité</strong> : 
+              SEO automatisé par IA, optimisations continues, support expert et croissance garantie.
+            </p>
+            <div className="bg-white rounded-xl p-4 border border-blue-200">
+              <p className="text-sm text-gray-600">
+                💡 <strong>Création de site web :</strong> Devis personnalisé selon vos besoins spécifiques 
+                (à partir de 500€). Une fois votre site créé, choisissez votre plan de suivi pour 
+                <span className="text-blue-600 font-semibold"> dominer votre marché</span> !
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
