@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X, MessageCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageToggle from './LanguageToggle';
+import CookieBanner from './CookieBanner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -276,6 +277,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Banner */}
+      <CookieBanner />
     </div>
   );
 };
