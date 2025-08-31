@@ -29,7 +29,7 @@ INSERT INTO blog_translations (post_id, language, title, excerpt, content, meta_
     'fr',
     'Comment le SEO automatisé GPT-5 révolutionne le référencement',
     'Découvrez comment l''intelligence artificielle transforme le référencement naturel et permet d''obtenir des résultats 3x plus rapidement.',
-    'L''intelligence artificielle révolutionne le monde du SEO. Avec GPT-4, nous pouvons maintenant automatiser une grande partie du processus d''optimisation pour les moteurs de recherche, tout en maintenant une qualité exceptionnelle.
+    'L''intelligence artificielle révolutionne le monde du SEO. Avec GPT-5, nous pouvons maintenant automatiser une grande partie du processus d''optimisation pour les moteurs de recherche, tout en maintenant une qualité exceptionnelle.
 
 ## L''évolution du SEO avec l''IA
 
@@ -37,7 +37,7 @@ Le référencement naturel a considérablement évolué ces dernières années. 
 
 ### Les avantages du SEO automatisé
 
-1. **Analyse sémantique avancée** : GPT-4 peut analyser le contexte et les intentions de recherche avec une précision remarquable.
+1. **Analyse sémantique avancée** : GPT-5 peut analyser le contexte et les intentions de recherche avec une précision remarquable.
 2. **Génération de contenu optimisé** : Création automatique de méta-descriptions, titres et contenus SEO-friendly.
 3. **Optimisation technique** : Détection automatique des problèmes techniques et suggestions d''amélioration.
 
