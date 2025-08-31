@@ -76,7 +76,7 @@ const Blog: React.FC = () => {
       </section>
 
       {/* Search and Filters */}
-      <section className="page-content section-spacing-small bg-white border-b border-gray-200">
+      <section className="page-content py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-center justify-between">
             {/* Search */}
@@ -113,7 +113,7 @@ const Blog: React.FC = () => {
 
       {/* Featured Article */}
       {selectedCategory === 'all' && !searchTerm && (
-        <section className="page-content section-spacing-small bg-white">
+        <section className="page-content py-16 bg-white">
           {(() => {
             const translation = getTraductionArticle(articleVedette, i18n.language);
             if (!translation) return null;
@@ -171,7 +171,7 @@ const Blog: React.FC = () => {
       )}
 
       {/* Articles Grid */}
-      <section className="page-content section-spacing bg-gray-50">
+      <section className="page-content py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {articlesFiltrés.length === 0 ? (
             <motion.div
@@ -186,7 +186,7 @@ const Blog: React.FC = () => {
           ) : (
             <motion.div 
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+              className="page-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
             >
               {articlesFiltrés.slice(selectedCategory === 'all' && !searchTerm && articleVedette ? 1 : 0).map((article, index) => {
                 const translation = getTraductionArticle(article, i18n.language);

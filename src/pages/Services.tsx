@@ -100,9 +100,9 @@ const Services: React.FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="page-content section-spacing bg-white">
+      <section className="page-content py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="page-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => {
               const colors = getColorClasses(service.color);
               return (
@@ -152,13 +152,13 @@ const Services: React.FC = () => {
       </section>
 
       {/* Process Section */}
-      <section className="page-content section-spacing bg-gray-50">
+      <section className="page-content py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center content-spacing"
+            className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {t('services.process.title')}
@@ -199,7 +199,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="page-content section-spacing-small bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+      <section className="page-content py-16 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -209,7 +209,7 @@ const Services: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold">
               {t('services.ctaTitle')}
             </h2>
-            <p className="text-xl text-blue-100 mt-4 content-spacing-small">
+            <p className="text-xl text-blue-100 mt-4 mb-8">
               {t('services.ctaSubtitle')}
             </p>
             <Link

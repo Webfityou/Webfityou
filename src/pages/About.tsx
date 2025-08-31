@@ -103,7 +103,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="page-content section-spacing bg-white">
+      <section className="page-content py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div
@@ -114,7 +114,7 @@ const About: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 Notre Mission
               </h2>
-              <div className="space-y-4 text-gray-600 mt-4 sm:mt-6">
+              <div className="space-y-4 text-gray-600 mt-6">
                 <p className="text-lg">
                   Chez WebFitYou, nous croyons que chaque entrepreneur mérite d'avoir 
                   une présence digitale professionnelle, sans les complications techniques 
@@ -154,13 +154,13 @@ const About: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="page-content section-spacing bg-gray-50">
+      <section className="page-content py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center content-spacing"
+            className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {t('about.values.title')}
@@ -170,7 +170,7 @@ const About: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="page-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -196,13 +196,13 @@ const About: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="page-content section-spacing bg-white">
+      <section className="page-content py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center content-spacing"
+            className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {t('about.team.title')}
@@ -212,7 +212,7 @@ const About: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="page-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {team.map((member, index) => (
               <motion.div
                 key={index}
@@ -253,13 +253,13 @@ const About: React.FC = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="page-content section-spacing bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+      <section className="page-content py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center content-spacing"
+            className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold">
               {t('about.technologies.title')}
@@ -269,7 +269,7 @@ const About: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="page-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {technologies.map((tech, index) => (
               <motion.div
                 key={index}
@@ -292,7 +292,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="page-content section-spacing-small bg-gray-50">
+      <section className="page-content py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -320,7 +320,7 @@ const About: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="page-content section-spacing-small bg-white">
+      <section className="page-content py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -330,7 +330,7 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {t('about.ctaTitle')}
             </h2>
-            <p className="text-xl text-gray-600 mt-4 content-spacing-small">
+            <p className="text-xl text-gray-600 mt-4 mb-8">
               {t('about.ctaSubtitle')}
             </p>
             {t('about.mission.content', { returnObjects: true }).map((paragraph: string, index: number) => (
