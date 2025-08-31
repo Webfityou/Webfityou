@@ -164,18 +164,18 @@ const MiniAuditForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 transition-colors duration-300">
+    <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 transition-colors duration-300">
+          <span className="text-sm font-medium text-gray-600">
             Étape {currentStep + 1} sur {steps.length}
           </span>
-          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
+          <span className="text-sm text-gray-600">
             {Math.round(((currentStep + 1) / steps.length) * 100)}%
           </span>
         </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 transition-colors duration-300">
+        <div className="w-full bg-gray-200 rounded-full h-2">
           <motion.div
             className="bg-blue-600 h-2 rounded-full"
             initial={{ width: 0 }}
@@ -192,10 +192,10 @@ const MiniAuditForm: React.FC = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">
           {steps[currentStep].title}
         </h3>
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 transition-colors duration-300">
+        <p className="text-gray-600 mb-8">
           {steps[currentStep].question}
         </p>
 
@@ -204,7 +204,7 @@ const MiniAuditForm: React.FC = () => {
         <button
           onClick={handleNext}
           disabled={!canProceed()}
-          className="w-full mt-6 sm:mt-8 bg-blue-600 text-white py-3 sm:py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center group text-sm sm:text-base"
+          className="w-full mt-8 bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center group"
         >
           {currentStep === steps.length - 1 ? t('audit.getAudit') : t('audit.continue')}
           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

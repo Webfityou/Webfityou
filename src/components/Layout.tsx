@@ -43,32 +43,32 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 lg:h-20">
+          <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <img 
-                src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb.png"
                 alt="WebFitYou Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover"
+                className="w-12 h-12 rounded-lg object-cover"
               />
-              <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">WebFitYou</span>
+              <span className="text-xl font-bold text-gray-900">WebFitYou</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               <LanguageToggle />
               <DarkModeToggle />
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm xl:text-base font-medium transition-colors hover:text-blue-600 ${
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
                     location.pathname === item.path
                       ? 'text-blue-600'
-                      : 'text-gray-700 dark:text-gray-300'
+                      : 'text-gray-700'
                   }`}
                 >
                   {item.label}
@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               ))}
               <Link
                 to="/contact"
-                className="bg-blue-600 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base font-medium hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
               >
                 {t('nav.freeQuote')}
               </Link>
@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2 text-gray-700 dark:text-gray-300 transition-colors duration-300"
+              className="md:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -99,22 +99,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300"
+              className="md:hidden bg-white border-t"
             >
-              <div className="px-4 py-4 space-y-2">
-                <div className="flex items-center justify-between px-3 py-2">
+              <div className="px-4 py-2 space-y-1">
+                <div className="px-3 py-2">
                   <LanguageToggle />
+                </div>
+                <div className="px-3 py-2">
                   <DarkModeToggle />
                 </div>
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-2"></div>
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors ${
+                    className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                       location.pathname === item.path
-                        ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                        ? 'text-blue-600 bg-blue-50'
+                        : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >
                     {item.label}
@@ -122,7 +123,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 ))}
                 <Link
                   to="/contact"
-                  className="block w-full mt-4 bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-medium text-center hover:bg-blue-700 transition-colors"
+                  className="block w-full mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-blue-700 transition-colors"
                 >
                   {t('nav.freeQuote')}
                 </Link>
@@ -156,7 +157,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img 
-                  src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                  src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb.png"
                   alt="WebFitYou Logo"
                   className="w-12 h-12 rounded-lg object-cover"
                 />
