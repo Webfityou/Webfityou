@@ -27,7 +27,7 @@ const MiniAuditForm: React.FC = () => {
       type: "input",
       key: "website",
       placeholder: t('audit.steps.website.placeholder'),
-      optional: true
+      optional: false
     },
     {
       title: t('audit.steps.business.title'),
@@ -98,7 +98,7 @@ const MiniAuditForm: React.FC = () => {
   const canProceed = () => {
     const step = steps[currentStep];
     
-    if (step.key === 'website') return true; // Optional field
+    if (step.key === 'website') return formData.website.trim() !== ''; // Required field
     if (step.key === 'contact') {
       return formData.first_name && formData.last_name && formData.email;
     }
