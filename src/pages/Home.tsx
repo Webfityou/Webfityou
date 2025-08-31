@@ -15,6 +15,7 @@ import {
 import Hero from '../components/home/Hero';
 import TestimonialsSlider from '../components/home/TestimonialsSlider';
 import MiniAuditForm from '../components/home/MiniAuditForm';
+import { StarBorder } from '../components/ui/star-border';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -99,23 +100,26 @@ const Home: React.FC = () => {
       {/* Stats Section */}
       <section className="py-20 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <motion.div
+              <StarBorder
                 key={index}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
+                className="text-center bg-black border-gray-800"
               >
-                <div className="text-3xl md:text-4xl font-bold mb-2 text-white">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300">
-                  {stat.label}
-                </div>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold mb-2 text-white">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-300">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              </StarBorder>
             ))}
           </div>
         </div>
