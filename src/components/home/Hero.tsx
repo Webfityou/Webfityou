@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight text-center"
           >
-            <span className="text-cyan-300">Votre marketing</span>
+            <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Votre marketing</span>
             <br />
             <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
               &nbsp;
