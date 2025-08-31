@@ -65,7 +65,7 @@ const Pricing: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -73,20 +73,21 @@ const Pricing: React.FC = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               {t('pricing.title')}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
               {t('pricing.subtitle')}
             </p>
 
             {/* Billing Toggle */}
-            <div className="inline-flex items-center bg-gray-100 rounded-xl p-1">
+            <div className="inline-flex items-center bg-gray-100 dark:bg-gray-700 rounded-xl p-1 transition-colors duration-300">
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
                   billingPeriod === 'monthly'
-                    ? 'bg-white text-gray-900 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                   ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
+                   : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 {t('pricing.monthly')}
@@ -110,7 +111,7 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* Pricing Plans */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => {
@@ -126,8 +127,9 @@ const Pricing: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
                   className={`relative bg-white rounded-2xl shadow-lg ${colors.border} p-8 ${
+                  className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg ${colors.border} dark:border-gray-600 p-8 ${
                     plan.popular ? 'transform scale-105' : ''
-                  }`}
+                  } transition-colors duration-300`}
                 >
                   {plan.popular && (
                     <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 ${colors.badge} text-white text-sm font-medium rounded-full`}>
@@ -136,18 +138,18 @@ const Pricing: React.FC = () => {
                   )}
 
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
                       {plan.name}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">
                       {plan.description}
                     </p>
                     
                     <div className="mb-2">
-                      <span className="text-4xl font-bold text-gray-900">
+                      <span className="text-4xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
                         {price}€
                       </span>
-                      <span className="text-gray-600">
+                      <span className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                         /{billingPeriod === 'monthly' ? t('pricing.month') : t('pricing.year')}
                       </span>
                     </div>
@@ -163,13 +165,13 @@ const Pricing: React.FC = () => {
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">{feature}</span>
                       </li>
                     ))}
                     {plan.notIncluded.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <X className="w-5 h-5 text-gray-300 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-400">{feature}</span>
+                        <span className="text-gray-400 dark:text-gray-500 transition-colors duration-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
