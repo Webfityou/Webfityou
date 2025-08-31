@@ -264,7 +264,7 @@ const Blog: React.FC = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -275,6 +275,9 @@ const Blog: React.FC = () => {
               {t('blog.newsletter.title')}
             </h2>
             <p className="text-xl text-gray-300 mb-8">
+              {t('blog.newsletter.subtitle')}
+            </p>
+            <p className="text-xl text-blue-100 mb-8">
               {t('blog.newsletter.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
