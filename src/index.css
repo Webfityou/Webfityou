@@ -6,4 +6,8 @@
   .animate-spin-slow {
     animation: spin 3s linear infinite;
   }
+  
+  .bg-gradient-conic {
+    background: conic-gradient(from 0deg, #facc15, #f97316, #ef4444, #ec4899, #facc15);
+  }
 }
