@@ -406,6 +406,17 @@
       "subtitle": "Receive our latest articles and expert advice directly in your inbox.",
       "placeholder": "Your email address",
       "subscribe": "Subscribe"
+    },
+    "post": {
+      "backToBlog": "Back to blog",
+      "share": "Share",
+      "tags": "Tags",
+      "linkCopied": "Link copied!",
+      "notFound": "Article not found",
+      "notFoundDescription": "This article doesn't exist or is no longer available.",
+      "ctaTitle": "Need help with your project?",
+      "ctaSubtitle": "Our team of experts is here to support you in your digital transformation.",
+      "ctaButton": "Let's talk about your project"
     }
   },
   "about": {

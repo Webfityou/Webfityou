@@ -406,6 +406,17 @@
       "subtitle": "Recevez nos derniers articles et conseils d'experts directement dans votre boîte mail.",
       "placeholder": "Votre adresse email",
       "subscribe": "S'abonner"
+    },
+    "post": {
+      "backToBlog": "Retour au blog",
+      "share": "Partager",
+      "tags": "Tags",
+      "linkCopied": "Lien copié !",
+      "notFound": "Article non trouvé",
+      "notFoundDescription": "Cet article n'existe pas ou n'est plus disponible.",
+      "ctaTitle": "Besoin d'aide pour votre projet ?",
+      "ctaSubtitle": "Notre équipe d'experts est là pour vous accompagner dans votre transformation digitale.",
+      "ctaButton": "Parlons de votre projet"
     }
   },
   "about": {

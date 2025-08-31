@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/realisations" element={<Portfolio />} />
             <Route path="/tarifs" element={<Pricing />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/a-propos" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

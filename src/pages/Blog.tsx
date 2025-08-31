@@ -4,24 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-interface Article {
-  id: number;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  date: string;
-  category: string;
-  tags: string[];
-  image: string;
-  readTime: number;
-}
+import { useBlog } from '../hooks/useBlog';
 
 const Blog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { posts, loading, error, searchPosts, getFeaturedPost, getPostTranslation } = useBlog(i18n.language);
 
   const categories = [
     { id: 'all', label: t('blog.categories.all') },
@@ -32,92 +21,35 @@ const Blog: React.FC = () => {
     { id: 'conseils', label: t('blog.categories.conseils') }
   ];
 
-  // Simulation d'articles - En production, ces données viendraient de Supabase
-  const articles: Article[] = [
-    {
-      id: 1,
-      title: "Comment le SEO automatisé GPT-4 révolutionne le référencement",
-      excerpt: "Découvrez comment l'intelligence artificielle transforme le référencement naturel et permet d'obtenir des résultats 3x plus rapidement.",
-      content: "Article complet sur le SEO automatisé...",
-      author: "Marie Dupont",
-      date: "2025-01-15",
-      category: "seo",
-      tags: ["SEO", "GPT-4", "IA", "Référencement"],
-      image: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?w=500&h=300&fit=crop",
-      readTime: 5
-    },
-    {
-      id: 2,
-      title: "10 erreurs de design web qui font fuir vos clients",
-      excerpt: "Évitez ces erreurs communes qui nuisent à votre taux de conversion et découvrez les bonnes pratiques pour un site performant.",
-      content: "Article complet sur les erreurs de design...",
-      author: "Thomas Martin",
-      date: "2025-01-12",
-      category: "design",
-      tags: ["Design", "UX", "Conversion", "Bonnes pratiques"],
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?w=500&h=300&fit=crop",
-      readTime: 7
-    },
-    {
-      id: 3,
-      title: "Marketing digital en 2025 : Les tendances à ne pas manquer",
-      excerpt: "Explorez les nouvelles tendances marketing qui domineront 2025 et comment les intégrer dans votre stratégie digitale.",
-      content: "Article complet sur les tendances marketing...",
-      author: "Sophie Laurent",
-      date: "2025-01-10",
-      category: "marketing",
-      tags: ["Marketing", "Tendances 2025", "Stratégie", "Digital"],
-      image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?w=500&h=300&fit=crop",
-      readTime: 6
-    },
-    {
-      id: 4,
-      title: "L'IA au service des petites entreprises : Guide pratique",
-      excerpt: "Comment les PME peuvent tirer parti de l'intelligence artificielle pour automatiser leurs processus et booster leur croissance.",
-      content: "Article complet sur l'IA pour les PME...",
-      author: "Pierre Moreau",
-      date: "2025-01-08",
-      category: "ia",
-      tags: ["IA", "PME", "Automatisation", "Croissance"],
-      image: "https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg?w=500&h=300&fit=crop",
-      readTime: 8
-    },
-    {
-      id: 5,
-      title: "5 stratégies pour doubler votre trafic web en 3 mois",
-      excerpt: "Des techniques éprouvées pour augmenter significativement votre visibilité en ligne et attirer plus de clients qualifiés.",
-      content: "Article complet sur les stratégies de trafic...",
-      author: "Laura Chen",
-      date: "2025-01-05",
-      category: "conseils",
-      tags: ["Trafic web", "SEO", "Content marketing", "Growth hacking"],
-      image: "https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?w=500&h=300&fit=crop",
-      readTime: 6
-    },
-    {
-      id: 6,
-      title: "Responsive Design : Pourquoi c'est crucial en 2025",
-      excerpt: "L'importance du design responsive à l'ère du mobile-first et comment optimiser votre site pour tous les appareils.",
-      content: "Article complet sur le responsive design...",
-      author: "Antoine Dubois",
-      date: "2025-01-03",
-      category: "design",
-      tags: ["Responsive", "Mobile-first", "UX", "Design"],
-      image: "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?w=500&h=300&fit=crop",
-      readTime: 5
-    }
-  ];
+  const filteredArticles = searchPosts(searchTerm, selectedCategory);
+  const featuredArticle = getFeaturedPost();
 
-  const filteredArticles = articles.filter(article => {
-    const matchesCategory = selectedCategory === 'all' || article.category === selectedCategory;
-    const matchesSearch = article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    return matchesCategory && matchesSearch;
-  });
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">{t('common.loading')}</p>
+        </div>
+      </div>
+    );
+  }
 
-  const featuredArticle = articles[0];
-
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">{t('common.error')}: {error}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            {t('common.retry')}
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <Helmet>
@@ -182,6 +114,11 @@ const Blog: React.FC = () => {
       {/* Featured Article */}
       {selectedCategory === 'all' && !searchTerm && (
         <section className="py-16 bg-white">
+          {(() => {
+            const translation = getPostTranslation(featuredArticle, i18n.language);
+            if (!translation) return null;
+            
+            return (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -195,23 +132,23 @@ const Blog: React.FC = () => {
                     {t('blog.featured')}
                   </div>
                   <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                    {featuredArticle.title}
+                    {translation.title}
                   </h2>
                   <p className="text-blue-100 mb-6">
-                    {featuredArticle.excerpt}
+                    {translation.excerpt}
                   </p>
                   <div className="flex items-center gap-4 text-blue-100 text-sm mb-6">
                     <div className="flex items-center">
                       <User className="w-4 h-4 mr-2" />
-                      {featuredArticle.author}
+                      WebFitYou Team
                     </div>
                     <div className="flex items-center">
                       <Calendar className="w-4 h-4 mr-2" />
-                      {new Date(featuredArticle.date).toLocaleDateString('fr-FR')}
+                      {new Date(featuredArticle.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US')}
                     </div>
                   </div>
                   <Link
-                    to={`/blog/${featuredArticle.id}`}
+                    to={`/blog/${featuredArticle.slug}`}
                     className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors group"
                   >
                     {t('blog.readArticle')}
@@ -220,14 +157,16 @@ const Blog: React.FC = () => {
                 </div>
                 <div className="relative">
                   <img
-                    src={featuredArticle.image}
-                    alt={featuredArticle.title}
+                    src={featuredArticle.image_url || ''}
+                    alt={translation.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
             </motion.div>
           </div>
+            );
+          })()}
         </section>
       )}
 
@@ -249,9 +188,13 @@ const Blog: React.FC = () => {
               layout
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {filteredArticles.slice(selectedCategory === 'all' && !searchTerm ? 1 : 0).map((article, index) => (
+              {filteredArticles.slice(selectedCategory === 'all' && !searchTerm && featuredArticle ? 1 : 0).map((article, index) => {
+                const translation = getPostTranslation(article, i18n.language);
+                if (!translation) return null;
+                
+                return (
                 <motion.article
-                  key={article.id}
+                  key={`${article.id}-${i18n.language}`}
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -260,8 +203,8 @@ const Blog: React.FC = () => {
                 >
                   <div className="relative overflow-hidden">
                     <img
-                      src={article.image}
-                      alt={article.title}
+                      src={article.image_url || ''}
+                      alt={translation.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4">
@@ -273,23 +216,23 @@ const Blog: React.FC = () => {
 
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                      {article.title}
+                      {translation.title}
                     </h3>
                     <p className="text-gray-600 mb-4 line-clamp-3">
-                      {article.excerpt}
+                      {translation.excerpt}
                     </p>
 
                     <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                       <div className="flex items-center">
                         <User className="w-4 h-4 mr-2" />
-                        {article.author}
+                        WebFitYou Team
                       </div>
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-2" />
-                        {new Date(article.date).toLocaleDateString('fr-FR')}
+                        {new Date(article.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US')}
                       </div>
                       <div>
-                        {article.readTime} {t('blog.readTime')}
+                        {article.read_time} {t('blog.readTime')}
                       </div>
                     </div>
 
@@ -305,7 +248,7 @@ const Blog: React.FC = () => {
                     </div>
 
                     <Link
-                      to={`/blog/${article.id}`}
+                      to={`/blog/${article.slug}`}
                       className="inline-flex items-center text-blue-600 font-medium hover:underline group-hover:translate-x-1 transition-transform"
                     >
                       {t('blog.readMore')}
@@ -313,7 +256,8 @@ const Blog: React.FC = () => {
                     </Link>
                   </div>
                 </motion.article>
-              ))}
+                );
+              })}
             </motion.div>
           )}
         </div>
