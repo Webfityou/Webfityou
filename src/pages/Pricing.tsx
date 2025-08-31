@@ -73,6 +73,7 @@ const Pricing: React.FC = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               {t('pricing.title')}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
@@ -129,8 +130,6 @@ const Pricing: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
                   className={`relative bg-white rounded-2xl shadow-lg ${colors.border} p-8 ${
-                  }
-                  }
                   }
                   className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg ${colors.border} dark:border-gray-600 p-8 ${
                     plan.popular ? 'transform scale-105' : ''
@@ -281,9 +280,5 @@ const Pricing: React.FC = () => {
 };
 
 export default Pricing;
-  )
-}
-  )
-}
   )
 }
