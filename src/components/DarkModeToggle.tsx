@@ -61,7 +61,7 @@ const DarkModeToggle: React.FC = () => {
         className="relative z-10 flex items-center justify-center w-6 h-6 bg-white dark:bg-gray-100 rounded-full shadow-lg border border-gray-200 dark:border-gray-300"
         initial={false}
         animate={{
-          x: isDarkMode ? 22 : 2,
+          x: isDarkMode ? 14 : -6,
           rotate: isDarkMode ? 360 : 0,
         }}
         transition={{
