@@ -23,7 +23,7 @@ export const useDemandeAudit = () => {
 
       // Insérer la demande d'audit
       const { data, error: insertError } = await supabase
-        .from('audit_requests')
+        .from('demandes_audit')
         .insert([{
           website: formData.website || null,
           business_sector: formData.business_sector,

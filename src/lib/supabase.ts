@@ -13,7 +13,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 export interface Database {
   public: {
     Tables: {
-      blog_posts: {
+      articles_blog: {
         Row: {
           id: string;
           slug: string;
@@ -54,7 +54,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      blog_translations: {
+      traductions_articles: {
         Row: {
           id: string;
           post_id: string;
@@ -92,7 +92,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      audit_requests: {
+      demandes_audit: {
         Row: {
           id: string;
           website: string | null;
@@ -136,7 +136,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      pricing_simulations: {
+      simulations_tarifs: {
         Row: {
           id: string;
           project_type: string;
@@ -182,6 +182,59 @@ export interface Database {
           email?: string;
           phone?: string | null;
           status?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      projets_portfolio: {
+        Row: {
+          id: string;
+          title: string;
+          category: string;
+          description: string;
+          image_url: string | null;
+          website_url: string | null;
+          tags: string[];
+          featured: boolean;
+          status: string;
+          traffic_increase: string | null;
+          conversion_increase: string | null;
+          seo_ranking: string | null;
+          completion_date: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          category: string;
+          description: string;
+          image_url?: string | null;
+          website_url?: string | null;
+          tags?: string[];
+          featured?: boolean;
+          status?: string;
+          traffic_increase?: string | null;
+          conversion_increase?: string | null;
+          seo_ranking?: string | null;
+          completion_date?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          category?: string;
+          description?: string;
+          image_url?: string | null;
+          website_url?: string | null;
+          tags?: string[];
+          featured?: boolean;
+          status?: string;
+          traffic_increase?: string | null;
+          conversion_increase?: string | null;
+          seo_ranking?: string | null;
+          completion_date?: string;
           created_at?: string;
           updated_at?: string;
         };

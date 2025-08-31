@@ -42,10 +42,10 @@ export const useArticlesBlog = (language: string = 'fr') => {
       setError(null);
 
       const { data, error: fetchError } = await supabase
-        .from('blog_posts')
+        .from('articles_blog')
         .select(`
           *,
-          translations:blog_translations(*)
+          translations:traductions_articles(*)
         `)
         .eq('status', 'published')
         .order('created_at', { ascending: false });

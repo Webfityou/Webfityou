@@ -25,7 +25,7 @@ export const useSimulateurTarif = () => {
 
       // Insérer la simulation de tarif
       const { data, error: insertError } = await supabase
-        .from('pricing_simulations')
+        .from('simulations_tarifs')
         .insert([{
           project_type: formData.project_type,
           pages: formData.pages,

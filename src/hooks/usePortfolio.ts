@@ -30,7 +30,7 @@ export const useRealisations = () => {
       setError(null);
 
       const { data, error: fetchError } = await supabase
-        .from('portfolio_projects')
+        .from('projets_portfolio')
         .select('*')
         .eq('status', 'active')
         .order('completion_date', { ascending: false });

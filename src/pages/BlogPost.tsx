@@ -24,10 +24,10 @@ const BlogPost: React.FC = () => {
         setError(null);
 
         const { data, error: fetchError } = await supabase
-          .from('blog_posts')
+          .from('articles_blog')
           .select(`
             *,
-            translations:blog_translations(*)
+            translations:traductions_articles(*)
           `)
           .eq('slug', slug)
           .eq('status', 'published')
