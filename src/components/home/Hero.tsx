@@ -179,7 +179,7 @@ const Hero: React.FC = () => {
             className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 rounded-full mb-4 sm:mb-6 shadow-lg backdrop-blur-sm whitespace-nowrap"
           >
             <Circle className="h-1.5 w-1.5 sm:h-2 sm:w-2 fill-blue-500 text-blue-500 flex-shrink-0" />
-            <span className="text-gray-700 dark:text-gray-200 tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm md:text-base leading-none">
+            <span className="text-gray-700 dark:text-white tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm md:text-base leading-none">
               {t('hero.badge')}
             </span>
           </motion.div>
@@ -190,7 +190,7 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-medium tracking-wide px-4 transition-colors duration-300 drop-shadow-sm"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-white mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-medium tracking-wide px-4 transition-colors duration-300 drop-shadow-sm"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -223,7 +223,7 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 dark:text-white transition-colors duration-300"
           >
             <div className="flex items-center justify-center">
               <div className="flex -space-x-1 sm:-space-x-2 mr-2 sm:mr-3">
