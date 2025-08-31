@@ -43,38 +43,40 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 dark:bg-black/95 backdrop-blur-sm shadow-md' : 'bg-transparent dark:bg-black'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">W</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">WebFitYou</span>
+              <img 
+                src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                alt="WebFitYou Logo"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover"
+              />
+              <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">WebFitYou</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <LanguageToggle />
               <DarkModeToggle />
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                  className={`text-sm xl:text-base font-medium transition-colors hover:text-blue-600 ${
                     location.pathname === item.path
                       ? 'text-blue-600'
-                      : 'text-gray-700'
-                  }`}
+                      : 'text-gray-700 dark:text-white'
+                  } focus:outline-none`}
                 >
                   {item.label}
                 </Link>
               ))}
               <Link
                 to="/contact"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base font-medium hover:bg-blue-700 transition-colors"
               >
                 {t('nav.freeQuote')}
               </Link>
@@ -82,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2"
+              className="lg:hidden p-2 text-gray-700 dark:text-white transition-colors duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -97,31 +99,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t"
+              className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300"
             >
-              <div className="px-4 py-2 space-y-1">
-                <div className="px-3 py-2">
+              <div className="px-4 py-4 space-y-2">
+                <div className="flex items-center justify-between px-3 py-2">
                   <LanguageToggle />
-                </div>
-                <div className="px-3 py-2">
                   <DarkModeToggle />
                 </div>
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-2"></div>
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors ${
                       location.pathname === item.path
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:bg-gray-50'
-                    }`}
+                        ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                        : 'text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800'
+                    } focus:outline-none`}
                   >
                     {item.label}
                   </Link>
                 ))}
                 <Link
                   to="/contact"
-                  className="block w-full mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-blue-700 transition-colors"
+                  className="block w-full mt-4 bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-medium text-center hover:bg-blue-700 transition-colors"
                 >
                   {t('nav.freeQuote')}
                 </Link>
@@ -154,9 +155,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">W</span>
-                </div>
+                <img 
+                  src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                  alt="WebFitYou Logo"
+                  className="w-12 h-12 rounded-lg object-cover"
+                />
                 <span className="text-xl font-bold">WebFitYou</span>
               </div>
               <p className="text-gray-400 text-sm">
@@ -201,7 +204,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">

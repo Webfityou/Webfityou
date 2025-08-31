@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-6 rounded-2xl"
+                  className="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-6 rounded-2xl shadow-lg"
                 >
                   <div className="flex items-center mb-4">
                     <Calendar className="w-6 h-6 mr-3" />
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-colors duration-300"
+                className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-colors duration-300"
               >
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
                   {t('contact.form.title')}
@@ -220,7 +220,7 @@ const Contact: React.FC = () => {
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
                       {t('contact.form.success.title')}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                    <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
                       {t('contact.form.success.description')}
                     </p>
                   </motion.div>
@@ -229,7 +229,7 @@ const Contact: React.FC = () => {
                     {/* Personal Info */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.name.label')} *
                         </label>
                         <div className="relative">
@@ -248,7 +248,7 @@ const Contact: React.FC = () => {
                       </div>
                       
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.email.label')} *
                         </label>
                         <div className="relative">
@@ -269,7 +269,7 @@ const Contact: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.company.label')}
                         </label>
                         <div className="relative">
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                       </div>
                       
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.phone.label')}
                         </label>
                         <div className="relative">
@@ -308,7 +308,7 @@ const Contact: React.FC = () => {
                     {/* Project Details */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div>
-                        <label htmlFor="service" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="service" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.service.label')} *
                         </label>
                         <select
@@ -329,7 +329,7 @@ const Contact: React.FC = () => {
                       </div>
                       
                       <div>
-                        <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.budget.label')}
                         </label>
                         <select
@@ -349,7 +349,7 @@ const Contact: React.FC = () => {
                       </div>
                       
                       <div>
-                        <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                        <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                           {t('contact.form.fields.timeline.label')}
                         </label>
                         <select
@@ -370,7 +370,7 @@ const Contact: React.FC = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 transition-colors duration-300">
                         {t('contact.form.fields.message.label')} *
                       </label>
                       <div className="relative">
@@ -396,7 +396,7 @@ const Contact: React.FC = () => {
                       {t('contact.form.submit')}
                     </button>
 
-                    <div className="flex items-center justify-center text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
+                    <div className="flex items-center justify-center text-sm text-gray-500 dark:text-gray-300 transition-colors duration-300">
                       <Clock className="w-4 h-4 mr-2" />
                       {t('contact.form.guarantee')}
                     </div>
@@ -433,12 +433,12 @@ const Contact: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-sm transition-colors duration-300"
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm transition-colors duration-300"
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
                   {faq.answer}
                 </p>
               </motion.div>

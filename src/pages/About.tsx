@@ -220,7 +220,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="text-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-shadow"
+                className="text-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
               >
                 <img
                   src={member.image}
@@ -233,7 +233,7 @@ const About: React.FC = () => {
                 <div className="text-blue-600 font-medium mb-3">
                   {member.role}
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 transition-colors duration-300">
+                <p className="text-gray-600 dark:text-gray-200 text-sm mb-4 transition-colors duration-300">
                   {member.bio}
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
@@ -310,7 +310,7 @@ const About: React.FC = () => {
                 <div className="text-lg font-semibold text-gray-900 dark:text-white mb-1 transition-colors duration-300">
                   {stat.label}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                <div className="text-sm text-gray-600 dark:text-gray-200 transition-colors duration-300">
                   {stat.description}
                 </div>
               </motion.div>
@@ -330,18 +330,18 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
               {t('about.ctaTitle')}
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
+            <p className="text-xl text-gray-600 dark:text-gray-200 mb-8 transition-colors duration-300">
               {t('about.ctaSubtitle')}
             </p>
             {t('about.mission.content', { returnObjects: true }).map((paragraph: string, index: number) => (
-              <p key={index} className={index === 0 ? "text-lg" : ""}>
+              <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
                 {paragraph}
               </p>
             ))}
             <a className="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors mb-4">
               {t('about.ctaButton')}
             </a>
-            <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+            <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
               {t('about.ctaPricing')}
             </p>
           </motion.div>

@@ -85,8 +85,8 @@ const TestimonialsSlider: React.FC = () => {
   };
 
   return (
-    <div className="relative max-w-4xl mx-auto">
-      <div className="relative h-80 overflow-hidden">
+    <div className="relative max-w-4xl mx-auto px-4 sm:px-0">
+      <div className="relative h-auto min-h-80 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -96,7 +96,7 @@ const TestimonialsSlider: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="absolute inset-0"
           >
-            <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 sm:p-8 h-full flex flex-col justify-between transition-colors duration-300">
               <div>
                 {/* Rating */}
                 <div className="flex items-center mb-4">
@@ -106,7 +106,7 @@ const TestimonialsSlider: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
+                <blockquote className="text-base sm:text-lg text-gray-700 dark:text-gray-100 mb-6 leading-relaxed transition-colors duration-300">
                   "{testimonials[currentIndex].content}"
                 </blockquote>
               </div>
@@ -116,13 +116,13 @@ const TestimonialsSlider: React.FC = () => {
                 <img
                   src={testimonials[currentIndex].avatar}
                   alt={testimonials[currentIndex].name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 sm:mr-4"
                 />
                 <div>
-                  <div className="font-semibold text-gray-900">
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base transition-colors duration-300">
                     {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
                     {testimonials[currentIndex].role} • {testimonials[currentIndex].company}
                   </div>
                 </div>
@@ -136,7 +136,7 @@ const TestimonialsSlider: React.FC = () => {
       <div className="flex items-center justify-center mt-8 space-x-4">
         <button
           onClick={goToPrevious}
-          className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+          className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -147,7 +147,7 @@ const TestimonialsSlider: React.FC = () => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+                index === currentIndex ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
               }`}
             />
           ))}
@@ -155,7 +155,7 @@ const TestimonialsSlider: React.FC = () => {
 
         <button
           onClick={goToNext}
-          className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+          className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
