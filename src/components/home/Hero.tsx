@@ -149,20 +149,6 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Badge */}
-          <motion.div
-            custom={0}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8 shadow-lg backdrop-blur-sm"
-          >
-            <Circle className="h-2 w-2 fill-blue-500 text-blue-500" />
-            <span className="text-gray-700 dark:text-gray-200 tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm">
-              {t('hero.badge')}
-            </span>
-          </motion.div>
-
           {/* Main Heading */}
           <motion.h1
             custom={1}
@@ -183,6 +169,20 @@ const Hero: React.FC = () => {
               {t('hero.titleEnd')}
             </span>
           </motion.h1>
+
+          {/* Badge moved after title */}
+          <motion.div
+            custom={1.5}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 rounded-full mb-4 sm:mb-6 shadow-lg backdrop-blur-sm whitespace-nowrap"
+          >
+            <Circle className="h-1.5 w-1.5 sm:h-2 sm:w-2 fill-blue-500 text-blue-500 flex-shrink-0" />
+            <span className="text-gray-700 dark:text-gray-200 tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm md:text-base leading-none">
+              {t('hero.badge')}
+            </span>
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p
