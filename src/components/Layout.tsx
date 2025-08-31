@@ -110,114 +110,113 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button - Always visible */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Menu de navigation"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu size={24} />
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Side Panel */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: '-100%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '-100%' }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="lg:hidden fixed inset-0 bg-white z-40 flex flex-col"
-            >
-              {/* Header du menu mobile */}
-              <div className="flex justify-between items-center p-4 border-b border-gray-200">
-                <Link to="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
-                  <img 
-                    src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
-                    alt="WebFitYou Logo"
-                    className="w-8 h-8 rounded-lg"
-                  />
-                  <span className="text-xl font-bold text-gray-900">WebFitYou</span>
-                </Link>
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 text-gray-600 hover:text-gray-900"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              {/* Contenu du menu */}
-              <div className="flex-1 flex flex-col justify-center px-8 space-y-8">
-                {/* Toggle de langue */}
-                <div className="flex justify-center mb-8">
-                  <LanguageToggle />
+            <>
+              {/* Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="lg:hidden fixed inset-0 bg-black/50 z-40"
+                onClick={() => setIsMenuOpen(false)}
+              />
+              
+              {/* Side Panel */}
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
+                className="lg:hidden fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl flex flex-col"
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center space-x-2">
+                    <img 
+                      src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                      alt="WebFitYou Logo"
+                      className="w-8 h-8 rounded-lg"
+                    />
+                    <span className="text-xl font-bold text-gray-900">WebFitYou</span>
+                  </div>
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+                    aria-label="Fermer le menu"
+                  >
+                    <X size={24} />
+                  </button>
                 </div>
-                
-                {/* Navigation items */}
-                {navItems.map((item) => (
+
+                {/* Navigation */}
+                <div className="flex-1 py-8">
+                  <nav className="space-y-2 px-6">
+                    {navItems.map((item, index) => (
+                      <motion.div
+                        key={item.path}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + index * 0.05 }}
+                      >
+                        <Link
+                          to={item.path}
+                          onClick={() => setIsMenuOpen(false)}
+                          className={`block px-4 py-3 rounded-xl text-lg font-medium transition-all duration-200 ${
+                            location.pathname === item.path
+                              ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
+                              : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </nav>
+                </div>
+
+                {/* Footer with CTA */}
+                <div className="p-6 border-t border-gray-200">
                   <motion.div
-                    key={item.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 * navItems.indexOf(item) }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
                   >
                     <Link
-                      to={item.path}
+                      to="/contact"
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block text-center py-4 text-2xl font-medium transition-colors ${
-                        location.pathname === item.path
-                          ? 'text-blue-600'
-                          : 'text-gray-900 hover:text-blue-600'
-                      }`}
+                      className="block w-full bg-blue-600 text-white px-6 py-4 rounded-xl text-center font-semibold hover:bg-blue-700 transition-colors mb-4"
                     >
-                      {item.label}
+                      {t('nav.freeQuote')}
                     </Link>
+                    
+                    <div className="flex justify-center mb-4">
+                      <LanguageToggle />
+                    </div>
+                    
+                    <div className="text-center text-sm text-gray-500 space-y-1">
+                      <p>webfityou@gmail.com</p>
+                      <p>+33 6 38 22 98 04</p>
+                    </div>
                   </motion.div>
-                ))}
-                
-                {/* CTA Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="pt-8"
-                >
-                  <Link
-                    to="/contact"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block w-full bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold text-center hover:bg-blue-700 transition-colors"
-                  >
-                    {t('nav.freeQuote')}
-                  </Link>
-                </motion.div>
-              </div>
-
-              {/* Footer du menu mobile */}
-              <div className="p-8 border-t border-gray-200">
-                <div className="text-center text-sm text-gray-500">
-                  <p>webfityou@gmail.com</p>
-                  <p>+33 6 38 22 98 04</p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </nav>
-
-      {/* Overlay pour fermer le menu en cliquant à côté */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="lg:hidden fixed inset-0 bg-black/20 z-30"
-            onClick={() => setIsMenuOpen(false)}
-          />
-        )}
-      </AnimatePresence>
 
       {/* Main Content */}
       <main className="pt-16">
