@@ -63,7 +63,7 @@ const About: React.FC = () => {
 
   const technologies = [
     { name: "React.js", description: "Framework frontend moderne" },
-    { name: "GPT-4", description: "Intelligence artificielle avancée" },
+    { name: "GPT-5", description: "Intelligence artificielle avancée" },
     { name: "Supabase", description: "Backend-as-a-Service scalable" },
     { name: "N8N", description: "Automatisations workflow" },
     { name: "Tailwind CSS", description: "Framework CSS utility-first" },
