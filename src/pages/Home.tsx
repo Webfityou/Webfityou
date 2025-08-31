@@ -15,6 +15,7 @@ import {
 import Hero from '../components/home/Hero';
 import TestimonialsSlider from '../components/home/TestimonialsSlider';
 import MiniAuditForm from '../components/home/MiniAuditForm';
+import SEOGrowthAnimation from '../components/home/SEOGrowthAnimation';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -53,6 +54,9 @@ const Home: React.FC = () => {
 
       {/* Hero Section */}
       <Hero />
+
+      {/* SEO Growth Animation Section */}
+      <SEOGrowthAnimation />
 
       {/* Benefits Section */}
       <section className="py-20 bg-white">
