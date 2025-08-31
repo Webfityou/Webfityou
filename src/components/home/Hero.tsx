@@ -77,20 +77,11 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm text-cyan-300 border border-cyan-400/30 rounded-full text-sm font-medium mb-8"
-          >
-            {t('hero.badge')}
-          </motion.div>
-
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight text-center"
           >
             <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Votre marketing</span>
@@ -127,7 +118,7 @@ const Hero: React.FC = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.3 }}
             className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4 text-center"
           >
             Sites web optimisés SEO automatiquement par l'intelligence artificielle GPT-5. 
@@ -138,7 +129,7 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4"
           >
             <Link
@@ -159,7 +150,7 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm text-gray-400 px-4"
           >
             <div className="flex items-center">
