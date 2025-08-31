@@ -90,11 +90,8 @@ const Home: React.FC = () => {
                 {index === 1 ? (
                   <>
                     {/* Bordure dégradée animée pour SEO IA */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
-                      <div className="absolute inset-0 rounded-2xl">
-                        <div className="absolute inset-0 bg-gradient-conic from-yellow-400 via-orange-500 via-red-500 via-pink-500 to-yellow-400 animate-spin-slower"></div>
-                        <div className="absolute inset-[3px] rounded-2xl bg-white sm:bg-gray-50"></div>
-                      </div>
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute inset-0 rounded-2xl border-4 border-dashed animate-color-cycle"></div>
                     </div>
                     <div className="relative z-10">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-6">

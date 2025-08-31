@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 @layer utilities {
-  .animate-spin-slower {
-    animation: spin 6s linear infinite;
+  .animate-color-cycle {
+    animation: colorCycle 4s linear infinite;
   }
   
   .bg-gradient-conic {
     background: conic-gradient(from 0deg, #facc15, #f97316, #ef4444, #ec4899, #facc15);
   }
+}
+
+@keyframes colorCycle {
+  0% { border-color: #facc15; }
+  25% { border-color: #f97316; }
+  50% { border-color: #ef4444; }
+  75% { border-color: #ec4899; }
+  100% { border-color: #facc15; }
 }
