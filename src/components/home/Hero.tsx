@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   const { t } = useTranslation();
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["révolutionnaire", "intelligent", "automatisé", "performant", "innovant", "clé en main"],
+    () => ["automatisé", "révolutionnaire", "intelligent", "performant", "innovant", "clé en main"],
     []
   );
 
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
-                  className="absolute font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+                  className="absolute font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
                   initial={{ opacity: 0, y: -100 }}
                   transition={{ type: "spring", stiffness: 50 }}
                   animate={
