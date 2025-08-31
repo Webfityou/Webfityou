@@ -254,11 +254,11 @@
     "plans": {
       "solo": {
         "name": "Solo",
-        "description": "Perfect for entrepreneurs getting started",
+        "description": "Essential monitoring for starting entrepreneurs",
         "features": [
-          "5-page website",
+          "Continuous SEO optimization",
           "Mobile responsive design",
-          "Basic SEO",
+          "Performance monitoring",
           "Hosting included",
           "Email support",
           "1 revision per month"
@@ -272,10 +272,10 @@
       },
       "pro": {
         "name": "Pro",
-        "description": "Ideal for growing businesses",
+        "description": "Accelerated growth for ambitious businesses",
         "popular": "Most popular",
         "features": [
-          "Unlimited website",
+          "Unlimited optimizations",
           "Blog & AI-powered automated SEO",
           "Social media (2 platforms)",
           "Advanced analytics",
@@ -291,7 +291,7 @@
       },
       "human": {
         "name": "Human",
-        "description": "Premium support with dedicated consultant",
+        "description": "Market domination with dedicated expert",
         "features": [
           "Everything in Pro plan",
           "Dedicated consultant",

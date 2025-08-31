@@ -254,11 +254,11 @@
     "plans": {
       "solo": {
         "name": "Solo",
-        "description": "Parfait pour les entrepreneurs qui démarrent",
+        "description": "Suivi essentiel pour entrepreneurs qui démarrent",
         "features": [
-          "Site web 5 pages",
+          "Optimisation SEO continue",
           "Design responsive mobile",
-          "SEO de base",
+          "Monitoring des performances",
           "Hébergement inclus",
           "Support par email",
           "1 révision par mois"
@@ -272,10 +272,10 @@
       },
       "pro": {
         "name": "Pro",
-        "description": "Idéal pour les entreprises en croissance",
+        "description": "Croissance accélérée pour entreprises ambitieuses",
         "popular": "Plus populaire",
         "features": [
-          "Site web illimité",
+          "Optimisations illimitées",
           "Blog & SEO automatisé par IA",
           "Réseaux sociaux (2 plateformes)",
           "Analytics avancés",
@@ -291,7 +291,7 @@
       },
       "human": {
         "name": "Humain",
-        "description": "Accompagnement premium avec consultant dédié",
+        "description": "Domination du marché avec expert dédié",
         "features": [
           "Tout du plan Pro",
           "Consultant dédié",
