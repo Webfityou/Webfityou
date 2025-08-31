@@ -122,7 +122,7 @@ const About: React.FC = () => {
                 </p>
                 <p>
                   Notre approche unique combine le meilleur de deux mondes : la puissance 
-                  de l'intelligence artificielle GPT-4 pour l'optimisation SEO automatisée 
+                  de l'intelligence artificielle GPT-5 pour l'optimisation SEO automatisée 
                   et l'expertise humaine pour un accompagnement personnalisé.
                 </p>
                 <p>
