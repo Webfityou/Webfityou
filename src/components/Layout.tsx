@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageToggle from './LanguageToggle';
 
@@ -134,16 +134,36 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       {/* WhatsApp Chat Button */}
-      <motion.a
-        href="https://wa.me/33638229804?text=Bonjour%20WebFitYou%20!%20%F0%9F%91%8B%0A%0AJe%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20services%20pour%20cr%C3%A9er%20un%20site%20web%20professionnel%20avec%20du%20SEO%20automatis%C3%A9%20par%20IA.%0A%0APourriez-vous%20me%20donner%20plus%20d%27informations%20sur%20:%0A%E2%9C%85%20Vos%20tarifs%20et%20d%C3%A9lais%0A%E2%9C%85%20Comment%20fonctionne%20votre%20SEO%20par%20IA%0A%E2%9C%85%20Les%20%C3%A9tapes%20de%20cr%C3%A9ation%0A%0AMerci%20d%27avance%20pour%20votre%20r%C3%A9ponse%20rapide%20!%20%F0%9F%9A%80"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <MessageCircle size={24} />
-      </motion.a>
+      <div className="fixed bottom-6 right-6 z-40">
+        {/* WhatsApp Options */}
+        <div className="flex flex-col items-end space-y-3">
+          {/* Message Option */}
+          <motion.a
+            href="https://wa.me/33638229804?text=Bonjour%20WebFitYou%20!%20%F0%9F%91%8B%0A%0AJe%20souhaite%20transformer%20ma%20pr%C3%A9sence%20digitale%20avec%20votre%20expertise%20!%20%F0%9F%9A%80%0A%0AJe%20suis%20int%C3%A9ress%C3%A9(e)%20par%20:%0A%E2%9C%A8%20Cr%C3%A9ation%20d%27un%20site%20web%20professionnel%0A%F0%9F%A4%96%20SEO%20automatis%C3%A9%20par%20IA%20nouvelle%20g%C3%A9n%C3%A9ration%0A%F0%9F%93%88%20Optimisation%20pour%20un%20meilleur%20r%C3%A9f%C3%A9rencement%0A%0APourriez-vous%20me%20pr%C3%A9senter%20vos%20solutions%20et%20tarifs%20?%0A%0AJ%27ai%20h%C3%A2te%20de%20d%C3%A9couvrir%20comment%20vous%20pouvez%20booster%20mon%20business%20!%20%F0%9F%92%BC%E2%9C%A8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:shadow-xl"
+            whileHover={{ scale: 1.05, x: -5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MessageCircle size={20} className="mr-2" />
+            <span className="text-sm font-medium whitespace-nowrap">Envoyer un message</span>
+          </motion.a>
+
+          {/* Call Option */}
+          <motion.a
+            href="https://wa.me/33638229804"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center bg-blue-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300 hover:shadow-xl"
+            whileHover={{ scale: 1.05, x: -5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Phone size={20} className="mr-2" />
+            <span className="text-sm font-medium whitespace-nowrap">Appeler maintenant</span>
+          </motion.a>
+        </div>
+      </div>
 
       {/* Footer */}
       <footer className="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 text-gray-800 py-12">
