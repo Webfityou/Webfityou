@@ -155,10 +155,10 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-black/[0.03] dark:bg-white/[0.08] border border-black/[0.08] dark:border-white/[0.08] rounded-full text-sm font-medium mb-6 sm:mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 rounded-full text-sm font-medium mb-6 sm:mb-8 shadow-lg backdrop-blur-sm"
           >
             <Circle className="h-2 w-2 fill-blue-500 text-blue-500" />
-            <span className="text-black/60 dark:text-white/60 tracking-wide transition-colors duration-300">
+            <span className="text-gray-700 dark:text-gray-200 tracking-wide transition-colors duration-300 font-medium">
               {t('hero.badge')}
             </span>
           </motion.div>
@@ -171,15 +171,15 @@ const Hero: React.FC = () => {
             animate="visible"
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 transition-colors duration-300">
+            <span className="text-gray-900 dark:text-white transition-colors duration-300 drop-shadow-sm">
               {t('hero.title')}
             </span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 drop-shadow-sm">
               {t('hero.titleHighlight')}
             </span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 transition-colors duration-300">
+            <span className="text-gray-900 dark:text-white transition-colors duration-300 drop-shadow-sm">
               {t('hero.titleEnd')}
             </span>
           </motion.h1>
@@ -190,7 +190,7 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-black/50 dark:text-white/70 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-light tracking-wide px-4 transition-colors duration-300"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-medium tracking-wide px-4 transition-colors duration-300 drop-shadow-sm"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -223,7 +223,7 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-black/40 dark:text-white/40 transition-colors duration-300"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300"
           >
             <div className="flex items-center justify-center">
               <div className="flex -space-x-1 sm:-space-x-2 mr-2 sm:mr-3">
@@ -254,7 +254,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/80 dark:from-gray-900 dark:via-transparent dark:to-gray-900/80 pointer-events-none transition-colors duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/90 dark:from-gray-900/95 dark:via-transparent dark:to-gray-900/90 pointer-events-none transition-colors duration-300" />
     </section>
   );
 };
