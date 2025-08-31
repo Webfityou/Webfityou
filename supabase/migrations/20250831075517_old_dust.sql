@@ -27,7 +27,7 @@ INSERT INTO blog_translations (post_id, language, title, excerpt, content, meta_
   (
     '550e8400-e29b-41d4-a716-446655440001',
     'fr',
-    'Comment le SEO automatisé GPT-4 révolutionne le référencement',
+    'Comment le SEO automatisé GPT-5 révolutionne le référencement',
     'Découvrez comment l''intelligence artificielle transforme le référencement naturel et permet d''obtenir des résultats 3x plus rapidement.',
     'L''intelligence artificielle révolutionne le monde du SEO. Avec GPT-4, nous pouvons maintenant automatiser une grande partie du processus d''optimisation pour les moteurs de recherche, tout en maintenant une qualité exceptionnelle.
 
