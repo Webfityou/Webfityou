@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer utilities {
-  .animate-spin-slow {
-    animation: spin 3s linear infinite;
+  .animate-spin-slower {
+    animation: spin 6s linear infinite;
   }
   
   .bg-gradient-conic {
