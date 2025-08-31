@@ -342,7 +342,7 @@ INSERT INTO blog_translations (post_id, language, title, excerpt, content, meta_
   (
     '550e8400-e29b-41d4-a716-446655440001',
     'en',
-    'How GPT-4 Automated SEO Revolutionizes Search Engine Optimization',
+    'How GPT-5 Automated SEO Revolutionizes Search Engine Optimization',
     'Discover how artificial intelligence transforms natural referencing and achieves results 3x faster.',
     'Artificial intelligence is revolutionizing the world of SEO. With GPT-4, we can now automate much of the search engine optimization process while maintaining exceptional quality.
 
