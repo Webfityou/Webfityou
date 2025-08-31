@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, ArrowRight, User, Mail, Phone } from 'lucide-react';
 import { useDemandeAudit, DemandeAuditData } from '../../hooks/useAudit';
 
-const FormulaireAuditMini: React.FC = () => {
+export default function FormulaireAuditMini() {
   const { t } = useTranslation();
   const { soumettreDemandeAudit, loading } = useDemandeAudit();
   const [currentStep, setCurrentStep] = useState(0);
@@ -336,4 +336,3 @@ const FormulaireAuditMini: React.FC = () => {
       </div>
     </div>
   );
-};
