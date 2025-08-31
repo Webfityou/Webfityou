@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                 {index === 1 ? (
                   <>
                     {/* Bordure néon rotative pour SEO IA */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-4 animate-color-cycle"></div>
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 animate-color-cycle"></div>
                     <div className="relative z-10">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-6">
                         <img 

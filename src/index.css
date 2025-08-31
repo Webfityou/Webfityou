@@ -10,18 +10,18 @@
 
 @keyframes colorCycle {
   0% {
-    border-color: #facc15; /* Jaune */
+    border-color: #facc15;
   }
   25% {
-    border-color: #f97316; /* Orange */
+    border-color: #f97316;
   }
   50% {
-    border-color: #ef4444; /* Rouge */
+    border-color: #ef4444;
   }
   75% {
-    border-color: #ec4899; /* Rose */
+    border-color: #ec4899;
   }
   100% {
-    border-color: #facc15; /* Retour au jaune */
+    border-color: #facc15;
   }
 }
