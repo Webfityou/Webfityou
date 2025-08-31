@@ -55,10 +55,10 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-16 leading-tight text-center"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-8 leading-tight text-center"
           >
             <div className="flex flex-col items-center justify-center">
-              <span className="text-white mb-4">Votre marketing</span>
+              <span className="text-white mb-2">Votre marketing</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center h-20 md:h-24 lg:h-28 xl:h-32">
               {titles.map((title, index) => (
                 <motion.span
@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed px-4 text-center"
+            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4 text-center"
           >
             Sites web <span className="text-white font-bold">optimisés SEO automatiquement par l'intelligence artificielle</span>. 
             Votre présence digitale professionnelle en 7 jours, sans stress technique.
