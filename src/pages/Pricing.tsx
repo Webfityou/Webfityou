@@ -80,13 +80,13 @@ const Pricing: React.FC = () => {
             </p>
 
             {/* Billing Toggle */}
-            <div className="inline-flex items-center bg-gray-100 dark:bg-gray-700 rounded-xl p-1 transition-colors duration-300">
+            <div className="inline-flex items-center bg-gray-100 dark:bg-gray-800 rounded-xl p-1 transition-colors duration-300">
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
                   billingPeriod === 'monthly'
-                   ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
-                   : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                   ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                   : 'text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 {t('pricing.monthly')}
@@ -95,8 +95,8 @@ const Pricing: React.FC = () => {
                 onClick={() => setBillingPeriod('yearly')}
                 className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
                   billingPeriod === 'yearly'
-                    ? 'bg-white text-gray-900 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                    : 'text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 {t('pricing.yearly')}
@@ -139,7 +139,7 @@ const Pricing: React.FC = () => {
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
                       {plan.name}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">
+                    <p className="text-gray-600 dark:text-gray-200 mb-4 transition-colors duration-300">
                       {plan.description}
                     </p>
                     
@@ -147,7 +147,7 @@ const Pricing: React.FC = () => {
                       <span className="text-4xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
                         {price}€
                       </span>
-                      <span className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
                         /{billingPeriod === 'monthly' ? t('pricing.month') : t('pricing.year')}
                       </span>
                     </div>
@@ -163,13 +163,13 @@ const Pricing: React.FC = () => {
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">{feature}</span>
+                        <span className="text-gray-700 dark:text-gray-200 transition-colors duration-300">{feature}</span>
                       </li>
                     ))}
                     {plan.notIncluded.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <X className="w-5 h-5 text-gray-300 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-400 dark:text-gray-500 transition-colors duration-300">{feature}</span>
+                        <span className="text-gray-400 dark:text-gray-600 transition-colors duration-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -188,7 +188,7 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* Pricing Simulator */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -197,10 +197,10 @@ const Pricing: React.FC = () => {
             className="text-center mb-12"
           >
             <Calculator className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               {t('pricing.simulator.title')}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-200 transition-colors duration-300">
               {t('pricing.simulator.subtitle')}
             </p>
           </motion.div>
@@ -210,7 +210,7 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ const Pricing: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
               {t('pricing.faq.title')}
             </h2>
           </motion.div>
@@ -231,12 +231,12 @@ const Pricing: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-6"
+                className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 transition-colors duration-300"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-200 transition-colors duration-300">
                   {faq.answer}
                 </p>
               </motion.div>

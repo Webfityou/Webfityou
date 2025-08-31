@@ -127,8 +127,8 @@ const PricingSimulator: React.FC = () => {
       return (
         <div className="space-y-6">
           <div className="text-center">
-            <span className="text-4xl font-bold text-blue-600">{data.pages}</span>
-            <span className="text-gray-600 ml-2">{t('pricing.simulator.steps.pages.unit')}</span>
+            <span className="text-4xl font-bold text-blue-600 dark:text-blue-400">{data.pages}</span>
+            <span className="text-gray-600 dark:text-gray-200 ml-2 transition-colors duration-300">{t('pricing.simulator.steps.pages.unit')}</span>
           </div>
           <input
             type="range"
@@ -177,13 +177,13 @@ const PricingSimulator: React.FC = () => {
               }}
               className={`p-4 text-left border-2 rounded-xl transition-all ${
                 isSelected
-                  ? 'border-blue-500 bg-blue-50 text-blue-700'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-900 dark:text-gray-100'
               }`}
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <div className="font-medium">{option.label}</div>
+                  <div className="font-medium transition-colors duration-300">{option.label}</div>
                   {option.price !== 0 && (
                     <div className={`text-sm ${
                       option.price > 0 ? 'text-green-600' : 'text-red-600'
@@ -208,18 +208,18 @@ const PricingSimulator: React.FC = () => {
   const currentPrice = calculatePrice();
 
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div className="max-w-3xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-colors duration-300">
       {/* Progress */}
-      <div className="bg-gray-50 px-8 py-4">
+      <div className="bg-gray-50 dark:bg-gray-800 px-8 py-4 transition-colors duration-300">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-600">
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-200 transition-colors duration-300">
             {t('common.step')} {currentStep + 1} {t('common.of')} {steps.length}
           </span>
           <div className="text-2xl font-bold text-blue-600">
             {currentPrice}€
           </div>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 transition-colors duration-300">
           <motion.div
             className="bg-blue-600 h-2 rounded-full"
             animate={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
@@ -239,7 +239,7 @@ const PricingSimulator: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
             {steps[currentStep].title}
           </h3>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 dark:text-gray-200 mb-8 transition-colors duration-300">
             {steps[currentStep].question}
           </p>
 
@@ -247,11 +247,11 @@ const PricingSimulator: React.FC = () => {
         </motion.div>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center mt-8 pt-8 border-t border-gray-200">
+        <div className="flex justify-between items-center mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
           <button
             onClick={handlePrevious}
             disabled={currentStep === 0}
-            className="px-6 py-3 border border-gray-300 rounded-xl text-gray-700 font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-200 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300"
           >
             {t('pricing.simulator.previous')}
           </button>

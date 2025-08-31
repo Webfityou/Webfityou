@@ -92,9 +92,9 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white dark:bg-[#0a0a0a] overflow-hidden transition-colors duration-300">
+    <section className="relative min-h-screen flex items-center justify-center bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       {/* Elegant Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08] dark:from-indigo-500/[0.12] dark:via-transparent dark:to-rose-500/[0.12] blur-3xl transition-colors duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08] dark:from-indigo-500/[0.25] dark:via-transparent dark:to-rose-500/[0.25] blur-3xl transition-colors duration-300" />
 
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape
@@ -176,10 +176,10 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-600 rounded-full mb-4 sm:mb-6 shadow-lg backdrop-blur-sm whitespace-nowrap"
+            className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700 rounded-full mb-4 sm:mb-6 shadow-lg backdrop-blur-sm whitespace-nowrap"
           >
             <Circle className="h-1.5 w-1.5 sm:h-2 sm:w-2 fill-blue-500 text-blue-500 flex-shrink-0" />
-            <span className="text-gray-700 dark:text-white tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm md:text-base leading-none">
+            <span className="text-gray-700 dark:text-gray-100 tracking-wide transition-colors duration-300 font-medium text-xs sm:text-sm md:text-base leading-none">
               {t('hero.badge')}
             </span>
           </motion.div>
@@ -211,7 +211,7 @@ const Hero: React.FC = () => {
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
             
-            <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white font-semibold rounded-xl border-2 border-gray-200/50 dark:border-gray-600/50 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group w-full sm:w-auto justify-center">
+            <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm text-gray-900 dark:text-gray-100 font-semibold rounded-xl border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group w-full sm:w-auto justify-center">
               <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
               {t('hero.watchDemo')}
             </button>
@@ -223,7 +223,7 @@ const Hero: React.FC = () => {
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 dark:text-white transition-colors duration-300"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 dark:text-gray-200 transition-colors duration-300"
           >
             <div className="flex items-center justify-center">
               <div className="flex -space-x-1 sm:-space-x-2 mr-2 sm:mr-3">
@@ -254,7 +254,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/90 dark:from-[#0a0a0a] dark:via-transparent dark:to-[#0a0a0a]/60 pointer-events-none transition-colors duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/90 dark:from-black/95 dark:via-transparent dark:to-black/60 pointer-events-none transition-colors duration-300" />
     </section>
   );
 };

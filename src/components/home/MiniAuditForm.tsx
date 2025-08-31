@@ -120,8 +120,8 @@ const MiniAuditForm: React.FC = () => {
                 onClick={() => handleInputChange(step.key, option.value)}
                 className={`p-4 text-left border-2 rounded-xl transition-colors ${
                   value === option.value
-                    ? 'border-blue-500 bg-blue-50 text-blue-700'
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-900 dark:text-gray-100'
                 }`}
               >
                 {option.label}
@@ -145,12 +145,12 @@ const MiniAuditForm: React.FC = () => {
                 }}
                 className={`p-4 text-left border-2 rounded-xl transition-colors flex items-center ${
                   (value as string[])?.includes(option.value)
-                    ? 'border-blue-500 bg-blue-50 text-blue-700'
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-900 dark:text-gray-100'
                 }`}
               >
                 <CheckCircle className={`w-5 h-5 mr-3 ${
-                  (value as string[])?.includes(option.value) ? 'text-blue-500' : 'text-gray-300'
+                  (value as string[])?.includes(option.value) ? 'text-blue-500' : 'text-gray-300 dark:text-gray-600'
                 }`} />
                 {option.label}
               </button>
@@ -164,18 +164,18 @@ const MiniAuditForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 transition-colors duration-300">
+    <div className="max-w-2xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 sm:p-8 transition-colors duration-300">
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 transition-colors duration-300">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-200 transition-colors duration-300">
             Étape {currentStep + 1} sur {steps.length}
           </span>
-          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-200 transition-colors duration-300">
             {Math.round(((currentStep + 1) / steps.length) * 100)}%
           </span>
         </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 transition-colors duration-300">
+        <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2 transition-colors duration-300">
           <motion.div
             className="bg-blue-600 h-2 rounded-full"
             initial={{ width: 0 }}
@@ -195,7 +195,7 @@ const MiniAuditForm: React.FC = () => {
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
           {steps[currentStep].title}
         </h3>
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 transition-colors duration-300">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-200 mb-6 sm:mb-8 transition-colors duration-300">
           {steps[currentStep].question}
         </p>
 
