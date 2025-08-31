@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Check, X, Star, ArrowRight, Calculator } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import PricingSimulator from '../components/pricing/PricingSimulator';
+import SimulateurTarif from '../components/pricing/PricingSimulator';
 
 const Pricing: React.FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
@@ -205,7 +205,7 @@ const Pricing: React.FC = () => {
             </p>
           </motion.div>
           
-          <PricingSimulator />
+          <SimulateurTarif />
         </div>
       </section>
 

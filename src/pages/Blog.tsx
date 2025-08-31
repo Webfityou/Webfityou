@@ -4,13 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useBlog } from '../hooks/useBlog';
+import { useArticlesBlog } from '../hooks/useBlog';
 
 const Blog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const { t, i18n } = useTranslation();
-  const { posts, loading, error, searchPosts, getFeaturedPost, getPostTranslation } = useBlog(i18n.language);
+  const { articles, loading, error, rechercherArticles, getArticleVedette, getTraductionArticle } = useArticlesBlog(i18n.language);
 
   const categories = [
     { id: 'all', label: t('blog.categories.all') },
@@ -21,8 +21,8 @@ const Blog: React.FC = () => {
     { id: 'conseils', label: t('blog.categories.conseils') }
   ];
 
-  const filteredArticles = searchPosts(searchTerm, selectedCategory);
-  const featuredArticle = getFeaturedPost();
+  const articlesFiltrés = rechercherArticles(searchTerm, selectedCategory);
+  const articleVedette = getArticleVedette();
 
   if (loading) {
     return (
@@ -115,7 +115,7 @@ const Blog: React.FC = () => {
       {selectedCategory === 'all' && !searchTerm && (
         <section className="py-16 bg-white">
           {(() => {
-            const translation = getPostTranslation(featuredArticle, i18n.language);
+            const translation = getTraductionArticle(articleVedette, i18n.language);
             if (!translation) return null;
             
             return (
@@ -144,11 +144,11 @@ const Blog: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="w-4 h-4 mr-2" />
-                      {new Date(featuredArticle.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US')}
+                      {new Date(articleVedette.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US')}
                     </div>
                   </div>
                   <Link
-                    to={`/blog/${featuredArticle.slug}`}
+                    to={`/blog/${articleVedette.slug}`}
                     className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors group"
                   >
                     {t('blog.readArticle')}
@@ -157,7 +157,7 @@ const Blog: React.FC = () => {
                 </div>
                 <div className="relative">
                   <img
-                    src={featuredArticle.image_url || ''}
+                    src={articleVedette.image_url || ''}
                     alt={translation.title}
                     className="w-full h-full object-cover"
                   />
@@ -173,7 +173,7 @@ const Blog: React.FC = () => {
       {/* Articles Grid */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredArticles.length === 0 ? (
+          {articlesFiltrés.length === 0 ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -188,8 +188,8 @@ const Blog: React.FC = () => {
               layout
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {filteredArticles.slice(selectedCategory === 'all' && !searchTerm && featuredArticle ? 1 : 0).map((article, index) => {
-                const translation = getPostTranslation(article, i18n.language);
+              {articlesFiltrés.slice(selectedCategory === 'all' && !searchTerm && articleVedette ? 1 : 0).map((article, index) => {
+                const translation = getTraductionArticle(article, i18n.language);
                 if (!translation) return null;
                 
                 return (

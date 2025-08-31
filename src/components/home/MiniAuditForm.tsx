@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, ArrowRight, User, Mail, Phone } from 'lucide-react';
-import { useAudit, AuditFormData } from '../../hooks/useAudit';
+import { useDemandeAudit, DemandeAuditData } from '../../hooks/useAudit';
 
-const MiniAuditForm: React.FC = () => {
+const FormulaireAuditMini: React.FC = () => {
   const { t } = useTranslation();
-  const { submitAudit, loading } = useAudit();
+  const { soumettreDemandeAudit, loading } = useDemandeAudit();
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState<AuditFormData>({
+  const [donneesFormulaire, setDonneesFormulaire] = useState<DemandeAuditData>({
     website: '',
     business_sector: '',
     goals: [],
@@ -80,15 +80,15 @@ const MiniAuditForm: React.FC = () => {
   ];
 
   const handleInputChange = (key: string, value: string | string[]) => {
-    setFormData(prev => ({ ...prev, [key]: value }));
+    setDonneesFormulaire(prev => ({ ...prev, [key]: value }));
   };
 
   const handleNext = async () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Submit form
-      const success = await submitAudit(formData);
+      // Soumettre le formulaire
+      const success = await soumettreDemandeAudit(donneesFormulaire);
       if (success) {
         setIsSubmitted(true);
       }
@@ -98,12 +98,12 @@ const MiniAuditForm: React.FC = () => {
   const canProceed = () => {
     const step = steps[currentStep];
     
-    if (step.key === 'website') return formData.website.trim() !== ''; // Required field
+    if (step.key === 'website') return donneesFormulaire.website.trim() !== ''; // Champ obligatoire
     if (step.key === 'contact') {
-      return formData.first_name && formData.last_name && formData.email;
+      return donneesFormulaire.first_name && donneesFormulaire.last_name && donneesFormulaire.email;
     }
     
-    const value = formData[step.key as keyof AuditFormData];
+    const value = donneesFormulaire[step.key as keyof DemandeAuditData];
     
     if (step.type === 'checkbox') return Array.isArray(value) && value.length > 0;
     return value !== '';
@@ -120,7 +120,7 @@ const MiniAuditForm: React.FC = () => {
               <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                value={formData.first_name}
+                value={donneesFormulaire.first_name}
                 onChange={(e) => handleInputChange('first_name', e.target.value)}
                 placeholder="Prénom"
                 className="w-full pl-10 pr-4 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base"
@@ -130,7 +130,7 @@ const MiniAuditForm: React.FC = () => {
               <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                value={formData.last_name}
+                value={donneesFormulaire.last_name}
                 onChange={(e) => handleInputChange('last_name', e.target.value)}
                 placeholder="Nom"
                 className="w-full pl-10 pr-4 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base"
@@ -141,7 +141,7 @@ const MiniAuditForm: React.FC = () => {
             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="email"
-              value={formData.email}
+              value={donneesFormulaire.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               placeholder="Adresse email"
               className="w-full pl-10 pr-4 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base"
@@ -151,7 +151,7 @@ const MiniAuditForm: React.FC = () => {
             <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="tel"
-              value={formData.phone}
+              value={donneesFormulaire.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
               placeholder="Numéro de téléphone (optionnel)"
               className="w-full pl-10 pr-4 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base"
@@ -161,7 +161,7 @@ const MiniAuditForm: React.FC = () => {
       );
     }
 
-    const value = formData[step.key as keyof AuditFormData];
+    const value = donneesFormulaire[step.key as keyof DemandeAuditData];
 
     switch (step.type) {
       case 'input':
@@ -337,5 +337,3 @@ const MiniAuditForm: React.FC = () => {
     </div>
   );
 };
-
-export default MiniAuditForm;

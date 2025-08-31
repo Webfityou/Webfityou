@@ -5,18 +5,18 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Share2, Clock, Tag } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { BlogPost as BlogPostType, BlogTranslation } from '../hooks/useBlog';
+import { ArticleBlog, TraductionArticle } from '../hooks/useBlog';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, i18n } = useTranslation();
-  const [post, setPost] = useState<BlogPostType | null>(null);
-  const [translation, setTranslation] = useState<BlogTranslation | null>(null);
+  const [article, setArticle] = useState<ArticleBlog | null>(null);
+  const [traduction, setTraduction] = useState<TraductionArticle | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchPost = async () => {
+    const recupererArticle = async () => {
       if (!slug) return;
 
       try {
@@ -37,37 +37,37 @@ const BlogPost: React.FC = () => {
           throw fetchError;
         }
 
-        setPost(data);
+        setArticle(data);
         
-        // Find translation for current language
-        const currentTranslation = data.translations.find(
-          (t: BlogTranslation) => t.language === i18n.language
+        // Trouver la traduction pour la langue actuelle
+        const traductionActuelle = data.translations.find(
+          (t: TraductionArticle) => t.language === i18n.language
         );
         
-        // Fallback to French if English not available
-        const fallbackTranslation = data.translations.find(
-          (t: BlogTranslation) => t.language === 'fr'
+        // Fallback vers le français si l'anglais n'est pas disponible
+        const traductionFallback = data.translations.find(
+          (t: TraductionArticle) => t.language === 'fr'
         );
         
-        setTranslation(currentTranslation || fallbackTranslation || null);
+        setTraduction(traductionActuelle || traductionFallback || null);
 
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
-        console.error('Error fetching blog post:', err);
+        console.error('Erreur lors de la récupération de l\'article:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPost();
+    recupererArticle();
   }, [slug, i18n.language]);
 
   const handleShare = async () => {
-    if (navigator.share && translation) {
+    if (navigator.share && traduction) {
       try {
         await navigator.share({
-          title: translation.title,
-          text: translation.excerpt,
+          title: traduction.title,
+          text: traduction.excerpt,
           url: window.location.href,
         });
       } catch (err) {
@@ -91,7 +91,7 @@ const BlogPost: React.FC = () => {
     );
   }
 
-  if (error || !post || !translation) {
+  if (error || !article || !traduction) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -116,11 +116,11 @@ const BlogPost: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{translation.meta_title || translation.title} - WebFitYou</title>
-        <meta name="description" content={translation.meta_description || translation.excerpt} />
-        <meta property="og:title" content={translation.title} />
-        <meta property="og:description" content={translation.excerpt} />
-        <meta property="og:image" content={post.image_url || ''} />
+        <title>{traduction.meta_title || traduction.title} - WebFitYou</title>
+        <meta name="description" content={traduction.meta_description || traduction.excerpt} />
+        <meta property="og:title" content={traduction.title} />
+        <meta property="og:description" content={traduction.excerpt} />
+        <meta property="og:image" content={article.image_url || ''} />
         <meta property="og:type" content="article" />
       </Helmet>
 
@@ -143,15 +143,15 @@ const BlogPost: React.FC = () => {
             {/* Article Meta */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
               <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full font-medium">
-                {categories.find(cat => cat.id === post.category)?.label || post.category}
+                {categories.find(cat => cat.id === article.category)?.label || article.category}
               </span>
               <div className="flex items-center">
                 <Calendar className="w-4 h-4 mr-2" />
-                {new Date(post.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US')}
+                {new Date(article.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US')}
               </div>
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2" />
-                {post.read_time} {t('blog.readTime')}
+                {article.read_time} {t('blog.readTime')}
               </div>
               <div className="flex items-center">
                 <User className="w-4 h-4 mr-2" />
@@ -161,12 +161,12 @@ const BlogPost: React.FC = () => {
 
             {/* Title */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              {translation.title}
+              {traduction.title}
             </h1>
 
             {/* Excerpt */}
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              {translation.excerpt}
+              {traduction.excerpt}
             </p>
 
             {/* Share Button */}
@@ -182,7 +182,7 @@ const BlogPost: React.FC = () => {
       </section>
 
       {/* Featured Image */}
-      {post.image_url && (
+      {article.image_url && (
         <section className="py-8 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -191,8 +191,8 @@ const BlogPost: React.FC = () => {
               transition={{ delay: 0.2 }}
             >
               <img
-                src={post.image_url}
-                alt={translation.title}
+                src={article.image_url}
+                alt={traduction.title}
                 className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg"
               />
             </motion.div>
@@ -212,13 +212,13 @@ const BlogPost: React.FC = () => {
             <div 
               className="text-gray-700 leading-relaxed"
               dangerouslySetInnerHTML={{ 
-                __html: translation.content.replace(/\n/g, '<br>').replace(/## (.*)/g, '<h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">$1</h2>').replace(/### (.*)/g, '<h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">$1</h3>') 
+                __html: traduction.content.replace(/\n/g, '<br>').replace(/## (.*)/g, '<h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">$1</h2>').replace(/### (.*)/g, '<h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">$1</h3>') 
               }}
             />
           </motion.div>
 
           {/* Tags */}
-          {post.tags.length > 0 && (
+          {article.tags.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -230,7 +230,7 @@ const BlogPost: React.FC = () => {
                 <span className="font-medium text-gray-900">{t('blog.post.tags')}</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
+                {article.tags.map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full hover:bg-gray-200 transition-colors"

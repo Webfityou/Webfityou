@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 
-export interface PricingSimulationData {
+export interface SimulationTarifData {
   project_type: string;
   pages: number;
   features: string[];
@@ -14,16 +14,16 @@ export interface PricingSimulationData {
   phone: string;
 }
 
-export const usePricingSimulator = () => {
+export const useSimulateurTarif = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const submitSimulation = async (formData: PricingSimulationData): Promise<boolean> => {
+  const soumettreSimulation = async (formData: SimulationTarifData): Promise<boolean> => {
     try {
       setLoading(true);
       setError(null);
 
-      // Insert pricing simulation
+      // Insérer la simulation de tarif
       const { data, error: insertError } = await supabase
         .from('pricing_simulations')
         .insert([{
@@ -46,7 +46,7 @@ export const usePricingSimulator = () => {
         throw insertError;
       }
 
-      // Trigger email notification
+      // Déclencher la notification email
       try {
         const { error: functionError } = await supabase.functions.invoke('send-pricing-notification', {
           body: { record: data }
@@ -54,17 +54,17 @@ export const usePricingSimulator = () => {
 
         if (functionError) {
           console.error('Error sending notification:', functionError);
-          // Don't throw here - the simulation was saved successfully
+          // Ne pas lever d'erreur ici - la simulation a été sauvegardée avec succès
         }
       } catch (notificationError) {
         console.error('Notification error:', notificationError);
-        // Continue - the main submission was successful
+        // Continuer - la soumission principale a réussi
       }
 
       return true;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue');
-      console.error('Error submitting pricing simulation:', err);
+      console.error('Erreur lors de la soumission de la simulation:', err);
       return false;
     } finally {
       setLoading(false);
@@ -72,7 +72,7 @@ export const usePricingSimulator = () => {
   };
 
   return {
-    submitSimulation,
+    soumettreSimulation,
     loading,
     error
   };

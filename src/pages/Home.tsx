@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import Hero from '../components/home/Hero';
 import TestimonialsSlider from '../components/home/TestimonialsSlider';
-import MiniAuditForm from '../components/home/MiniAuditForm';
+import FormulaireAuditMini from '../components/home/MiniAuditForm';
 import SEOGrowthAnimation from '../components/home/SEOGrowthAnimation';
 
 const Home: React.FC = () => {
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
             </p>
           </motion.div>
           
-          <MiniAuditForm />
+          <FormulaireAuditMini />
         </div>
       </section>
 

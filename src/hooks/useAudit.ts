@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 
-export interface AuditFormData {
+export interface DemandeAuditData {
   website: string;
   business_sector: string;
   goals: string[];
@@ -12,16 +12,16 @@ export interface AuditFormData {
   phone: string;
 }
 
-export const useAudit = () => {
+export const useDemandeAudit = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const submitAudit = async (formData: AuditFormData): Promise<boolean> => {
+  const soumettreDemandeAudit = async (formData: DemandeAuditData): Promise<boolean> => {
     try {
       setLoading(true);
       setError(null);
 
-      // Insert audit request
+      // Insérer la demande d'audit
       const { data, error: insertError } = await supabase
         .from('audit_requests')
         .insert([{
@@ -42,7 +42,7 @@ export const useAudit = () => {
         throw insertError;
       }
 
-      // Trigger email notification
+      // Déclencher la notification email
       try {
         const { error: functionError } = await supabase.functions.invoke('send-audit-notification', {
           body: { record: data }
@@ -50,17 +50,17 @@ export const useAudit = () => {
 
         if (functionError) {
           console.error('Error sending notification:', functionError);
-          // Don't throw here - the audit was saved successfully
+          // Ne pas lever d'erreur ici - l'audit a été sauvegardé avec succès
         }
       } catch (notificationError) {
         console.error('Notification error:', notificationError);
-        // Continue - the main audit submission was successful
+        // Continuer - la soumission principale de l'audit a réussi
       }
 
       return true;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue');
-      console.error('Error submitting audit:', err);
+      console.error('Erreur lors de la soumission de l\'audit:', err);
       return false;
     } finally {
       setLoading(false);
@@ -68,7 +68,7 @@ export const useAudit = () => {
   };
 
   return {
-    submitAudit,
+    soumettreDemandeAudit,
     loading,
     error
   };

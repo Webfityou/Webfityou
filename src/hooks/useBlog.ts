@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 
-export interface BlogPost {
+export interface ArticleBlog {
   id: string;
   slug: string;
   status: string;
@@ -22,7 +22,7 @@ export interface BlogPost {
   }[];
 }
 
-export interface BlogTranslation {
+export interface TraductionArticle {
   language: string;
   title: string;
   excerpt: string;
@@ -31,12 +31,12 @@ export interface BlogTranslation {
   meta_description: string;
 }
 
-export const useBlog = (language: string = 'fr') => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+export const useArticlesBlog = (language: string = 'fr') => {
+  const [articles, setArticles] = useState<ArticleBlog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchPosts = async () => {
+  const recupererArticles = async () => {
     try {
       setLoading(true);
       setError(null);
@@ -54,58 +54,58 @@ export const useBlog = (language: string = 'fr') => {
         throw fetchError;
       }
 
-      setPosts(data || []);
+      setArticles(data || []);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Error fetching blog posts:', err);
+      console.error('Erreur lors de la récupération des articles:', err);
     } finally {
       setLoading(false);
     }
   };
 
-  const getPostsByCategory = (category: string) => {
-    if (category === 'all') return posts;
-    return posts.filter(post => post.category === category);
+  const getArticlesByCategory = (category: string) => {
+    if (category === 'all') return articles;
+    return articles.filter(article => article.category === category);
   };
 
-  const getPostTranslation = (post: BlogPost, lang: string): BlogTranslation | null => {
-    return post.translations.find(t => t.language === lang) || null;
+  const getTraductionArticle = (article: ArticleBlog, lang: string): TraductionArticle | null => {
+    return article.translations.find(t => t.language === lang) || null;
   };
 
-  const searchPosts = (searchTerm: string, category: string = 'all') => {
-    let filteredPosts = category === 'all' ? posts : posts.filter(post => post.category === category);
+  const rechercherArticles = (searchTerm: string, category: string = 'all') => {
+    let filteredArticles = category === 'all' ? articles : articles.filter(article => article.category === category);
     
-    if (!searchTerm) return filteredPosts;
+    if (!searchTerm) return filteredArticles;
 
-    return filteredPosts.filter(post => {
-      const translation = getPostTranslation(post, language);
+    return filteredArticles.filter(article => {
+      const translation = getTraductionArticle(article, language);
       if (!translation) return false;
 
       const searchLower = searchTerm.toLowerCase();
       return (
         translation.title.toLowerCase().includes(searchLower) ||
         translation.excerpt.toLowerCase().includes(searchLower) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchLower))
+        article.tags.some(tag => tag.toLowerCase().includes(searchLower))
       );
     });
   };
 
-  const getFeaturedPost = (): BlogPost | null => {
-    return posts.find(post => post.featured) || posts[0] || null;
+  const getArticleVedette = (): ArticleBlog | null => {
+    return articles.find(article => article.featured) || articles[0] || null;
   };
 
   useEffect(() => {
-    fetchPosts();
+    recupererArticles();
   }, []);
 
   return {
-    posts,
+    articles,
     loading,
     error,
-    refetch: fetchPosts,
-    getPostsByCategory,
-    getPostTranslation,
-    searchPosts,
-    getFeaturedPost
+    refetch: recupererArticles,
+    getArticlesByCategory,
+    getTraductionArticle,
+    rechercherArticles,
+    getArticleVedette
   };
 };

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calculator, ArrowRight, User, Mail, Phone, CheckCircle } from 'lucide-react';
-import { usePricingSimulator, PricingSimulationData } from '../../hooks/usePricingSimulator';
+import { useSimulateurTarif, SimulationTarifData } from '../../hooks/usePricingSimulator';
 
-interface SimulatorData {
+interface DonneesSimulateur {
   projectType: string;
   pages: number;
   features: string[];
@@ -16,12 +16,12 @@ interface SimulatorData {
   phone: string;
 }
 
-const PricingSimulator: React.FC = () => {
+const SimulateurTarif: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const { t } = useTranslation();
-  const { submitSimulation, loading } = usePricingSimulator();
+  const { soumettreSimulation, loading } = useSimulateurTarif();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [data, setData] = useState<SimulatorData>({
+  const [donnees, setDonnees] = useState<DonneesSimulateur>({
     projectType: '',
     pages: 5,
     features: [],
@@ -96,26 +96,26 @@ const PricingSimulator: React.FC = () => {
     let basePrice = 500; // Prix de base
     
     // Type de projet
-    const projectOption = steps[0].options?.find(opt => opt.value === data.projectType);
+    const projectOption = steps[0].options?.find(opt => opt.value === donnees.projectType);
     if (projectOption) basePrice += projectOption.price;
     
     // Nombre de pages (au-delà de 5 pages de base)
-    if (data.pages > 5) {
-      basePrice += (data.pages - 5) * 20;
+    if (donnees.pages > 5) {
+      basePrice += (donnees.pages - 5) * 20;
     }
     
     // Fonctionnalités
-    data.features.forEach(feature => {
+    donnees.features.forEach(feature => {
       const featureOption = steps[2].options?.find(opt => opt.value === feature);
       if (featureOption) basePrice += featureOption.price;
     });
     
     // Timeline
-    const timelineOption = steps[3].options?.find(opt => opt.value === data.timeline);
+    const timelineOption = steps[3].options?.find(opt => opt.value === donnees.timeline);
     if (timelineOption) basePrice += timelineOption.price;
     
     // Support
-    const supportOption = steps[4].options?.find(opt => opt.value === data.support);
+    const supportOption = steps[4].options?.find(opt => opt.value === donnees.support);
     if (supportOption) basePrice += supportOption.price;
     
     return Math.max(basePrice, 300); // Prix minimum
@@ -125,21 +125,21 @@ const PricingSimulator: React.FC = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Submit simulation
-      const simulationData: PricingSimulationData = {
-        project_type: data.projectType,
-        pages: data.pages,
-        features: data.features,
-        timeline: data.timeline,
-        support: data.support,
+      // Soumettre la simulation
+      const donneesSimulation: SimulationTarifData = {
+        project_type: donnees.projectType,
+        pages: donnees.pages,
+        features: donnees.features,
+        timeline: donnees.timeline,
+        support: donnees.support,
         estimated_price: calculatePrice(),
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        phone: data.phone
+        first_name: donnees.first_name,
+        last_name: donnees.last_name,
+        email: donnees.email,
+        phone: donnees.phone
       };
       
-      const success = await submitSimulation(simulationData);
+      const success = await soumettreSimulation(donneesSimulation);
       if (success) {
         setIsSubmitted(true);
       }
@@ -152,17 +152,17 @@ const PricingSimulator: React.FC = () => {
     }
   };
 
-  const updateData = (key: keyof SimulatorData, value: any) => {
-    setData(prev => ({ ...prev, [key]: value }));
+  const mettreAJourDonnees = (key: keyof DonneesSimulateur, value: any) => {
+    setDonnees(prev => ({ ...prev, [key]: value }));
   };
 
   const canProceed = () => {
-    if (currentStep === 0) return data.projectType !== '';
-    if (currentStep === 1) return data.pages > 0;
+    if (currentStep === 0) return donnees.projectType !== '';
+    if (currentStep === 1) return donnees.pages > 0;
     if (currentStep === 2) return true; // Features are optional
-    if (currentStep === 3) return data.timeline !== '';
-    if (currentStep === 4) return data.support !== '';
-    if (currentStep === 5) return data.first_name && data.last_name && data.email;
+    if (currentStep === 3) return donnees.timeline !== '';
+    if (currentStep === 4) return donnees.support !== '';
+    if (currentStep === 5) return donnees.first_name && donnees.last_name && donnees.email;
     return false;
   };
   const renderStep = () => {
@@ -173,21 +173,21 @@ const PricingSimulator: React.FC = () => {
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <span className="text-4xl font-bold text-blue-600">{donnees.pages}</span>
               <input
                 type="text"
-                value={data.first_name}
-                onChange={(e) => updateData('first_name', e.target.value)}
+                value={donnees.first_name}
+                onChange={(e) => mettreAJourDonnees('first_name', e.target.value)}
                 placeholder="Prénom"
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
               />
             </div>
             <div className="relative">
               <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                value={data.last_name}
-                onChange={(e) => updateData('last_name', e.target.value)}
+              value={donnees.pages}
+              onChange={(e) => mettreAJourDonnees('pages', parseInt(e.target.value))}
+                value={donnees.last_name}
+                onChange={(e) => mettreAJourDonnees('last_name', e.target.value)}
                 placeholder="Nom"
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
               />
@@ -197,8 +197,8 @@ const PricingSimulator: React.FC = () => {
             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="email"
-              value={data.email}
-              onChange={(e) => updateData('email', e.target.value)}
+              value={donnees.email}
+              onChange={(e) => mettreAJourDonnees('email', e.target.value)}
               placeholder="Adresse email"
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
             />
@@ -207,17 +207,17 @@ const PricingSimulator: React.FC = () => {
             <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="tel"
-              value={data.phone}
-              onChange={(e) => updateData('phone', e.target.value)}
+              value={donnees.phone}
+              onChange={(e) => mettreAJourDonnees('phone', e.target.value)}
               placeholder="Numéro de téléphone (optionnel)"
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
             />
           </div>
         </div>
-      );
-    }
-
-    if (step.type === 'slider') {
+      const currentValue = isMultiple ? donnees.features : 
+        currentStep === 0 ? donnees.projectType :
+        currentStep === 3 ? donnees.timeline : donnees.support;
+    const value = donneesFormulaire[step.key as keyof DemandeAuditData];
       return (
         <div className="space-y-6">
           <div className="text-center">
@@ -265,11 +265,11 @@ const PricingSimulator: React.FC = () => {
                   const updated = isSelected
                     ? current.filter(v => v !== option.value)
                     : [...current, option.value];
-                  updateData('features', updated);
+                  mettreAJourDonnees('features', updated);
                 } else {
                   const key = currentStep === 0 ? 'projectType' :
                     currentStep === 3 ? 'timeline' : 'support';
-                  updateData(key, option.value);
+                  mettreAJourDonnees(key, option.value);
                 }
               }}
               className={`p-4 text-left border-2 rounded-xl transition-all ${
@@ -447,5 +447,3 @@ const PricingSimulator: React.FC = () => {
     </div>
   );
 };
-
-export default PricingSimulator;

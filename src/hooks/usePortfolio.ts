@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 
-export interface PortfolioProject {
+export interface ProjetPortfolio {
   id: string;
   title: string;
   category: string;
@@ -19,12 +19,12 @@ export interface PortfolioProject {
   updated_at: string;
 }
 
-export const usePortfolio = () => {
-  const [projects, setProjects] = useState<PortfolioProject[]>([]);
+export const useRealisations = () => {
+  const [projets, setProjets] = useState<ProjetPortfolio[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchProjects = async () => {
+  const recupererProjets = async () => {
     try {
       setLoading(true);
       setError(null);
@@ -39,50 +39,50 @@ export const usePortfolio = () => {
         throw fetchError;
       }
 
-      setProjects(data || []);
+      setProjets(data || []);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Error fetching portfolio projects:', err);
+      console.error('Erreur lors de la récupération des projets:', err);
     } finally {
       setLoading(false);
     }
   };
 
-  const getProjectsByCategory = (category: string) => {
-    if (category === 'all') return projects;
-    return projects.filter(project => project.category === category);
+  const getProjetsByCategory = (category: string) => {
+    if (category === 'all') return projets;
+    return projets.filter(projet => projet.category === category);
   };
 
-  const getFeaturedProject = (): PortfolioProject | null => {
-    return projects.find(project => project.featured) || projects[0] || null;
+  const getProjetVedette = (): ProjetPortfolio | null => {
+    return projets.find(projet => projet.featured) || projets[0] || null;
   };
 
-  const searchProjects = (searchTerm: string, category: string = 'all') => {
-    let filteredProjects = category === 'all' ? projects : projects.filter(project => project.category === category);
+  const rechercherProjets = (searchTerm: string, category: string = 'all') => {
+    let filteredProjets = category === 'all' ? projets : projets.filter(projet => projet.category === category);
     
-    if (!searchTerm) return filteredProjects;
+    if (!searchTerm) return filteredProjets;
 
-    return filteredProjects.filter(project => {
+    return filteredProjets.filter(projet => {
       const searchLower = searchTerm.toLowerCase();
       return (
-        project.title.toLowerCase().includes(searchLower) ||
-        project.description.toLowerCase().includes(searchLower) ||
-        project.tags.some(tag => tag.toLowerCase().includes(searchLower))
+        projet.title.toLowerCase().includes(searchLower) ||
+        projet.description.toLowerCase().includes(searchLower) ||
+        projet.tags.some(tag => tag.toLowerCase().includes(searchLower))
       );
     });
   };
 
   useEffect(() => {
-    fetchProjects();
+    recupererProjets();
   }, []);
 
   return {
-    projects,
+    projets,
     loading,
     error,
-    refetch: fetchProjects,
-    getProjectsByCategory,
-    getFeaturedProject,
-    searchProjects
+    refetch: recupererProjets,
+    getProjetsByCategory,
+    getProjetVedette,
+    rechercherProjets
   };
 };
