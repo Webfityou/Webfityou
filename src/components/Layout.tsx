@@ -52,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <img 
                 src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb.png"
                 alt="WebFitYou Logo"
-                className="w-8 h-8 rounded-lg object-cover"
+                className="w-12 h-12 rounded-lg object-cover"
               />
               <span className="text-xl font-bold text-gray-900">WebFitYou</span>
             </Link>
@@ -159,7 +159,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <img 
                   src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb.png"
                   alt="WebFitYou Logo"
-                  className="w-8 h-8 rounded-lg object-cover"
+                  className="w-12 h-12 rounded-lg object-cover"
                 />
                 <span className="text-xl font-bold">WebFitYou</span>
               </div>
