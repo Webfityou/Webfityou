@@ -110,7 +110,7 @@ const Home: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                <div className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-black transition-colors duration-300">
                   {stat.number}
                 </div>
                 <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
