@@ -52,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <img 
                 src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
                 alt="WebFitYou Logo"
-              className="text-sm xl:text-base font-medium transition-colors hover:text-blue-600 text-gray-700 dark:text-white"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover"
               />
               <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300">WebFitYou</span>
             </Link>
@@ -114,7 +114,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors ${
                       location.pathname === item.path
                         ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                        : 'text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                   >
                     {item.label}
@@ -122,7 +122,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 ))}
                 <Link
                   to="/contact"
-                  className="block px-3 py-3 text-base font-medium rounded-lg transition-colors text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className="block w-full mt-4 bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-medium text-center hover:bg-blue-700 transition-colors"
                 >
                   {t('nav.freeQuote')}
                 </Link>
