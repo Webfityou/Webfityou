@@ -55,7 +55,7 @@ Nos clients observent en moyenne :
 ## Conclusion
 
 L''avenir du SEO est dans l''automatisation intelligente. En combinant la puissance de GPT-4 avec l''expertise humaine, nous créons des stratégies SEO plus efficaces et durables.',
-    'SEO automatisé GPT-4 révolutionne référencement - WebFitYou',
+    'SEO automatisé GPT-5 révolutionne référencement - WebFitYou',
     'Découvrez comment l''IA GPT-5 transforme le SEO et permet d''obtenir des résultats 3x plus rapidement. Guide complet par WebFitYou.'
   ),
   (
