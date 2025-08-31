@@ -140,7 +140,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
-                className="lg:hidden fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl flex flex-col"
+                className="lg:hidden fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl flex flex-col border-l border-gray-200"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-200">
