@@ -136,6 +136,56 @@ export interface Database {
           updated_at?: string;
         };
       };
+      pricing_simulations: {
+        Row: {
+          id: string;
+          project_type: string;
+          pages: number;
+          features: string[];
+          timeline: string;
+          support: string;
+          estimated_price: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone: string | null;
+          status: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          project_type: string;
+          pages: number;
+          features: string[];
+          timeline: string;
+          support: string;
+          estimated_price: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone?: string | null;
+          status?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          project_type?: string;
+          pages?: number;
+          features?: string[];
+          timeline?: string;
+          support?: string;
+          estimated_price?: number;
+          first_name?: string;
+          last_name?: string;
+          email?: string;
+          phone?: string | null;
+          status?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
     };
   };
 }

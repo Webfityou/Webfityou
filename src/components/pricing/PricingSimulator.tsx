@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { Calculator, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calculator, ArrowRight, User, Mail, Phone, CheckCircle } from 'lucide-react';
+import { usePricingSimulator, PricingSimulationData } from '../../hooks/usePricingSimulator';
 
 interface SimulatorData {
   projectType: string;
@@ -9,17 +10,27 @@ interface SimulatorData {
   features: string[];
   timeline: string;
   support: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
 }
 
 const PricingSimulator: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const { t } = useTranslation();
+  const { submitSimulation, loading } = usePricingSimulator();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [data, setData] = useState<SimulatorData>({
     projectType: '',
     pages: 5,
     features: [],
     timeline: '',
-    support: ''
+    support: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone: ''
   });
 
   const steps = [
@@ -72,6 +83,12 @@ const PricingSimulator: React.FC = () => {
         { value: 'priority', label: t('pricing.simulator.steps.support.options.priority'), price: 100 },
         { value: 'dedicated', label: t('pricing.simulator.steps.support.options.dedicated'), price: 300 }
       ]
+    },
+    {
+      title: "Vos coordonnées",
+      question: "Pour recevoir votre devis personnalisé, nous avons besoin de vos coordonnées",
+      type: 'contact',
+      key: 'contact'
     }
   ];
 
@@ -104,9 +121,28 @@ const PricingSimulator: React.FC = () => {
     return Math.max(basePrice, 300); // Prix minimum
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
+    } else {
+      // Submit simulation
+      const simulationData: PricingSimulationData = {
+        project_type: data.projectType,
+        pages: data.pages,
+        features: data.features,
+        timeline: data.timeline,
+        support: data.support,
+        estimated_price: calculatePrice(),
+        first_name: data.first_name,
+        last_name: data.last_name,
+        email: data.email,
+        phone: data.phone
+      };
+      
+      const success = await submitSimulation(simulationData);
+      if (success) {
+        setIsSubmitted(true);
+      }
     }
   };
 
@@ -120,15 +156,76 @@ const PricingSimulator: React.FC = () => {
     setData(prev => ({ ...prev, [key]: value }));
   };
 
+  const canProceed = () => {
+    if (currentStep === 0) return data.projectType !== '';
+    if (currentStep === 1) return data.pages > 0;
+    if (currentStep === 2) return true; // Features are optional
+    if (currentStep === 3) return data.timeline !== '';
+    if (currentStep === 4) return data.support !== '';
+    if (currentStep === 5) return data.first_name && data.last_name && data.email;
+    return false;
+  };
   const renderStep = () => {
     const step = steps[currentStep];
     
+    if (step.type === 'contact') {
+      return (
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="relative">
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                value={data.first_name}
+                onChange={(e) => updateData('first_name', e.target.value)}
+                placeholder="Prénom"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              />
+            </div>
+            <div className="relative">
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                value={data.last_name}
+                onChange={(e) => updateData('last_name', e.target.value)}
+                placeholder="Nom"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              />
+            </div>
+          </div>
+          <div className="relative">
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="email"
+              value={data.email}
+              onChange={(e) => updateData('email', e.target.value)}
+              placeholder="Adresse email"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            />
+          </div>
+          <div className="relative">
+            <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="tel"
+              value={data.phone}
+              onChange={(e) => updateData('phone', e.target.value)}
+              placeholder="Numéro de téléphone (optionnel)"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            />
+          </div>
+        </div>
+      );
+    }
+
     if (step.type === 'slider') {
       return (
         <div className="space-y-6">
           <div className="text-center">
             <span className="text-4xl font-bold text-blue-600">{data.pages}</span>
             <span className="text-gray-600 ml-2">{t('pricing.simulator.steps.pages.unit')}</span>
+          </div>
+          <div className="text-center text-sm text-gray-500 mb-4">
+            Si vous ne savez pas, mettez 5 pages
           </div>
           <input
             type="range"
@@ -207,6 +304,61 @@ const PricingSimulator: React.FC = () => {
 
   const currentPrice = calculatePrice();
 
+  if (isSubmitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8 text-center"
+      >
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <CheckCircle className="w-10 h-10 text-green-600" />
+        </motion.div>
+        
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-3xl font-bold text-gray-900 mb-4"
+        >
+          Merci !
+        </motion.h3>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-2xl font-bold text-blue-600 mb-4"
+        >
+          Devis estimé : {currentPrice}€
+        </motion.div>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="text-lg text-gray-600 mb-6"
+        >
+          Votre devis personnalisé sera envoyé dans les 24 heures.
+        </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex items-center justify-center text-sm text-gray-500"
+        >
+          <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+          Nous vous contacterons très bientôt
+        </motion.div>
+      </motion.div>
+    );
+  }
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
       {/* Progress */}
@@ -230,21 +382,24 @@ const PricingSimulator: React.FC = () => {
 
       {/* Content */}
       <div className="p-8">
-        <motion.div
-          key={currentStep}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            {steps[currentStep].title}
-          </h3>
-          <p className="text-gray-600 mb-8">
-            {steps[currentStep].question}
-          </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentStep}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              {steps[currentStep].title}
+            </h3>
+            <p className="text-gray-600 mb-8">
+              {steps[currentStep].question}
+            </p>
 
-          {renderStep()}
-        </motion.div>
+            {renderStep()}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Navigation */}
         <div className="flex justify-between items-center mt-8 pt-8 border-t border-gray-200">
@@ -259,19 +414,33 @@ const PricingSimulator: React.FC = () => {
           {currentStep < steps.length - 1 ? (
             <button
               onClick={handleNext}
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center group"
+              disabled={!canProceed() || loading}
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center group disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t('pricing.simulator.next')}
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              {loading ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <>
+                  {t('pricing.simulator.next')}
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
             </button>
           ) : (
-            <a
-              href="/contact"
-              className="px-6 py-3 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center group"
+            <button
+              onClick={handleNext}
+              disabled={!canProceed() || loading}
+              className="px-6 py-3 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center group disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t('pricing.simulator.getQuote')}
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+              {loading ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <>
+                  {t('pricing.simulator.getQuote')}
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </button>
           )}
         </div>
       </div>
