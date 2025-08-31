@@ -199,7 +199,7 @@ const SEOGrowthAnimation: React.FC = () => {
                   </p>
                   <p>
                     <strong className="text-gray-900">Résultat :</strong> Vous captez le trafic traditionnel 
-                    ET le nouveau trafic généré par l'IA. Une longueur d'avance sur vos concurrents.
+                    ET le nouveau trafic généré par l'IA. Une longueur d\'avance sur vos concurrents.
                   </p>
                 </div>
               </div>
