@@ -56,7 +56,6 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-2 leading-tight text-center mt-8 sm:mt-0"
-          >
             <div className="flex flex-col items-center justify-center">
               <span className="text-white mb-2">Votre marketing</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center h-20 md:h-24 lg:h-28 xl:h-32">
