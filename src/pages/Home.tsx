@@ -48,7 +48,7 @@ const Home: React.FC = () => {
     <>
       <Helmet>
         <title>WebFitYou - Agence Digitale Nouvelle Génération | Sites Web + SEO Automatisé</title>
-        <meta name="description" content="Créez votre site web professionnel en 7 jours avec WebFitYou. SEO automatisé par GPT-4, design responsive et accompagnement personnalisé. Devis gratuit." />
+        <meta name="description" content="Créez votre site web professionnel en 7 jours avec WebFitYou. SEO automatisé par GPT-5, design responsive et accompagnement personnalisé. Devis gratuit." />
       </Helmet>
 
       {/* Hero Section */}
