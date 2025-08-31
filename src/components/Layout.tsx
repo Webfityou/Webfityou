@@ -28,7 +28,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   useEffect(() => {
     setIsMenuOpen(false);
-    window.scrollTo(0, 0);
+    
+    // Animation de scroll fluide vers le haut
+    const scrollToTop = () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 0) {
+        const scrollStep = Math.max(currentScroll / 20, 50); // Vitesse adaptative
+        window.scrollTo(0, Math.max(currentScroll - scrollStep, 0));
+        requestAnimationFrame(scrollToTop);
+      }
+    };
+    
+    // Démarrer l'animation après un petit délai pour la fluidité
+    setTimeout(scrollToTop, 100);
   }, [location]);
 
   const navItems = [
