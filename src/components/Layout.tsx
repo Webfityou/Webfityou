@@ -43,7 +43,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md' : 'bg-transparent dark:bg-gray-900/50'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 lg:h-20">
@@ -68,7 +68,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   className={`text-sm xl:text-base font-medium transition-colors hover:text-blue-600 ${
                     location.pathname === item.path
                       ? 'text-blue-600'
-                      : 'text-gray-700 dark:text-gray-300'
+                      : 'text-gray-700 dark:text-white'
                   } focus:outline-none`}
                 >
                   {item.label}
@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2 text-gray-700 dark:text-gray-300 transition-colors duration-300"
+              className="lg:hidden p-2 text-gray-700 dark:text-white transition-colors duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -114,7 +114,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors ${
                       location.pathname === item.path
                         ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                        : 'text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800'
                     } focus:outline-none`}
                   >
                     {item.label}
