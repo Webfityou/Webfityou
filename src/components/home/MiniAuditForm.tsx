@@ -107,18 +107,18 @@ const MiniAuditForm: React.FC = () => {
             value={value as string}
             onChange={(e) => handleInputChange(step.key, e.target.value)}
             placeholder={step.placeholder}
-            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-lg"
+            className="w-full p-3 sm:p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base sm:text-lg"
           />
         );
 
       case 'select':
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {step.options?.map((option) => (
               <button
                 key={option.value}
                 onClick={() => handleInputChange(step.key, option.value)}
-                className={`p-4 text-left border-2 rounded-xl transition-colors ${
+                className={`p-3 sm:p-4 text-left border-2 rounded-xl transition-colors text-sm sm:text-base ${
                   value === option.value
                     ? 'border-blue-500 bg-blue-50 text-blue-700'
                     : 'border-gray-200 hover:border-gray-300'
@@ -143,7 +143,7 @@ const MiniAuditForm: React.FC = () => {
                     : [...currentGoals, option.value];
                   handleInputChange(step.key, newGoals);
                 }}
-                className={`p-4 text-left border-2 rounded-xl transition-colors flex items-center ${
+                className={`p-3 sm:p-4 text-left border-2 rounded-xl transition-colors flex items-center text-sm sm:text-base ${
                   (value as string[])?.includes(option.value)
                     ? 'border-blue-500 bg-blue-50 text-blue-700'
                     : 'border-gray-200 hover:border-gray-300'
@@ -164,7 +164,7 @@ const MiniAuditForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+    <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 mx-4">
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
@@ -195,7 +195,7 @@ const MiniAuditForm: React.FC = () => {
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
           {steps[currentStep].title}
         </h3>
-        <p className="text-gray-600 mb-8">
+        <p className="text-sm sm:text-base text-gray-600 mb-8">
           {steps[currentStep].question}
         </p>
 
@@ -204,7 +204,7 @@ const MiniAuditForm: React.FC = () => {
         <button
           onClick={handleNext}
           disabled={!canProceed()}
-          className="w-full mt-8 bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center group"
+          className="w-full mt-8 bg-blue-600 text-white py-3 sm:py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center group"
         >
           {currentStep === steps.length - 1 ? t('audit.getAudit') : t('audit.continue')}
           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

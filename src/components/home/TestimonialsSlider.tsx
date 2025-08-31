@@ -86,7 +86,7 @@ const TestimonialsSlider: React.FC = () => {
 
   return (
     <div className="relative max-w-4xl mx-auto">
-      <div className="relative h-80 overflow-hidden">
+      <div className="relative min-h-[280px] sm:h-80 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -96,7 +96,7 @@ const TestimonialsSlider: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="absolute inset-0"
           >
-            <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 h-full flex flex-col justify-between">
               <div>
                 {/* Rating */}
                 <div className="flex items-center mb-4">
@@ -106,7 +106,7 @@ const TestimonialsSlider: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
+                <blockquote className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
                   "{testimonials[currentIndex].content}"
                 </blockquote>
               </div>
@@ -119,10 +119,10 @@ const TestimonialsSlider: React.FC = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <div className="font-semibold text-gray-900">
+                  <div className="text-sm sm:text-base font-semibold text-gray-900">
                     {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-xs sm:text-sm text-gray-600">
                     {testimonials[currentIndex].role} • {testimonials[currentIndex].company}
                   </div>
                 </div>
