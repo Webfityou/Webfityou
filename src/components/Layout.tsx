@@ -48,9 +48,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">W</span>
-              </div>
+              <img 
+                src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                alt="WebFitYou Logo"
+                className="w-8 h-8 rounded-lg"
+              />
               <span className="text-xl font-bold text-gray-900">WebFitYou</span>
             </Link>
 
@@ -149,9 +151,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">W</span>
-                </div>
+                <img 
+                  src="https://ptzpnswtgevfxfeosjfj.supabase.co/storage/v1/object/public/Images/Logo-rond-webfityou-seo-ia-optimisation-siteweb-2.png"
+                  alt="WebFitYou Logo"
+                  className="w-8 h-8 rounded-lg"
+                />
                 <span className="text-xl font-bold">WebFitYou</span>
               </div>
               <p className="text-gray-400 text-sm">
